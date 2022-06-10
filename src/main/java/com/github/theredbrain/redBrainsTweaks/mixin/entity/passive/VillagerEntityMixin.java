@@ -32,18 +32,6 @@ public abstract class VillagerEntityMixin {
         this.getGossip().remove(VillageGossipType.TRADING);
     }
 
-    // TODO find way to prevent villager breeding, those mixins have no effect
-//    @Inject(at = @At("HEAD"), method = "wantsToStartBreeding", cancellable = true)
-//    private void doesNotWantToBreed(CallbackInfoReturnable<Boolean> cir) {
-//        cir.setReturnValue(false);
-//    }
-//
-//    @Inject(at = @At("HEAD"), method = "canBreed", cancellable = true)
-//    private void canNotBreed(CallbackInfoReturnable<Boolean> cir) {
-//        cir.setReturnValue(false);
-//    }
-
-    // prevents breeding
     @Inject(at = @At("HEAD"), method = "isReadyToBreed", cancellable = true)
     private void isNotReadyToBreed(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(false);

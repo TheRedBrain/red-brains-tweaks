@@ -1,6 +1,5 @@
 package com.github.theredbrain.redBrainsTweaks.entity.ai.goal;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -65,6 +64,7 @@ public class GroundFoodMateGoal extends Goal {
         if (this.foodEntity.getStack().getCount() > 0) {
             foodEntity.getStack().decrement(1);
             animal.lovePlayer(null);
+            // TODO play sound
         }
 
         stop();

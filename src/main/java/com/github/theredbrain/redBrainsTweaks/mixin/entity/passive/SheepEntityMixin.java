@@ -22,7 +22,7 @@ public abstract class SheepEntityMixin extends AnimalEntity {
 
     @Inject(at = @At("TAIL"), method = "initGoals")
     protected void temptedByGrassGoal(CallbackInfo ci) {
-        this.goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(new ItemConvertible[]{Items.GRASS}), false));
-        this.goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(new ItemConvertible[]{Items.TALL_GRASS}), false));
+        this.goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(new ItemConvertible[]{Items.GRASS}), true));
+        this.goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(new ItemConvertible[]{Items.TALL_GRASS}), true));
     }
 }

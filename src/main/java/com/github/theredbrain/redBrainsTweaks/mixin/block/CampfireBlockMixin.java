@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(CampfireBlock.class)
 public class CampfireBlockMixin {
 
-    // TODO
+    // TODO IDEA campfires spread fire
 //    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 //        world.createAndScheduleBlockTick(pos, this, getFireTickDelay(world.random));
 //        if (world.getGameRules().getBoolean(GameRules.DO_FIRE_TICK)) {

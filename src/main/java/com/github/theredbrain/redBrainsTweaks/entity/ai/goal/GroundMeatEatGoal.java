@@ -67,6 +67,7 @@ public class GroundMeatEatGoal extends Goal {
     private void feed() {
         if (this.meatEntity.getStack().getCount() > 0) {
             meatEntity.getStack().decrement(1);
+            // TODO play sound
         }
 
         stop();

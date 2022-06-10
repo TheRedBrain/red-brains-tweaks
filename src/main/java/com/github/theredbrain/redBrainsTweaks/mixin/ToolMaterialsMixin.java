@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(ToolMaterials.class)
 abstract class ToolMaterialsMixin {
 
-    // TODO
+    // TODO change wood tool durability
     // https://github.com/magistermaks/fabric/blob/master/wiki/mixins/enums.md
 /*
     @Invoker("<init>")

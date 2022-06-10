@@ -39,7 +39,7 @@ public class BucketItemMixin {
             boolean bl2 = blockState.isAir() || bl || block instanceof FluidFillable && ((FluidFillable)block).canFillWithFluid(world, pos, blockState, this.fluid);
             if (!bl2) {
                 cir.setReturnValue(false);
-            } else if (world.getDimension().isUltrawarm() && this.fluid.isIn(FluidTags.WATER)) {
+            } else if (world.getDimension().ultrawarm() && this.fluid.isIn(FluidTags.WATER)) {
                 int i = pos.getX();
                 int j = pos.getY();
                 int k = pos.getZ();
@@ -62,9 +62,17 @@ public class BucketItemMixin {
                 } else {
                     // TODO find way to set the fluid level higher
                     if(this.fluid == Fluids.WATER) {
-                        world.setBlockState(pos, Blocks.WATER.getDefaultState().with(FluidBlock.LEVEL, 6));
+                        if(player.isCreative()) {
+                            world.setBlockState(pos, Blocks.WATER.getDefaultState());
+                        } else {
+                            world.setBlockState(pos, Blocks.WATER.getDefaultState().with(FluidBlock.LEVEL, 6));
+                        }
                     } else if(this.fluid == Fluids.LAVA) {
-                        world.setBlockState(pos, Blocks.LAVA.getDefaultState().with(FluidBlock.LEVEL, 6));
+                        if(player.isCreative()) {
+                            world.setBlockState(pos, Blocks.LAVA.getDefaultState());
+                        } else {
+                            world.setBlockState(pos, Blocks.LAVA.getDefaultState().with(FluidBlock.LEVEL, 6));
+                        }
                     }
                     SoundEvent soundEvent = this.fluid.isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY;
                     world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1.0F, 1.0F);
