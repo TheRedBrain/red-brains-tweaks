@@ -1,7 +1,12 @@
 package com.github.theredbrain.redBrainsTweaks;
 
+import com.github.theredbrain.redBrainsTweaks.item.FireStarterItem;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +16,7 @@ public class RedBrainsTweaks implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("red-brains-tweaks");
+	public static final FireStarterItem FIRE_STARTER_ITEM = new FireStarterItem(new FabricItemSettings().maxCount(1).maxDamage(10).group(ItemGroup.TOOLS));
 
 	@Override
 	public void onInitialize() {
@@ -19,5 +25,10 @@ public class RedBrainsTweaks implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("TheRedBrain has tweaked the game!");
+		registerItems();
+	}
+
+	private void registerItems() {
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "fire_starter"), FIRE_STARTER_ITEM);
 	}
 }

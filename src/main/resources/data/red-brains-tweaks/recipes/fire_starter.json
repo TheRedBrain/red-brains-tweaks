@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ID"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:bow"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "red-brains-tweaks:fire_starter"
+  }
+}
