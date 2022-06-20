@@ -1,13 +1,16 @@
 package com.github.theredbrain.redBrainsTweaks.mixin.entity.passive;
 
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -60,8 +63,6 @@ public abstract class ChickenEntityMixin extends AnimalEntity {
 
     @Override
     public void breed(ServerWorld world, AnimalEntity other) {
-//        PassiveEntity passiveEntity = this.createChild(world, other);
-//        if (passiveEntity != null) {
         ServerPlayerEntity serverPlayerEntity = this.getLovingPlayer();
         if (serverPlayerEntity == null && other.getLovingPlayer() != null) {
             serverPlayerEntity = other.getLovingPlayer();
@@ -77,5 +78,11 @@ public abstract class ChickenEntityMixin extends AnimalEntity {
         this.resetLoveTicks();
         other.resetLoveTicks();
         this.dropItem(Items.EGG);
+    }
+
+    // no more super annoying click sounds
+    @Inject(method = "playStepSound", at = @At("HEAD"), cancellable = true)
+    protected void doNotPlayStepSound(BlockPos pos, BlockState state, CallbackInfo ci) {
+        ci.cancel();
     }
 }
