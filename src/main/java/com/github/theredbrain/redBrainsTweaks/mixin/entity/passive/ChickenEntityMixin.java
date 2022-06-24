@@ -61,6 +61,7 @@ public abstract class ChickenEntityMixin extends AnimalEntity {
         ci.cancel();
     }
 
+    // TODO delay between breeding and egg laying
     @Override
     public void breed(ServerWorld world, AnimalEntity other) {
         ServerPlayerEntity serverPlayerEntity = this.getLovingPlayer();

@@ -7,6 +7,7 @@
     "block.FluidBlockMixin",
     "block.LilyPadBlockMixin",
     "block.MagmaBlockMixin",
+    "block.NetherWartBlockMixin",
     "client.sound.MusicTypeMixin",
     "entity.mob.HuskEntityMixin",
     "entity.mob.MobEntityMixin",
@@ -21,8 +22,10 @@
     "entity.passive.VillagerEntityMixin",
     "entity.player.HungerManagerMixin",
     "entity.player.PlayerEntityMixin",
+    "entity.projectile.thrown.EggEntityMixin",
     "item.BucketItemInvoker",
-    "item.BucketItemMixin"
+    "item.BucketItemMixin",
+    "world.WanderingTraderManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
