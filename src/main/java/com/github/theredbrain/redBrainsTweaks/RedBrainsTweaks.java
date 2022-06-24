@@ -22,6 +22,7 @@ public class RedBrainsTweaks implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("red-brains-tweaks");
 	public static final FireStarterItem FIRE_STARTER_ITEM = new FireStarterItem(new FabricItemSettings().maxCount(1).maxDamage(10).group(ItemGroup.TOOLS));
 	public static final Item RAW_EGG = new Item(new FabricItemSettings().maxCount(16).food(new Builder().hunger(1).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 1.0F).snack().build()).group(ItemGroup.FOOD));
+	public static final Item CUT_GRASS = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MISC));
 
 	@Override
 	public void onInitialize() {
@@ -34,6 +35,7 @@ public class RedBrainsTweaks implements ModInitializer {
 	}
 
 	private void registerItems() {
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "cut_grass"), CUT_GRASS);
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "fire_starter"), FIRE_STARTER_ITEM);
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "raw_egg"), RAW_EGG);
 	}
