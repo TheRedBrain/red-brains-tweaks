@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "com.github.theredbrain.redBrainsTweaks.RedBrainsTweaks"
+    ],
+    "client": [
+      "com.github.theredbrain.redBrainsTweaks.RedBrainsTweaksClient"
     ]
   },
   "mixins": [
