@@ -11,7 +11,7 @@
   "contact": {
     "sources": "https://github.com/TheRedBrain/red-brains-tweaks"
   },
-
+  "accessWidener": "red-brains-tweaks.accesswidener",
   "license": "MIT",
   "icon": "assets/red-brains-tweaks/icon.png",
 

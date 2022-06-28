@@ -1,6 +1,12 @@
 {
   "block.red-brains-tweaks.cactus_root": "Cactus Root",
   "block.red-brains-tweaks.sugar_cane_root": "Sugar Cane Root",
+  "block.red-brains-tweaks.acacia_stump": "Acacia Stump",
+  "block.red-brains-tweaks.birch_stump": "Birch Stump",
+  "block.red-brains-tweaks.dark_oak_stump": "Dark Oak Stump",
+  "block.red-brains-tweaks.jungle_stump": "Jungle Stump",
+  "block.red-brains-tweaks.oak_stump": "Oak Stump",
+  "block.red-brains-tweaks.spruce_stump": "Spruce Stump",
   "item.red-brains-tweaks.cut_grass": "Cut Grass",
   "item.red-brains-tweaks.raw_egg": "Raw Egg",
   "item.red-brains-tweaks.fire_starter": "Fire Starter"
