@@ -32,7 +32,7 @@ public abstract class EggEntityMixin extends ThrownItemEntity {
                 this.world.spawnEntity(chickenEntity);
             }
             else {
-                this.dropItem(RedBrainsTweaks.RAW_EGG);
+                this.dropItem(RedBrainsTweaks.RAW_EGG_ITEM);
             }
 
             this.world.sendEntityStatus(this, (byte)3);

@@ -26,11 +26,10 @@ public class FluidBlockMixin {
     @Inject(method = "tryDrainFluid", at = @At("HEAD"), cancellable = true)
     void doNotDrainFluid(WorldAccess world, BlockPos pos, BlockState state, CallbackInfoReturnable<ItemStack> cir) {
         if ((Integer)state.get(LEVEL) == 0) {
-            RedBrainsTweaks.LOGGER.info("water source");
             cir.setReturnValue(new ItemStack(this.fluid.getBucketItem()));
         } else {
-            RedBrainsTweaks.LOGGER.info("not water source");
             cir.setReturnValue(ItemStack.EMPTY);
         }
+        cir.cancel();
     }
 }

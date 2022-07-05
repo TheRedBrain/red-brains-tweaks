@@ -11,12 +11,15 @@
     "block.sapling.JungleSaplingGeneratorMixin",
     "block.sapling.OakSaplingGeneratorMixin",
     "block.sapling.SpruceSaplingGeneratorMixin",
+    "block.AbstractCauldronBlockInvoker",
     "block.CactusBlockMixin",
+    "block.CauldronBlockMixin",
     "block.CropBlockMixin",
     "block.FluidBlockMixin",
     "block.LilyPadBlockMixin",
     "block.MagmaBlockMixin",
     "block.NetherWartBlockMixin",
+    "block.PointedDripstoneBlockMixin",
     "block.SaplingBlockAccessor",
     "block.SaplingBlockMixin",
     "block.StemBlockMixin",
@@ -34,9 +37,11 @@
     "entity.player.HungerManagerMixin",
     "entity.player.PlayerEntityMixin",
     "entity.projectile.thrown.EggEntityMixin",
+    "fluid.LavaFluidMixin",
     "item.BucketItemInvoker",
     "item.BucketItemMixin",
-    "world.WanderingTraderManagerMixin"
+    "world.WanderingTraderManagerMixin",
+    "BootstrapMixin"
   ],
   "injectors": {
     "defaultRequire": 1

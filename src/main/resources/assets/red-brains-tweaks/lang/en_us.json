@@ -1,6 +1,8 @@
 {
   "block.red-brains-tweaks.cactus_root": "Cactus Root",
   "block.red-brains-tweaks.sugar_cane_root": "Sugar Cane Root",
+  "block.red-brains-tweaks.netherite_cauldron": "Netherite Cauldron",
+  "block.red-brains-tweaks.netherite_lava_cauldron": "Netherite Lava Cauldron",
   "block.red-brains-tweaks.acacia_stump": "Acacia Stump",
   "block.red-brains-tweaks.birch_stump": "Birch Stump",
   "block.red-brains-tweaks.dark_oak_stump": "Dark Oak Stump",
@@ -9,5 +11,8 @@
   "block.red-brains-tweaks.spruce_stump": "Spruce Stump",
   "item.red-brains-tweaks.cut_grass": "Cut Grass",
   "item.red-brains-tweaks.raw_egg": "Raw Egg",
-  "item.red-brains-tweaks.fire_starter": "Fire Starter"
+  "item.red-brains-tweaks.fire_starter": "Fire Starter",
+  "item.red-brains-tweaks.diamond_ingot": "Diamond Ingot",
+  "item.red-brains-tweaks.netherite_bucket": "Netherite Bucket",
+  "item.red-brains-tweaks.netherite_lava_bucket": "Netherite Lava Bucket"
 }

@@ -1,8 +1,11 @@
 package com.github.theredbrain.redBrainsTweaks;
 
 import com.github.theredbrain.redBrainsTweaks.block.CactusRootBlock;
+import com.github.theredbrain.redBrainsTweaks.block.NetheriteCauldronBlock;
+import com.github.theredbrain.redBrainsTweaks.block.NetheriteLavaCauldronBlock;
 import com.github.theredbrain.redBrainsTweaks.block.SugarCaneRootBlock;
 import com.github.theredbrain.redBrainsTweaks.item.FireStarterItem;
+import com.github.theredbrain.redBrainsTweaks.item.NetheriteBucketItem;
 import com.github.theredbrain.redBrainsTweaks.world.DarkOakStumpTreeDecorator;
 import com.github.theredbrain.redBrainsTweaks.world.GiantStumpTreeDecorator;
 import com.github.theredbrain.redBrainsTweaks.world.StumpTreeDecorator;
@@ -11,17 +14,17 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Material;
+import net.minecraft.block.*;
+import net.minecraft.block.cauldron.CauldronBehavior;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent.Builder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -54,14 +57,19 @@ public class RedBrainsTweaks implements ModInitializer {
 
 	// misc items
 	public static final FireStarterItem FIRE_STARTER_ITEM = new FireStarterItem(new FabricItemSettings().maxCount(1).maxDamage(10).group(ItemGroup.TOOLS));
-	public static final Item RAW_EGG = new Item(new FabricItemSettings().maxCount(16).food(new Builder().hunger(1).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 1.0F).snack().build()).group(ItemGroup.FOOD));
-	public static final Item CUT_GRASS = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MISC));
-	// TODO name wip
-	public static final Item DIAMOND_INFUSED_IRON_INGOT = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MATERIALS));
+	public static final Item RAW_EGG_ITEM = new Item(new FabricItemSettings().maxCount(16).food(new Builder().hunger(1).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 1.0F).snack().build()).group(ItemGroup.FOOD));
+	public static final Item CUT_GRASS_ITEM = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MISC));
+	public static final Item DIAMOND_INGOT_ITEM = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MATERIALS));
 
-	// misc blocks
-	// TODO name wip
-	public static final Block DIAMOND_INFUSED_IRON_BLOCK = new Block(FabricBlockSettings.of(Material.METAL, MapColor.DIAMOND_BLUE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL));
+	// netherite buckets
+	public static final NetheriteBucketItem NETHERITE_BUCKET_ITEM = new NetheriteBucketItem(Fluids.EMPTY, new FabricItemSettings().maxCount(16).group(ItemGroup.MISC).fireproof());
+	public static final NetheriteBucketItem NETHERITE_LAVA_BUCKET_ITEM = new NetheriteBucketItem(Fluids.LAVA, new FabricItemSettings().recipeRemainder(NETHERITE_BUCKET_ITEM).maxCount(1).group(ItemGroup.MISC).fireproof());
+
+	// netherite cauldrons
+	public static final NetheriteCauldronBlock NETHERITE_CAULDRON_BLOCK = new NetheriteCauldronBlock(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY).requiresTool().strength(2.0F).nonOpaque());
+	public static final NetheriteLavaCauldronBlock NETHERITE_LAVA_CAULDRON_BLOCK = new NetheriteLavaCauldronBlock(FabricBlockSettings.copy(NETHERITE_CAULDRON_BLOCK).luminance((state) -> {
+		return 15;
+	}));
 
 	// plant root blocks
 	public static final CactusRootBlock CACTUS_ROOT_BLOCK = new CactusRootBlock(FabricBlockSettings.of(Material.CACTUS).requiresTool().ticksRandomly().strength(1.0F).sounds(BlockSoundGroup.WOOL));
@@ -257,10 +265,11 @@ public class RedBrainsTweaks implements ModInitializer {
 	}
 
 	private void registerBlocks() {
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "diamond_infused_iron_block"), DIAMOND_INFUSED_IRON_BLOCK);
-
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "cactus_root"), CACTUS_ROOT_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "sugar_cane_root"), SUGAR_CANE_ROOT_BLOCK);
+
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_cauldron"), NETHERITE_CAULDRON_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_lava_cauldron"), NETHERITE_LAVA_CAULDRON_BLOCK);
 
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "acacia_stump"), ACACIA_STUMP_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "birch_stump"), BIRCH_STUMP_BLOCK);
@@ -271,14 +280,18 @@ public class RedBrainsTweaks implements ModInitializer {
 	}
 
 	private void registerItems() {
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "cut_grass"), CUT_GRASS);
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "cut_grass"), CUT_GRASS_ITEM);
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "fire_starter"), FIRE_STARTER_ITEM);
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "raw_egg"), RAW_EGG);
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_infused_iron_ingot"), DIAMOND_INFUSED_IRON_INGOT);
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_infused_iron_block"), new BlockItem(DIAMOND_INFUSED_IRON_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "raw_egg"), RAW_EGG_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_ingot"), DIAMOND_INGOT_ITEM);
+
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_bucket"), NETHERITE_BUCKET_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_lava_bucket"), NETHERITE_LAVA_BUCKET_ITEM);
 
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "cactus_root"), new BlockItem(CACTUS_ROOT_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "sugar_cane_root"), new BlockItem(SUGAR_CANE_ROOT_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_cauldron"), new BlockItem(NETHERITE_CAULDRON_BLOCK, new FabricItemSettings().group(ItemGroup.BREWING).fireproof()));
 
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "acacia_stump"), new BlockItem(ACACIA_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "birch_stump"), new BlockItem(BIRCH_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));

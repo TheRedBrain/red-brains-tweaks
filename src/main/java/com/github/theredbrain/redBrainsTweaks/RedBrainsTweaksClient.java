@@ -51,6 +51,8 @@ public class RedBrainsTweaksClient implements ClientModInitializer {
     private void registerTransparency() {
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.CACTUS_ROOT_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.SUGAR_CANE_ROOT_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.NETHERITE_CAULDRON_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.NETHERITE_LAVA_CAULDRON_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.ACACIA_STUMP_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.BIRCH_STUMP_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.DARK_OAK_STUMP_BLOCK, RenderLayer.getCutout());

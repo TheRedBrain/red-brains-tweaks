@@ -14,12 +14,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity {
+public class PlayerEntityMixin {
 
-    @Shadow
-    public void incrementStat(Identifier stat) {
-        throw new AssertionError();
-    }
+//    @Shadow
+//    public void incrementStat(Identifier stat) {
+//        throw new AssertionError();
+//    }
 
 //    @Shadow
 //    public void increaseStat(Identifier stat, int amount) {
@@ -36,14 +36,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 //        throw new AssertionError();
 //    }
 
-    @Shadow
-    public void addExhaustion(float exhaustion) {
-        throw new AssertionError();
-    }
+//    @Shadow
+//    public void addExhaustion(float exhaustion) {
+//        throw new AssertionError();
+//    }
 
-    protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
-        super(entityType, world);
-    }
+//    protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
+//        super(entityType, world);
+//    }
 
     @Inject(at = @At("RETURN"),
             method = "canFoodHeal",
@@ -55,15 +55,15 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     //TODO attacking adds more exhaustion?
     // vanilla 0.1
 
-    @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
-    public void jump(CallbackInfo ci) {
-        super.jump();
-        this.incrementStat(Stats.JUMP);
-        if (this.isSprinting()) {
-            this.addExhaustion(1.0F); // TODO playtesting
-        } else {
-            this.addExhaustion(0.5F); // TODO playtesting
-        }
-
-    }
+//    @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
+//    public void jump(CallbackInfo ci) {
+//        super.jump();
+//        this.incrementStat(Stats.JUMP);
+//        if (this.isSprinting()) {
+//            this.addExhaustion(1.0F); // TODO playtesting
+//        } else {
+//            this.addExhaustion(0.5F); // TODO playtesting
+//        }
+//
+//    }
 }

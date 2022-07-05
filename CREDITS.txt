@@ -1,2 +1,2 @@
 Credits:
-Better Than Wolves: https://github.com/BTW-Community/BTW-Public for the FireStarterItem texture
+Better Than Wolves: https://github.com/BTW-Community/BTW-Public for the textures of the fire starter and the diamond ingot
