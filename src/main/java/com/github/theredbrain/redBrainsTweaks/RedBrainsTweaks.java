@@ -1,9 +1,7 @@
 package com.github.theredbrain.redBrainsTweaks;
 
-import com.github.theredbrain.redBrainsTweaks.block.CactusRootBlock;
-import com.github.theredbrain.redBrainsTweaks.block.NetheriteCauldronBlock;
-import com.github.theredbrain.redBrainsTweaks.block.NetheriteLavaCauldronBlock;
-import com.github.theredbrain.redBrainsTweaks.block.SugarCaneRootBlock;
+import com.github.theredbrain.redBrainsTweaks.block.*;
+import com.github.theredbrain.redBrainsTweaks.entity.effect.*;
 import com.github.theredbrain.redBrainsTweaks.item.FireStarterItem;
 import com.github.theredbrain.redBrainsTweaks.item.NetheriteBucketItem;
 import com.github.theredbrain.redBrainsTweaks.world.DarkOakStumpTreeDecorator;
@@ -15,7 +13,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.block.cauldron.CauldronBehavior;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.fluid.Fluids;
@@ -24,13 +22,14 @@ import net.minecraft.item.FoodComponent.Builder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.Feature;
@@ -55,11 +54,32 @@ public class RedBrainsTweaks implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("red-brains-tweaks");
 
+	// effects
+	// low hunger bar
+	public static final StatusEffect PECKISH = new PeckishStatusEffect();
+	public static final StatusEffect HUNGRY = new HungryStatusEffect();
+	public static final StatusEffect FAMISHED = new FamishedStatusEffect();
+	public static final StatusEffect STARVING = new StarvingStatusEffect();
+	public static final StatusEffect DYING = new DyingStatusEffect();
+
+	// low health bar
+	public static final StatusEffect HURT = new HurtStatusEffect();
+	public static final StatusEffect INJURED = new InjuredStatusEffect();
+	public static final StatusEffect WOUNDED = new WoundedStatusEffect();
+	public static final StatusEffect CRIPPLED = new CrippledStatusEffect();
+	public static final StatusEffect AGONIZING = new AgonizingStatusEffect();
+
+	// high fat/saturation bar
+	public static final StatusEffect PLUMP = new PlumpStatusEffect();
+	public static final StatusEffect CHUBBY = new ChubbyStatusEffect();
+	public static final StatusEffect FAT = new FatStatusEffect();
+	public static final StatusEffect OBESE = new ObeseStatusEffect();
+
 	// misc items
 	public static final FireStarterItem FIRE_STARTER_ITEM = new FireStarterItem(new FabricItemSettings().maxCount(1).maxDamage(10).group(ItemGroup.TOOLS));
-	public static final Item RAW_EGG_ITEM = new Item(new FabricItemSettings().maxCount(16).food(new Builder().hunger(1).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 1.0F).snack().build()).group(ItemGroup.FOOD));
+	public static final Item RAW_EGG_ITEM = new Item(new FabricItemSettings().maxCount(16).food(new Builder().hunger(1).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 1.0F).snack().alwaysEdible().build()).group(ItemGroup.FOOD));
 	public static final Item CUT_GRASS_ITEM = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MISC));
-	public static final Item DIAMOND_INGOT_ITEM = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MATERIALS));
+//	public static final Item DIAMOND_INGOT_ITEM = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MATERIALS));
 
 	// netherite buckets
 	public static final NetheriteBucketItem NETHERITE_BUCKET_ITEM = new NetheriteBucketItem(Fluids.EMPTY, new FabricItemSettings().maxCount(16).group(ItemGroup.MISC).fireproof());
@@ -70,6 +90,17 @@ public class RedBrainsTweaks implements ModInitializer {
 	public static final NetheriteLavaCauldronBlock NETHERITE_LAVA_CAULDRON_BLOCK = new NetheriteLavaCauldronBlock(FabricBlockSettings.copy(NETHERITE_CAULDRON_BLOCK).luminance((state) -> {
 		return 15;
 	}));
+
+	// brick blocks
+	public static final WetClayBrickBlock WET_CLAY_BRICK_BLOCK = new WetClayBrickBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(0.6F).sounds(BlockSoundGroup.GRAVEL));
+	public static final IngotBlock BRICK_BLOCK = new IngotBlock(FabricBlockSettings.of(Material.STONE, MapColor.RED).strength(2.0F, 6.0F).sounds(BlockSoundGroup.STONE));
+	public static final IngotBlock NETHER_BRICK_BLOCK = new IngotBlock(FabricBlockSettings.of(Material.STONE, MapColor.DARK_RED).strength(2.0F, 6.0F).sounds(BlockSoundGroup.NETHER_BRICKS));
+	public static final IngotBlock DIAMOND_INGOT_BLOCK = new IngotBlock(FabricBlockSettings.of(Material.METAL, MapColor.DIAMOND_BLUE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL));
+	public static final IngotBlock IRON_INGOT_BLOCK = new IngotBlock(FabricBlockSettings.of(Material.METAL, MapColor.IRON_GRAY).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL));
+	public static final IngotBlock COPPER_INGOT_BLOCK = new IngotBlock(FabricBlockSettings.of(Material.METAL, MapColor.ORANGE).strength(3.0F, 6.0F).sounds(BlockSoundGroup.COPPER));
+	public static final IngotBlock GOLD_INGOT_BLOCK = new IngotBlock(FabricBlockSettings.of(Material.METAL, MapColor.GOLD).strength(3.0F, 6.0F).sounds(BlockSoundGroup.METAL));
+	public static final IngotBlock NETHERITE_INGOT_BLOCK = new IngotBlock(FabricBlockSettings.of(Material.METAL, MapColor.BLACK).strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE));
+
 
 	// plant root blocks
 	public static final CactusRootBlock CACTUS_ROOT_BLOCK = new CactusRootBlock(FabricBlockSettings.of(Material.CACTUS).requiresTool().ticksRandomly().strength(1.0F).sounds(BlockSoundGroup.WOOL));
@@ -87,6 +118,9 @@ public class RedBrainsTweaks implements ModInitializer {
 	public static final TreeDecoratorType<StumpTreeDecorator> DARK_OAK_STUMP = new TreeDecoratorType(DarkOakStumpTreeDecorator.CODEC);
 	public static final TreeDecoratorType<StumpTreeDecorator> GIANT_STUMP = new TreeDecoratorType(GiantStumpTreeDecorator.CODEC);
 	public static final TreeDecoratorType<StumpTreeDecorator> STUMP = new TreeDecoratorType(StumpTreeDecorator.CODEC);
+
+	// tag keys
+	public static final TagKey<Biome> NO_PRECIPITATION = TagKey.of(Registry.BIOME_KEY, new Identifier("red-brains-tweaks", "no_precipitation"));
 
 	// custom trees
 	public static final RegistryEntry<? extends ConfiguredFeature<TreeFeatureConfig, ?>> CUSTOM_OAK = ConfiguredFeatures.register("custom_oak", Feature.TREE, (
@@ -260,6 +294,7 @@ public class RedBrainsTweaks implements ModInitializer {
 
 		LOGGER.info("TheRedBrain has tweaked the game!");
 		registerBlocks();
+		registerEffects();
 		registerItems();
 		registerMisc();
 	}
@@ -267,6 +302,15 @@ public class RedBrainsTweaks implements ModInitializer {
 	private void registerBlocks() {
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "cactus_root"), CACTUS_ROOT_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "sugar_cane_root"), SUGAR_CANE_ROOT_BLOCK);
+
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "wet_clay_brick"), WET_CLAY_BRICK_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "brick"), BRICK_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "nether_brick"), NETHER_BRICK_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "diamond_ingot"), DIAMOND_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "iron_ingot"), IRON_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "copper_ingot"), COPPER_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "gold_ingot"), GOLD_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_ingot"), NETHERITE_INGOT_BLOCK);
 
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_cauldron"), NETHERITE_CAULDRON_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_lava_cauldron"), NETHERITE_LAVA_CAULDRON_BLOCK);
@@ -279,11 +323,33 @@ public class RedBrainsTweaks implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "spruce_stump"), SPRUCE_STUMP_BLOCK);
 	}
 
+	private void registerEffects() {
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "peckish"), PECKISH);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "hungry"), HUNGRY);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "famished"), FAMISHED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "starving"), STARVING);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "dying"), DYING);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "hurt"), HURT);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "injured"), INJURED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "wounded"), WOUNDED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "crippled"), CRIPPLED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "agonizing"), AGONIZING);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "plump"), PLUMP);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "chubby"), CHUBBY);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "fat"), FAT);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "obese"), OBESE);
+	}
+
 	private void registerItems() {
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "cut_grass"), CUT_GRASS_ITEM);
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "fire_starter"), FIRE_STARTER_ITEM);
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "raw_egg"), RAW_EGG_ITEM);
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_ingot"), DIAMOND_INGOT_ITEM);
+//		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_ingot"), DIAMOND_INGOT_ITEM);
+
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "wet_clay_brick"), new BlockItem(WET_CLAY_BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+//		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "brick"), new BlockItem(BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+//		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "nether_brick"), new BlockItem(NETHER_BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_ingot"), new BlockItem(DIAMOND_INGOT_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
 
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_bucket"), NETHERITE_BUCKET_ITEM);
 		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_lava_bucket"), NETHERITE_LAVA_BUCKET_ITEM);

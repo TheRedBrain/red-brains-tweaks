@@ -40,6 +40,8 @@
     "fluid.LavaFluidMixin",
     "item.BucketItemInvoker",
     "item.BucketItemMixin",
+    "item.FoodComponentsMixin",
+    "item.ItemsMixin",
     "world.WanderingTraderManagerMixin",
     "BootstrapMixin"
   ],

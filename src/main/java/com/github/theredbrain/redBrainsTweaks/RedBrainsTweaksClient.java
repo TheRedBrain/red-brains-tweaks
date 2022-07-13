@@ -17,6 +17,9 @@ public class RedBrainsTweaksClient implements ClientModInitializer {
 
     private void registerBlockColors() {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
+            return 14188339;
+        }, RedBrainsTweaks.WET_CLAY_BRICK_BLOCK);
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
             return view != null && pos != null ? BiomeColors.getGrassColor(view, pos) : -1;
         }, RedBrainsTweaks.SUGAR_CANE_ROOT_BLOCK);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
@@ -51,6 +54,7 @@ public class RedBrainsTweaksClient implements ClientModInitializer {
     private void registerTransparency() {
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.CACTUS_ROOT_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.SUGAR_CANE_ROOT_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.WET_CLAY_BRICK_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.NETHERITE_CAULDRON_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.NETHERITE_LAVA_CAULDRON_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RedBrainsTweaks.ACACIA_STUMP_BLOCK, RenderLayer.getCutout());
