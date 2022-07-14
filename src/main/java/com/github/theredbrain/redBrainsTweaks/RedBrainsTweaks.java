@@ -1,6 +1,7 @@
 package com.github.theredbrain.redBrainsTweaks;
 
 import com.github.theredbrain.redBrainsTweaks.block.*;
+import com.github.theredbrain.redBrainsTweaks.block.entity.PlacedToolEntity;
 import com.github.theredbrain.redBrainsTweaks.entity.effect.*;
 import com.github.theredbrain.redBrainsTweaks.item.FireStarterItem;
 import com.github.theredbrain.redBrainsTweaks.item.NetheriteBucketItem;
@@ -12,7 +13,9 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -80,6 +83,10 @@ public class RedBrainsTweaks implements ModInitializer {
 	public static final Item RAW_EGG_ITEM = new Item(new FabricItemSettings().maxCount(16).food(new Builder().hunger(1).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 1.0F).snack().alwaysEdible().build()).group(ItemGroup.FOOD));
 	public static final Item CUT_GRASS_ITEM = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MISC));
 //	public static final Item DIAMOND_INGOT_ITEM = new Item(new FabricItemSettings().maxCount(64).group(ItemGroup.MATERIALS));
+
+	// placed tool block
+	public static final PlacedToolBlock PLACED_TOOL_BLOCK = new PlacedToolBlock(FabricBlockSettings.of(Material.WOOD).noCollision().nonOpaque());
+	public static final BlockEntityType<PlacedToolEntity> PLACED_TOOL_ENTITY = FabricBlockEntityTypeBuilder.create(PlacedToolEntity::new, PLACED_TOOL_BLOCK).build(null);;
 
 	// netherite buckets
 	public static final NetheriteBucketItem NETHERITE_BUCKET_ITEM = new NetheriteBucketItem(Fluids.EMPTY, new FabricItemSettings().maxCount(16).group(ItemGroup.MISC).fireproof());
@@ -295,6 +302,7 @@ public class RedBrainsTweaks implements ModInitializer {
 		LOGGER.info("TheRedBrain has tweaked the game!");
 		registerBlocks();
 		registerEffects();
+		registerEntities();
 		registerItems();
 		registerMisc();
 	}
@@ -302,6 +310,8 @@ public class RedBrainsTweaks implements ModInitializer {
 	private void registerBlocks() {
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "cactus_root"), CACTUS_ROOT_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "sugar_cane_root"), SUGAR_CANE_ROOT_BLOCK);
+
+		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "placed_tool"), PLACED_TOOL_BLOCK);
 
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "wet_clay_brick"), WET_CLAY_BRICK_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "brick"), BRICK_BLOCK);
@@ -338,6 +348,10 @@ public class RedBrainsTweaks implements ModInitializer {
 		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "chubby"), CHUBBY);
 		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "fat"), FAT);
 		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "obese"), OBESE);
+	}
+
+	private void registerEntities() {
+		Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("red-brains-tweaks", "obese"), PLACED_TOOL_ENTITY);
 	}
 
 	private void registerItems() {
