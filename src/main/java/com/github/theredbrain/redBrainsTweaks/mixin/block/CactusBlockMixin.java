@@ -64,15 +64,12 @@ public class CactusBlockMixin extends Block {
         boolean bl = false;
         do {
             if (!var4.hasNext()) {
-                RedBrainsTweaks.LOGGER.info("!var4.hasNext()");
                 BlockState blockState2 = world.getBlockState(pos.down());
                 bl = ((blockState2.isOf(Blocks.CACTUS) || blockState2.isOf(RedBrainsTweaks.CACTUS_ROOT_BLOCK)) && !world.getBlockState(pos.up()).getMaterial().isLiquid());
                 break;
             }
 
-            RedBrainsTweaks.LOGGER.info("!(!var4.hasNext())");
             direction = (Direction)var4.next();
-            RedBrainsTweaks.LOGGER.info("var4.hasNext()");
             BlockState blockState = world.getBlockState(pos.offset(direction));
             material = blockState.getMaterial();
         } while(!material.isSolid() && !world.getFluidState(pos.offset(direction)).isIn(FluidTags.LAVA));

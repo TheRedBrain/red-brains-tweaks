@@ -47,6 +47,7 @@
     "item.PickaxeItemMixin",
     "item.ShovelItemMixin",
     "item.SwordItemMixin",
+    "world.PatrolSpawnerMixin",
     "world.WanderingTraderManagerMixin",
     "BootstrapMixin"
   ],
