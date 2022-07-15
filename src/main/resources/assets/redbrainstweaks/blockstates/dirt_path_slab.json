@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "redbrainstweaks:block/dirt_path_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/dirt_path"
+    },
+    "type=top": {
+      "model": "redbrainstweaks:block/dirt_path_slab"
+    }
+  }
+}

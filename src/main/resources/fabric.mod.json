@@ -18,10 +18,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.theredbrain.redBrainsTweaks.RedBrainsTweaks"
+      "com.github.theredbrain.redbrainstweaks.RedBrainsTweaks"
     ],
     "client": [
-      "com.github.theredbrain.redBrainsTweaks.RedBrainsTweaksClient"
+      "com.github.theredbrain.redbrainstweaks.RedBrainsTweaksClient"
     ]
   },
   "mixins": [

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "redbrainstweaks:block/sand_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/sand"
+    },
+    "type=top": {
+      "model": "redbrainstweaks:block/sand_slab"
+    }
+  }
+}

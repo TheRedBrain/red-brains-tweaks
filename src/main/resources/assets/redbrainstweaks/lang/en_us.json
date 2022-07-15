@@ -17,6 +17,15 @@
   "block.redbrainstweaks.jungle_stump": "Jungle Stump",
   "block.redbrainstweaks.oak_stump": "Oak Stump",
   "block.redbrainstweaks.spruce_stump": "Spruce Stump",
+  "block.redbrainstweaks.grass_slab": "Grass Slab",
+  "block.redbrainstweaks.dirt_slab": "Dirt Slab",
+  "block.redbrainstweaks.coarse_dirt_slab": "Coarse Dirt Slab",
+  "block.redbrainstweaks.podzol_slab": "Podzol Slab",
+  "block.redbrainstweaks.mycelium_slab": "Mycelium Slab",
+  "block.redbrainstweaks.rooted_dirt_slab": "Rooted Dirt Slab",
+  "block.redbrainstweaks.sand_slab": "Sand Slab",
+  "block.redbrainstweaks.red_sand_slab": "Red Sand Slab",
+  "block.redbrainstweaks.gravel_slab": "Gravel Slab",
   "effect.redbrainstweaks.chubby": "Chubby",
   "effect.redbrainstweaks.crippled": "Crippled",
   "effect.redbrainstweaks.dying": "Dying",
@@ -34,5 +43,9 @@
   "item.redbrainstweaks.raw_egg": "Raw Egg",
   "item.redbrainstweaks.fire_starter": "Fire Starter",
   "item.redbrainstweaks.netherite_bucket": "Netherite Bucket",
-  "item.redbrainstweaks.netherite_lava_bucket": "Netherite Lava Bucket"
+  "item.redbrainstweaks.netherite_lava_bucket": "Netherite Lava Bucket",
+  "item.redbrainstweaks.dirt_pile": "Dirt Pile",
+  "item.redbrainstweaks.gravel_pile": "Gravel Pile",
+  "item.redbrainstweaks.sand_pile": "Sand Pile",
+  "item.redbrainstweaks.red_sand_pile": "Red Sand Pile"
 }

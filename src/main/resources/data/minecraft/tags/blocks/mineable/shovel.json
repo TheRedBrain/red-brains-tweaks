@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "redbrainstweaks:grass_slab",
+    "redbrainstweaks:dirt_slab",
+    "redbrainstweaks:coarse_dirt_slab",
+    "redbrainstweaks:podzol_slab",
+    "redbrainstweaks:mycelium_slab",
+    "redbrainstweaks:dirt_path_slab",
+    "redbrainstweaks:rooted_dirt_slab",
+    "redbrainstweaks:sand_slab",
+    "redbrainstweaks:red_sand_slab",
+    "redbrainstweaks:gravel_slab"
+  ]
+}

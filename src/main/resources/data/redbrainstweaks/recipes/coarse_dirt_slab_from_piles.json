@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PG"
+  ],
+  "key": {
+    "P": {
+      "item": "redbrainstweaks:dirt_pile"
+    },
+    "G": {
+      "item": "redbrainstweaks:gravel_pile"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:coarse_dirt_slab",
+    "count": 1
+  }
+}
