@@ -29,106 +29,134 @@ public class PlacedToolRenderer implements BlockEntityRenderer<PlacedToolEntity>
                 if (blockEntity.getStack(0).getItem() instanceof AxeItem) {
                     if (blockDirection == Direction.NORTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.55D);
+                        matrices.translate(0.5D, 0.4D, 0.55D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((180F)));
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((320F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.SOUTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.45D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
+                        matrices.translate(0.5D, 0.4D, 0.45D);
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((320F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.EAST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.45D, 0.0D, 0.5D);
+                        matrices.translate(0.45D, 0.4D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((90F)));
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((320F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.WEST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.55D, 0.0D, 0.5D);
+                        matrices.translate(0.55D, 0.4D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((270F)));
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((320F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     }
                 } else if (blockEntity.getStack(0).getItem() instanceof HoeItem) {
                     if (blockDirection == Direction.NORTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.55D);
+                        matrices.translate(0.5D, 0.4D, 0.55D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((180F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.SOUTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.45D);
+                        matrices.translate(0.5D, 0.4D, 0.45D);
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.EAST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.45D, 0.0D, 0.5D);
+                        matrices.translate(0.45D, 0.4D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((90F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.WEST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.55D, 0.0D, 0.5D);
+                        matrices.translate(0.55D, 0.4D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     }
                 } else if (blockEntity.getStack(0).getItem() instanceof PickaxeItem) {
                     if (blockDirection == Direction.NORTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.55D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((90F)));
+                        matrices.translate(0.5D, 0.4D, 0.55D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((180F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.SOUTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.45D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((90F)));
+                        matrices.translate(0.5D, 0.4D, 0.45D);
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.EAST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.45D, 0.0D, 0.5D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((90F)));
+                        matrices.translate(0.45D, 0.4D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((90F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     } else if (blockDirection == Direction.WEST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.55D, 0.0D, 0.5D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((90F)));
+                        matrices.translate(0.55D, 0.4D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((335F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
                     }
                 } else if (blockEntity.getStack(0).getItem() instanceof ShovelItem) {
                     if (blockDirection == Direction.NORTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.55D);
+                        matrices.translate(0.325D, 0.3D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((180F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
                         matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     } else if (blockDirection == Direction.SOUTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.45D);
+                        matrices.translate(0.675D, 0.275D, 0.5D);
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
                         matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     } else if (blockDirection == Direction.EAST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.45D, 0.0D, 0.5D);
+                        matrices.translate(0.5D, 0.25D, 0.325D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((90F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
                         matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     } else if (blockDirection == Direction.WEST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.55D, 0.0D, 0.5D);
+                        matrices.translate(0.5D, 0.225D, 0.675D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
                         matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     }
                 } else if (blockEntity.getStack(0).getItem() instanceof SwordItem) {
                     if (blockDirection == Direction.NORTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.55D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
+                        matrices.translate(0.25D, 0.3D, 0.5D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((180F)));
-                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     } else if (blockDirection == Direction.SOUTH) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.5D, 0.0D, 0.45D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((90F)));
-                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((180F)));
+                        matrices.translate(0.75D, 0.3D, 0.5D);
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     } else if (blockDirection == Direction.EAST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.45D, 0.0D, 0.5D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((180F)));
+                        matrices.translate(0.5D, 0.3D, 0.25D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((90F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
                         matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     } else if (blockDirection == Direction.WEST) {
                         matrices.scale(1.0F, 1.0F, 1.0F);
-                        matrices.translate(0.55D, 0.0D, 0.5D);
-                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((90F)));
+                        matrices.translate(0.5D, 0.3D, 0.75D);
                         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((270F)));
+                        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((350F)));
+                        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((270F)));
                         matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
                     }
                 }
@@ -139,9 +167,3 @@ public class PlacedToolRenderer implements BlockEntityRenderer<PlacedToolEntity>
         }
     }
 }
-
-/*
-matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion((180F)));
-matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((90F)));
-matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((90F)));
-*/
