@@ -1,5 +1,5 @@
 {
-  "parent": "red-brains-tweaks:adventure/loot_outpost",
+  "parent": "redbrainstweaks:adventure/loot_outpost",
   "criteria": {
     "shot_crossbow": {
       "conditions": {

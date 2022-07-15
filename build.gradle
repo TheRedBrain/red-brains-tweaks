@@ -38,7 +38,7 @@ processResources {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/red-brains-tweaks.accesswidener")
+	accessWidenerPath = file("src/main/resources/redbrainstweaks.accesswidener")
 }
 
 tasks.withType(JavaCompile).configureEach {

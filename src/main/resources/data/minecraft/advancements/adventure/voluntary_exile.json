@@ -1,5 +1,5 @@
 {
-  "parent": "red-brains-tweaks:adventure/so_it_begins",
+  "parent": "redbrainstweaks:adventure/so_it_begins",
   "criteria": {
     "voluntary_exile": {
       "conditions": {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "red-brains-tweaks",
+  "id": "redbrainstweaks",
   "version": "0.0.4",
 
   "name": "RedBrains Tweaks",
@@ -9,11 +9,11 @@
     "TheRedBrain"
   ],
   "contact": {
-    "sources": "https://github.com/TheRedBrain/red-brains-tweaks"
+    "sources": "https://github.com/TheRedBrain/redbrainstweaks"
   },
-  "accessWidener": "red-brains-tweaks.accesswidener",
+  "accessWidener": "redbrainstweaks.accesswidener",
   "license": "MIT",
-  "icon": "assets/red-brains-tweaks/icon.png",
+  "icon": "assets/redbrainstweaks/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -25,7 +25,7 @@
     ]
   },
   "mixins": [
-    "red-brains-tweaks.mixins.json"
+    "redbrainstweaks.mixins.json"
   ],
 
   "depends": {

@@ -59,7 +59,7 @@ public class PatrolSpawnerMixin {
                                 cir.setReturnValue(0);
                             } else if (world.isNearOccupiedPointOfInterest(playerEntity.getBlockPos(), 2)) {
                                 cir.setReturnValue(0);
-                            } else if (!(((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader().get(Identifier.tryParse("red-brains-tweaks:adventure/so_it_begins"))).isDone())) {
+                            } else if (!(((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader().get(Identifier.tryParse("redbrainstweaks:adventure/so_it_begins"))).isDone())) {
                                 cir.setReturnValue(0);
                             } else {
                                 int j = (24 + random.nextInt(24)) * (random.nextBoolean() ? -1 : 1);
@@ -80,7 +80,7 @@ public class PatrolSpawnerMixin {
 
                                             o = o + (int)Math.ceil((double)world.getLocalDifficulty(mutable).getLocalDifficulty()) + 1;
                                             if (((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader()
-                                                    .get(Identifier.tryParse("red-brains-tweaks:adventure/loot_mansion"))).isDone()) {
+                                                    .get(Identifier.tryParse("redbrainstweaks:adventure/loot_mansion"))).isDone()) {
                                                 o = o + 3;
                                             }
                                             if (((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader()
@@ -125,7 +125,7 @@ public class PatrolSpawnerMixin {
 
         // evoker
         if ((captain  && (((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader()
-                .get(Identifier.tryParse("red-brains-tweaks:adventure/loot_mansion"))).isDone()))
+                .get(Identifier.tryParse("redbrainstweaks:adventure/loot_mansion"))).isDone()))
             || ((i < 1) && (((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader()
                 .get(Identifier.tryParse("minecraft:adventure/hero_of_the_village"))).isDone()))) {
 
@@ -140,9 +140,9 @@ public class PatrolSpawnerMixin {
         }
         // vindicator
         else  if ((captain  && (((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader()
-                .get(Identifier.tryParse("red-brains-tweaks:adventure/loot_outpost"))).isDone()))
+                .get(Identifier.tryParse("redbrainstweaks:adventure/loot_outpost"))).isDone()))
                 || ((i < 4) && (((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader()
-                .get(Identifier.tryParse("red-brains-tweaks:adventure/kill_vindicator"))).isDone()))) {
+                .get(Identifier.tryParse("redbrainstweaks:adventure/kill_vindicator"))).isDone()))) {
 
             if (!SpawnHelper.isClearForSpawn(world, pos, blockState, blockState.getFluidState(), EntityType.VINDICATOR)
                     && !PatrolEntity.canSpawn(EntityType.VINDICATOR, world, SpawnReason.PATROL, pos, random)) {
@@ -167,7 +167,7 @@ public class PatrolSpawnerMixin {
 
         // ravager (only for captain & after killing a ravager)
         if (captain && (((ServerPlayerEntity) playerEntity).getAdvancementTracker().getProgress(world.getServer().getAdvancementLoader()
-                .get(Identifier.tryParse("red-brains-tweaks:adventure/kill_ravager"))).isDone())) {
+                .get(Identifier.tryParse("redbrainstweaks:adventure/kill_ravager"))).isDone())) {
 
             if (!SpawnHelper.isClearForSpawn(world, pos, blockState, blockState.getFluidState(), EntityType.RAVAGER)
                     && !PatrolEntity.canSpawn(EntityType.RAVAGER, world, SpawnReason.PATROL, pos, random)) {

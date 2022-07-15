@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "red-brains-tweaks:cactus_root",
-    "red-brains-tweaks:sugar_cane_root",
-    "red-brains-tweaks:acacia_stump",
-    "red-brains-tweaks:birch_stump",
-    "red-brains-tweaks:dark_oak_stump",
-    "red-brains-tweaks:jungle_stump",
-    "red-brains-tweaks:oak_stump",
-    "red-brains-tweaks:spruce_stump"
+    "redbrainstweaks:cactus_root",
+    "redbrainstweaks:sugar_cane_root",
+    "redbrainstweaks:acacia_stump",
+    "redbrainstweaks:birch_stump",
+    "redbrainstweaks:dark_oak_stump",
+    "redbrainstweaks:jungle_stump",
+    "redbrainstweaks:oak_stump",
+    "redbrainstweaks:spruce_stump"
   ]
 }

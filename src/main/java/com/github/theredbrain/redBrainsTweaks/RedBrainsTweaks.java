@@ -55,7 +55,7 @@ public class RedBrainsTweaks implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger("red-brains-tweaks");
+	public static final Logger LOGGER = LoggerFactory.getLogger("redbrainstweaks");
 
 	// effects
 	// low hunger bar
@@ -127,7 +127,7 @@ public class RedBrainsTweaks implements ModInitializer {
 	public static final TreeDecoratorType<StumpTreeDecorator> STUMP = new TreeDecoratorType(StumpTreeDecorator.CODEC);
 
 	// tag keys
-	public static final TagKey<Biome> NO_PRECIPITATION = TagKey.of(Registry.BIOME_KEY, new Identifier("red-brains-tweaks", "no_precipitation"));
+	public static final TagKey<Biome> NO_PRECIPITATION = TagKey.of(Registry.BIOME_KEY, new Identifier("redbrainstweaks", "no_precipitation"));
 
 	// custom trees
 	public static final RegistryEntry<? extends ConfiguredFeature<TreeFeatureConfig, ?>> CUSTOM_OAK = ConfiguredFeatures.register("custom_oak", Feature.TREE, (
@@ -308,82 +308,82 @@ public class RedBrainsTweaks implements ModInitializer {
 	}
 
 	private void registerBlocks() {
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "cactus_root"), CACTUS_ROOT_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "sugar_cane_root"), SUGAR_CANE_ROOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "cactus_root"), CACTUS_ROOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "sugar_cane_root"), SUGAR_CANE_ROOT_BLOCK);
 
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "placed_tool"), PLACED_TOOL_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "placed_tool"), PLACED_TOOL_BLOCK);
 
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "wet_clay_brick"), WET_CLAY_BRICK_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "brick"), BRICK_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "nether_brick"), NETHER_BRICK_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "diamond_ingot"), DIAMOND_INGOT_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "iron_ingot"), IRON_INGOT_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "copper_ingot"), COPPER_INGOT_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "gold_ingot"), GOLD_INGOT_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_ingot"), NETHERITE_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "wet_clay_brick"), WET_CLAY_BRICK_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "brick"), BRICK_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "nether_brick"), NETHER_BRICK_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "diamond_ingot"), DIAMOND_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "iron_ingot"), IRON_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "copper_ingot"), COPPER_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "gold_ingot"), GOLD_INGOT_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "netherite_ingot"), NETHERITE_INGOT_BLOCK);
 
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_cauldron"), NETHERITE_CAULDRON_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "netherite_lava_cauldron"), NETHERITE_LAVA_CAULDRON_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "netherite_cauldron"), NETHERITE_CAULDRON_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "netherite_lava_cauldron"), NETHERITE_LAVA_CAULDRON_BLOCK);
 
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "acacia_stump"), ACACIA_STUMP_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "birch_stump"), BIRCH_STUMP_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "dark_oak_stump"), DARK_OAK_STUMP_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "jungle_stump"), JUNGLE_STUMP_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "oak_stump"), OAK_STUMP_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier("red-brains-tweaks", "spruce_stump"), SPRUCE_STUMP_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "acacia_stump"), ACACIA_STUMP_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "birch_stump"), BIRCH_STUMP_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "dark_oak_stump"), DARK_OAK_STUMP_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "jungle_stump"), JUNGLE_STUMP_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "oak_stump"), OAK_STUMP_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier("redbrainstweaks", "spruce_stump"), SPRUCE_STUMP_BLOCK);
 	}
 
 	private void registerEffects() {
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "peckish"), PECKISH);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "hungry"), HUNGRY);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "famished"), FAMISHED);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "starving"), STARVING);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "dying"), DYING);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "hurt"), HURT);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "injured"), INJURED);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "wounded"), WOUNDED);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "crippled"), CRIPPLED);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "agonizing"), AGONIZING);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "plump"), PLUMP);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "chubby"), CHUBBY);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "fat"), FAT);
-		Registry.register(Registry.STATUS_EFFECT, new Identifier("red-brains-tweaks", "obese"), OBESE);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "peckish"), PECKISH);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "hungry"), HUNGRY);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "famished"), FAMISHED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "starving"), STARVING);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "dying"), DYING);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "hurt"), HURT);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "injured"), INJURED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "wounded"), WOUNDED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "crippled"), CRIPPLED);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "agonizing"), AGONIZING);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "plump"), PLUMP);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "chubby"), CHUBBY);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "fat"), FAT);
+		Registry.register(Registry.STATUS_EFFECT, new Identifier("redbrainstweaks", "obese"), OBESE);
 	}
 
 	private void registerEntities() {
-		Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("red-brains-tweaks", "obese"), PLACED_TOOL_ENTITY);
+		Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("redbrainstweaks", "obese"), PLACED_TOOL_ENTITY);
 	}
 
 	private void registerItems() {
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "cut_grass"), CUT_GRASS_ITEM);
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "fire_starter"), FIRE_STARTER_ITEM);
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "raw_egg"), RAW_EGG_ITEM);
-//		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_ingot"), DIAMOND_INGOT_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "cut_grass"), CUT_GRASS_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "fire_starter"), FIRE_STARTER_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "raw_egg"), RAW_EGG_ITEM);
+//		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "diamond_ingot"), DIAMOND_INGOT_ITEM);
 
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "wet_clay_brick"), new BlockItem(WET_CLAY_BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
-//		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "brick"), new BlockItem(BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
-//		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "nether_brick"), new BlockItem(NETHER_BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "diamond_ingot"), new BlockItem(DIAMOND_INGOT_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "wet_clay_brick"), new BlockItem(WET_CLAY_BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+//		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "brick"), new BlockItem(BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+//		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "nether_brick"), new BlockItem(NETHER_BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "diamond_ingot"), new BlockItem(DIAMOND_INGOT_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
 
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_bucket"), NETHERITE_BUCKET_ITEM);
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_lava_bucket"), NETHERITE_LAVA_BUCKET_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "netherite_bucket"), NETHERITE_BUCKET_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "netherite_lava_bucket"), NETHERITE_LAVA_BUCKET_ITEM);
 
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "cactus_root"), new BlockItem(CACTUS_ROOT_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "sugar_cane_root"), new BlockItem(SUGAR_CANE_ROOT_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "cactus_root"), new BlockItem(CACTUS_ROOT_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "sugar_cane_root"), new BlockItem(SUGAR_CANE_ROOT_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "netherite_cauldron"), new BlockItem(NETHERITE_CAULDRON_BLOCK, new FabricItemSettings().group(ItemGroup.BREWING).fireproof()));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "netherite_cauldron"), new BlockItem(NETHERITE_CAULDRON_BLOCK, new FabricItemSettings().group(ItemGroup.BREWING).fireproof()));
 
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "acacia_stump"), new BlockItem(ACACIA_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "birch_stump"), new BlockItem(BIRCH_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "dark_oak_stump"), new BlockItem(DARK_OAK_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "jungle_stump"), new BlockItem(JUNGLE_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "oak_stump"), new BlockItem(OAK_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
-		Registry.register(Registry.ITEM, new Identifier("red-brains-tweaks", "spruce_stump"), new BlockItem(SPRUCE_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "acacia_stump"), new BlockItem(ACACIA_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "birch_stump"), new BlockItem(BIRCH_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "dark_oak_stump"), new BlockItem(DARK_OAK_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "jungle_stump"), new BlockItem(JUNGLE_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "oak_stump"), new BlockItem(OAK_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier("redbrainstweaks", "spruce_stump"), new BlockItem(SPRUCE_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 	}
 
 	private void registerMisc() {
-		Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier("red-brains-tweaks", "dark_oak_stump"), DARK_OAK_STUMP);
-		Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier("red-brains-tweaks", "giant_stump"), GIANT_STUMP);
-		Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier("red-brains-tweaks", "stump"), STUMP);
+		Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier("redbrainstweaks", "dark_oak_stump"), DARK_OAK_STUMP);
+		Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier("redbrainstweaks", "giant_stump"), GIANT_STUMP);
+		Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier("redbrainstweaks", "stump"), STUMP);
 	}
 }
