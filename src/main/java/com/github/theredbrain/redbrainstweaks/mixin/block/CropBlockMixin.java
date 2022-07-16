@@ -1,5 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.mixin.block;
 
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -74,5 +75,9 @@ public class CropBlockMixin extends Block{
     @Inject(method = "canGrow", at = @At("RETURN"), cancellable = true)
     public void canGrowSometimes(World world, Random random, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(this.getAge(state) == 0);
+    }
+    @Inject(at = @At("TAIL"), method = "canPlantOnTop", cancellable = true)
+    private void cropBlockCanPlantOnTopOfRichSoil(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(cir.getReturnValue() || floor.isOf(BlocksRegistry.RICH_SOIL_FARMLAND));
     }
 }

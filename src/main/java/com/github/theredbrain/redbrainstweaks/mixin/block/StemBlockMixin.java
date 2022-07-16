@@ -1,5 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.mixin.block;
 
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.IntProperty;
@@ -99,5 +100,10 @@ public class StemBlockMixin extends PlantBlock{
         }
 
         return f;
+    }
+
+    @Inject(at = @At("TAIL"), method = "canPlantOnTop", cancellable = true)
+    private void stemBlockCanPlantOnTopOfRichSoil(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(cir.getReturnValue() || floor.isOf(BlocksRegistry.RICH_SOIL_FARMLAND));
     }
 }

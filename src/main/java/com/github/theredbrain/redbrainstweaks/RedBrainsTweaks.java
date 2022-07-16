@@ -1,32 +1,16 @@
 package com.github.theredbrain.redbrainstweaks;
 
-import com.github.theredbrain.redbrainstweaks.block.entity.PlacedToolEntity;
-import com.github.theredbrain.redbrainstweaks.entity.effect.*;
-import com.github.theredbrain.redbrainstweaks.item.FireStarterItem;
-import com.github.theredbrain.redbrainstweaks.item.NetheriteBucketItem;
-import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
-import com.github.theredbrain.redbrainstweaks.registry.EntitiesRegistry;
-import com.github.theredbrain.redbrainstweaks.registry.ItemsRegistry;
-import com.github.theredbrain.redbrainstweaks.registry.StatusEffectsRegistry;
+import com.github.theredbrain.redbrainstweaks.registry.*;
 import com.github.theredbrain.redbrainstweaks.world.DarkOakStumpTreeDecorator;
 import com.github.theredbrain.redbrainstweaks.world.GiantStumpTreeDecorator;
 import com.github.theredbrain.redbrainstweaks.world.StumpTreeDecorator;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent.Builder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.TagKey;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -57,6 +41,11 @@ public class RedBrainsTweaks implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("redbrainstweaks");
+	public static final String MOD_ID = "redbrainstweaks";
+
+	public static MutableText i18n(String key, Object... args) {
+		return Text.translatable(MOD_ID + "." + key, args);
+	}
 
 	// tree decorators
 	public static final TreeDecoratorType<StumpTreeDecorator> DARK_OAK_STUMP = new TreeDecoratorType(DarkOakStumpTreeDecorator.CODEC);
@@ -64,7 +53,7 @@ public class RedBrainsTweaks implements ModInitializer {
 	public static final TreeDecoratorType<StumpTreeDecorator> STUMP = new TreeDecoratorType(StumpTreeDecorator.CODEC);
 
 	// tag keys
-	public static final TagKey<Biome> NO_PRECIPITATION = TagKey.of(Registry.BIOME_KEY, new Identifier("redbrainstweaks", "no_precipitation"));
+	public static final TagKey<Biome> NO_PRECIPITATION = TagKey.of(Registry.BIOME_KEY, new Identifier(MOD_ID, "no_precipitation"));
 
 	// custom trees
 	public static final RegistryEntry<? extends ConfiguredFeature<TreeFeatureConfig, ?>> CUSTOM_OAK = ConfiguredFeatures.register("custom_oak", Feature.TREE, (
@@ -237,11 +226,21 @@ public class RedBrainsTweaks implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("TheRedBrain has tweaked the game!");
+		AdvancementsRegistry.registerAll();
 		BlocksRegistry.registerBlocks();
-		StatusEffectsRegistry.registerEffects();
-		EntitiesRegistry.registerEntities();
+		BlocksRegistry.registerFlammableBlocks();
+		EnchantmentsRegistry.registerAll();
+		EntitiesRegistry.registerBlockEntities();
+		ExtendedScreenTypesRegistry.registerAll();
+		ItemsRegistry.registerBlockItems();
 		ItemsRegistry.registerItems();
+		ItemsRegistry.registerFuelTimes();
+		LootFunctionsRegistry.registerAll();
+		ParticleTypesRegistry.registerAll();
+		RecipeTypesRegistry.registerAll();
 		registerMisc();
+		SoundsRegistry.registerAll();
+		StatusEffectsRegistry.registerEffects();
 	}
 
 	private void registerMisc() {

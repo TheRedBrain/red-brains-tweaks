@@ -1,0 +1,9 @@
+{
+	"parent": "redbrainstweaks:block/pie_slice3",
+	"textures": {
+		"bottom": "redbrainstweaks:block/pie_bottom",
+		"inner": "redbrainstweaks:block/apple_pie_inner",
+		"side": "redbrainstweaks:block/pie_side",
+		"top": "redbrainstweaks:block/apple_pie_top"
+	}
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "redbrainstweaks:block/tall_rice_stage2"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "top": "redbrainstweaks:block/rice_bale_top",
+    "side": "redbrainstweaks:block/rice_bale_side",
+    "bottom": "redbrainstweaks:block/rice_bale_bottom"
+  }
+}

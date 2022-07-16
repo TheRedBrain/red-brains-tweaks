@@ -1,11 +1,15 @@
 package com.github.theredbrain.redbrainstweaks.mixin.entity.passive;
 
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
+import com.github.theredbrain.redbrainstweaks.registry.ItemsRegistry;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.ChickenEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
@@ -19,6 +23,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ChickenEntity.class)
 public abstract class ChickenEntityMixin extends AnimalEntity {
@@ -85,5 +90,15 @@ public abstract class ChickenEntityMixin extends AnimalEntity {
     @Inject(method = "playStepSound", at = @At("HEAD"), cancellable = true)
     protected void doNotPlayStepSound(BlockPos pos, BlockState state, CallbackInfo ci) {
         ci.cancel();
+    }
+
+    @Inject(method = "isBreedingItem", at = @At("TAIL"), cancellable = true)
+    private void isBreedingItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+        if (!Boolean.TRUE.equals(cir.getReturnValue())) {
+            cir.setReturnValue(Ingredient.ofItems(
+                    BlocksRegistry.CABBAGE_CROP,
+                    BlocksRegistry.TOMATO_CROP,
+                    BlocksRegistry.RICE_CROP).test(stack));
+        }
     }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "redbrainstweaks:block/rice_upper_crop_stage3"
+  }
+}

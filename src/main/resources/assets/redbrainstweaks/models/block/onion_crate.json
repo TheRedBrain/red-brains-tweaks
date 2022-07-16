@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "redbrainstweaks:block/onion_crate_side",
+    "bottom": "redbrainstweaks:block/crate_bottom",
+    "top": "redbrainstweaks:block/onion_crate_top"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "redbrainstweaks:block/basket",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "redbrainstweaks:block/basket"
+    },
+    "facing=north": {
+      "model": "redbrainstweaks:block/basket",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "redbrainstweaks:block/basket",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "redbrainstweaks:block/basket",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "redbrainstweaks:block/basket",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

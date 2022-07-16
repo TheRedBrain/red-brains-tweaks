@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "redbrainstweaks:block/wild_beetroots"
+  }
+}

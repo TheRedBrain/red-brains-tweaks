@@ -1,0 +1,6 @@
+{
+  "parent": "redbrainstweaks:item/mug",
+  "textures": {
+    "layer0": "redbrainstweaks:item/hot_cocoa"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "redbrainstweaks:block/bush_crop",
+  "textures": {
+    "crop": "redbrainstweaks:block/wild_onions"
+  }
+}

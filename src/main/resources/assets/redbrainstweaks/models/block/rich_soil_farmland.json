@@ -1,0 +1,8 @@
+{
+  "parent": "block/template_farmland",
+  "textures": {
+    "particle": "redbrainstweaks:block/rich_soil",
+    "dirt": "redbrainstweaks:block/rich_soil",
+    "top": "redbrainstweaks:block/rich_soil_farmland"
+  }
+}

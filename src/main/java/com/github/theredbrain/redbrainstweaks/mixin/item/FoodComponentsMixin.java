@@ -1,5 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.mixin.item;
 
+import com.github.theredbrain.redbrainstweaks.registry.StatusEffectsRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
@@ -184,17 +185,17 @@ public class FoodComponentsMixin {
     @Shadow
     @Final
     @Mutable
-    public static FoodComponent BEETROOT_SOUP = (new Builder()).hunger(6).saturationModifier(0.4f).build();
+    public static FoodComponent BEETROOT_SOUP = (new Builder()).hunger(6).saturationModifier(0.4f).statusEffect(new StatusEffectInstance(StatusEffectsRegistry.COMFORT, 2400, 0), 1.f).build();
 
     @Shadow
     @Final
     @Mutable
-    public static FoodComponent MUSHROOM_STEW = (new Builder()).hunger(6).saturationModifier(0.4f).build();
+    public static FoodComponent MUSHROOM_STEW = (new Builder()).hunger(6).saturationModifier(0.4f).statusEffect(new StatusEffectInstance(StatusEffectsRegistry.COMFORT, 2400, 0), 1.f).build();
 
     @Shadow
     @Final
     @Mutable
-    public static FoodComponent RABBIT_STEW = (new Builder()).hunger(10).saturationModifier(0.6F).build();
+    public static FoodComponent RABBIT_STEW = (new Builder()).hunger(10).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffectsRegistry.COMFORT, 2400, 0), 1.f).build();
 
     @Shadow
     @Final

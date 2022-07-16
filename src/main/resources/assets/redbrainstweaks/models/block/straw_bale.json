@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "redbrainstweaks:block/straw_bale_side",
+    "end": "redbrainstweaks:block/straw_bale_end"
+  }
+}

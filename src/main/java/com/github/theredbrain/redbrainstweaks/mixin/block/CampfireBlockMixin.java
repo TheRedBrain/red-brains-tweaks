@@ -1,10 +1,27 @@
 package com.github.theredbrain.redbrainstweaks.mixin.block;
 
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
+import com.google.common.collect.Sets;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.CampfireBlock;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Set;
 
 @Mixin(CampfireBlock.class)
 public class CampfireBlockMixin {
+
+    @Inject(at = @At("HEAD"), method = "isSignalFireBaseBlock", cancellable = true)
+    public void doesBlockCauseSignalFire(BlockState state, CallbackInfoReturnable<Boolean> cir) {
+        Set<Block> hayBales = Sets.newHashSet(BlocksRegistry.STRAW_BALE, BlocksRegistry.RICE_BALE);
+        if (hayBales.contains(state.getBlock())) {
+            cir.setReturnValue(true);
+        }
+    }
 
     // TODO IDEA campfires spread fire
 //    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {

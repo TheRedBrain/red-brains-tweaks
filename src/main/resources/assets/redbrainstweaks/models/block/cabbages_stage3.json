@@ -1,0 +1,6 @@
+{
+  "parent": "redbrainstweaks:block/crop_cross",
+  "textures": {
+    "cross": "redbrainstweaks:block/cabbages_stage3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "redbrainstweaks:block/rice_bag_top",
+    "down": "redbrainstweaks:block/rice_bag_bottom",
+    "up": "redbrainstweaks:block/rice_bag_top",
+    "north": "redbrainstweaks:block/rice_bag_side_tied",
+    "south": "redbrainstweaks:block/rice_bag_side_tied",
+    "east": "redbrainstweaks:block/rice_bag_side",
+    "west": "redbrainstweaks:block/rice_bag_side"
+  }
+}
