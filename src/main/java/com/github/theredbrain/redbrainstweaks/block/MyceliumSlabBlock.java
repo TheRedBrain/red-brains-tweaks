@@ -1,6 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.block;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.particle.ParticleTypes;
@@ -30,7 +30,7 @@ public class MyceliumSlabBlock extends CustomSlabBlock{
             return true;
         } else if (blockState.getFluidState().getLevel() == 8) {
             return false;
-        } else if ((state.isOf(RedBrainsTweaks.DIRT_SLAB) || state.isOf(RedBrainsTweaks.MYCELIUM_SLAB)) && state.get(WATERLOGGED)) {
+        } else if ((state.isOf(BlocksRegistry.DIRT_SLAB) || state.isOf(BlocksRegistry.MYCELIUM_SLAB)) && state.get(WATERLOGGED)) {
             return false;
         }
         else {
@@ -46,7 +46,7 @@ public class MyceliumSlabBlock extends CustomSlabBlock{
 
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!canSurvive(state, world, pos)) {
-            world.setBlockState(pos, RedBrainsTweaks.DIRT_SLAB.getDefaultState().with(TYPE, state.get(TYPE)).with(WATERLOGGED, state.get(WATERLOGGED)));
+            world.setBlockState(pos, BlocksRegistry.DIRT_SLAB.getDefaultState().with(TYPE, state.get(TYPE)).with(WATERLOGGED, state.get(WATERLOGGED)));
         } else {
             if (world.getLightLevel(pos.up()) >= 9) {
                 BlockState fullBlockState = Blocks.GRASS_BLOCK.getDefaultState();
@@ -57,7 +57,7 @@ public class MyceliumSlabBlock extends CustomSlabBlock{
 
                     if (world.getBlockState(blockPos).isOf(Blocks.DIRT) && canSpread(fullBlockState, world, blockPos)) {
                         world.setBlockState(blockPos, (BlockState)fullBlockState.with(SnowyBlock.SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
-                    } else if (world.getBlockState(blockPos).isOf(RedBrainsTweaks.DIRT_SLAB) && !(world.getBlockState(blockPos).get(WATERLOGGED)) && canSpread(slabBlockState, world, blockPos)) {
+                    } else if (world.getBlockState(blockPos).isOf(BlocksRegistry.DIRT_SLAB) && !(world.getBlockState(blockPos).get(WATERLOGGED)) && canSpread(slabBlockState, world, blockPos)) {
                         world.setBlockState(blockPos, (BlockState)slabBlockState.with(TYPE, world.getBlockState(blockPos).get(TYPE)));
                     }
                 }

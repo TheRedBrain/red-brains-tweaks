@@ -1,6 +1,8 @@
 package com.github.theredbrain.redbrainstweaks.block;
 
 import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
+import com.github.theredbrain.redbrainstweaks.registry.ItemsRegistry;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
@@ -24,7 +26,7 @@ public interface NetheriteCauldronBehaviour {
     Map<Item, NetheriteCauldronBehaviour> EMPTY_NETHERITE_CAULDRON_BEHAVIOR = createMap();
     Map<Item, NetheriteCauldronBehaviour> NETHERITE_LAVA_CAULDRON_BEHAVIOR = createMap();
     NetheriteCauldronBehaviour FILL_WITH_LAVA = (state, world, pos, player, hand, stack) -> {
-        return fillCauldron(world, pos, player, hand, stack, RedBrainsTweaks.NETHERITE_LAVA_CAULDRON_BLOCK.getDefaultState(), SoundEvents.ITEM_BUCKET_EMPTY_LAVA);
+        return fillCauldron(world, pos, player, hand, stack, BlocksRegistry.NETHERITE_LAVA_CAULDRON_BLOCK.getDefaultState(), SoundEvents.ITEM_BUCKET_EMPTY_LAVA);
     };
 
     static Object2ObjectOpenHashMap<Item, NetheriteCauldronBehaviour> createMap() {
@@ -37,15 +39,15 @@ public interface NetheriteCauldronBehaviour {
 
     static void registerBehavior() {
         registerBucketBehavior(EMPTY_NETHERITE_CAULDRON_BEHAVIOR);
-        NETHERITE_LAVA_CAULDRON_BEHAVIOR.put(RedBrainsTweaks.NETHERITE_BUCKET_ITEM, (state, world, pos, player, hand, stack) -> {
-            return emptyCauldron(state, world, pos, player, hand, stack, new ItemStack(RedBrainsTweaks.NETHERITE_LAVA_BUCKET_ITEM), (statex) -> {
+        NETHERITE_LAVA_CAULDRON_BEHAVIOR.put(ItemsRegistry.NETHERITE_BUCKET_ITEM, (state, world, pos, player, hand, stack) -> {
+            return emptyCauldron(state, world, pos, player, hand, stack, new ItemStack(ItemsRegistry.NETHERITE_LAVA_BUCKET_ITEM), (statex) -> {
                 return true;
             }, SoundEvents.ITEM_BUCKET_FILL_LAVA);
         });
     }
 
     static void registerBucketBehavior(Map<Item, NetheriteCauldronBehaviour> behavior) {
-        behavior.put(RedBrainsTweaks.NETHERITE_LAVA_BUCKET_ITEM, FILL_WITH_LAVA);
+        behavior.put(ItemsRegistry.NETHERITE_LAVA_BUCKET_ITEM, FILL_WITH_LAVA);
     }
 
     static ActionResult emptyCauldron(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, ItemStack output, Predicate<BlockState> predicate, SoundEvent soundEvent) {
@@ -57,7 +59,7 @@ public interface NetheriteCauldronBehaviour {
                 player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, output));
                 player.incrementStat(Stats.USE_CAULDRON);
                 player.incrementStat(Stats.USED.getOrCreateStat(item));
-                world.setBlockState(pos, RedBrainsTweaks.NETHERITE_CAULDRON_BLOCK.getDefaultState());
+                world.setBlockState(pos, BlocksRegistry.NETHERITE_CAULDRON_BLOCK.getDefaultState());
                 world.playSound((PlayerEntity)null, pos, soundEvent, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 world.emitGameEvent((Entity)null, GameEvent.FLUID_PICKUP, pos);
             }
@@ -69,7 +71,7 @@ public interface NetheriteCauldronBehaviour {
     static ActionResult fillCauldron(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, BlockState state, SoundEvent soundEvent) {
         if (!world.isClient) {
             Item item = stack.getItem();
-            player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(RedBrainsTweaks.NETHERITE_BUCKET_ITEM)));
+            player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(ItemsRegistry.NETHERITE_BUCKET_ITEM)));
             player.incrementStat(Stats.FILL_CAULDRON);
             player.incrementStat(Stats.USED.getOrCreateStat(item));
             world.setBlockState(pos, state);

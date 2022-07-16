@@ -1,6 +1,7 @@
 package com.github.theredbrain.redbrainstweaks.mixin.fluid;
 
 import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.ItemsRegistry;
 import net.minecraft.fluid.LavaFluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -14,6 +15,6 @@ public class LavaFluidMixin {
 
     @Inject(method = "getBucketItem", at = @At("HEAD"), cancellable = true)
     public void getBucketItem(CallbackInfoReturnable<Item> cir) {
-        cir.setReturnValue(RedBrainsTweaks.NETHERITE_LAVA_BUCKET_ITEM);
+        cir.setReturnValue(ItemsRegistry.NETHERITE_LAVA_BUCKET_ITEM);
     }
 }

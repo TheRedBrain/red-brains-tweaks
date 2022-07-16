@@ -1,6 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.block;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -95,7 +95,7 @@ public abstract class CustomSlabBlock extends Block implements Waterloggable {
         if ((Boolean)state.get(WATERLOGGED)) {
             world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-        if (direction == Direction.UP && (state.isOf(RedBrainsTweaks.GRASS_SLAB) || state.isOf(RedBrainsTweaks.PODZOL_SLAB) || state.isOf(RedBrainsTweaks.MYCELIUM_SLAB)) && state.get(TYPE) == SlabType.DOUBLE) {
+        if (direction == Direction.UP && (state.isOf(BlocksRegistry.GRASS_SLAB) || state.isOf(BlocksRegistry.PODZOL_SLAB) || state.isOf(BlocksRegistry.MYCELIUM_SLAB)) && state.get(TYPE) == SlabType.DOUBLE) {
             return (BlockState)state.with(SNOWY, isSnow(neighborState));
         } else {
             return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);

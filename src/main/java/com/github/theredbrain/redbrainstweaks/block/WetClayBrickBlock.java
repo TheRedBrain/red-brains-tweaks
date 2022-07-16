@@ -1,6 +1,7 @@
 package com.github.theredbrain.redbrainstweaks.block;
 
 import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -60,7 +61,7 @@ public class WetClayBrickBlock extends AbstractBrickBlock {
 
     private void tryBreakBrick(World world, BlockState state, BlockPos pos, Entity entity) {
         if (this.breaksBrick(world, entity)) {
-            if (!world.isClient && state.isOf(RedBrainsTweaks.WET_CLAY_BRICK_BLOCK)) {
+            if (!world.isClient && state.isOf(BlocksRegistry.WET_CLAY_BRICK_BLOCK)) {
                 this.breakBrick(world, pos, state);
             }
 
@@ -83,7 +84,7 @@ public class WetClayBrickBlock extends AbstractBrickBlock {
                 world.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_GRAVEL_PLACE, SoundCategory.BLOCKS, 0.7F, 0.9F + random.nextFloat() * 0.2F); // TODO find better sound
                 world.setBlockState(pos, (BlockState) state.with(DRYNESS, state.get(DRYNESS) + 1));
             } else {
-                world.setBlockState(pos, RedBrainsTweaks.BRICK_BLOCK.getDefaultState().with(IngotBlock.INGOTS, 1).with(FACING, state.get(FACING)));
+                world.setBlockState(pos, BlocksRegistry.BRICK_BLOCK.getDefaultState().with(IngotBlock.INGOTS, 1).with(FACING, state.get(FACING)));
             }
         } else if (!(world.getBiome(pos).isIn(RedBrainsTweaks.NO_PRECIPITATION)) && world.getLevelProperties().isRaining() && world.getLightLevel(LightType.SKY, pos.up()) >= 15) {
             world.setBlockState(pos, (BlockState) state.with(DRYNESS, 1));

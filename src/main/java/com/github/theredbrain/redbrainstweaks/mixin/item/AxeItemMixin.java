@@ -1,7 +1,7 @@
 package com.github.theredbrain.redbrainstweaks.mixin.item;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
 import com.github.theredbrain.redbrainstweaks.block.entity.PlacedToolEntity;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import com.google.common.collect.BiMap;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
@@ -48,7 +48,7 @@ public class AxeItemMixin {
 
         BlockState blockState2 = null;
         if (blockState1.isIn(BlockTags.AXE_MINEABLE) && playerEntity.isSneaking() && blockState1.isSideSolidFullSquare(world, blockPos, Direction.UP)) {
-            blockState2 = RedBrainsTweaks.PLACED_TOOL_BLOCK.getPlacementState(new ItemPlacementContext(context));
+            blockState2 = BlocksRegistry.PLACED_TOOL_BLOCK.getPlacementState(new ItemPlacementContext(context));
         }
 
         if (blockState2 != null) {

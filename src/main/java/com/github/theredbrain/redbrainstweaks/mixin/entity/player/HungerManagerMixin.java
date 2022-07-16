@@ -1,6 +1,7 @@
 package com.github.theredbrain.redbrainstweaks.mixin.entity.player;
 
 import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.StatusEffectsRegistry;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.HungerManager;
@@ -55,40 +56,40 @@ public abstract class HungerManagerMixin {
 		}
 
 		if (this.saturationLevel >= 18) {
-			player.removeStatusEffect(RedBrainsTweaks.PLUMP);
-			player.removeStatusEffect(RedBrainsTweaks.CHUBBY);
-			player.removeStatusEffect(RedBrainsTweaks.FAT);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.OBESE, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.PLUMP);
+			player.removeStatusEffect(StatusEffectsRegistry.CHUBBY);
+			player.removeStatusEffect(StatusEffectsRegistry.FAT);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.OBESE, 25, 0, true, false, false));
 		} else if (this.saturationLevel >= 16) {
-			player.removeStatusEffect(RedBrainsTweaks.PLUMP);
-			player.removeStatusEffect(RedBrainsTweaks.CHUBBY);
-			player.removeStatusEffect(RedBrainsTweaks.OBESE);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.FAT, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.PLUMP);
+			player.removeStatusEffect(StatusEffectsRegistry.CHUBBY);
+			player.removeStatusEffect(StatusEffectsRegistry.OBESE);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.FAT, 25, 0, true, false, false));
 		} else if (this.saturationLevel >= 14) {
-			player.removeStatusEffect(RedBrainsTweaks.PLUMP);
-			player.removeStatusEffect(RedBrainsTweaks.FAT);
-			player.removeStatusEffect(RedBrainsTweaks.OBESE);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.CHUBBY, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.PLUMP);
+			player.removeStatusEffect(StatusEffectsRegistry.FAT);
+			player.removeStatusEffect(StatusEffectsRegistry.OBESE);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.CHUBBY, 25, 0, true, false, false));
 		} else if (this.saturationLevel >= 12) {
-			player.removeStatusEffect(RedBrainsTweaks.CHUBBY);
-			player.removeStatusEffect(RedBrainsTweaks.FAT);
-			player.removeStatusEffect(RedBrainsTweaks.OBESE);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.PLUMP, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.CHUBBY);
+			player.removeStatusEffect(StatusEffectsRegistry.FAT);
+			player.removeStatusEffect(StatusEffectsRegistry.OBESE);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.PLUMP, 25, 0, true, false, false));
 		} else {
-			player.removeStatusEffect(RedBrainsTweaks.PLUMP);
-			player.removeStatusEffect(RedBrainsTweaks.CHUBBY);
-			player.removeStatusEffect(RedBrainsTweaks.FAT);
-			player.removeStatusEffect(RedBrainsTweaks.OBESE);
+			player.removeStatusEffect(StatusEffectsRegistry.PLUMP);
+			player.removeStatusEffect(StatusEffectsRegistry.CHUBBY);
+			player.removeStatusEffect(StatusEffectsRegistry.FAT);
+			player.removeStatusEffect(StatusEffectsRegistry.OBESE);
 		}
 
 		boolean bl = player.world.getGameRules().getBoolean(GameRules.NATURAL_REGENERATION);
 
 		if (this.foodLevel > 8) {
-			player.removeStatusEffect(RedBrainsTweaks.PECKISH);
-			player.removeStatusEffect(RedBrainsTweaks.HUNGRY);
-			player.removeStatusEffect(RedBrainsTweaks.FAMISHED);
-			player.removeStatusEffect(RedBrainsTweaks.STARVING);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
+			player.removeStatusEffect(StatusEffectsRegistry.PECKISH);
+			player.removeStatusEffect(StatusEffectsRegistry.HUNGRY);
+			player.removeStatusEffect(StatusEffectsRegistry.FAMISHED);
+			player.removeStatusEffect(StatusEffectsRegistry.STARVING);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
 
 			if(bl && player.getHealth() < player.getMaxHealth()) {
 				++this.foodTickTimer;
@@ -99,35 +100,35 @@ public abstract class HungerManagerMixin {
 				}
 			}
 		} else if (this.foodLevel > 6) {
-			player.removeStatusEffect(RedBrainsTweaks.HUNGRY);
-			player.removeStatusEffect(RedBrainsTweaks.FAMISHED);
-			player.removeStatusEffect(RedBrainsTweaks.STARVING);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.PECKISH, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.HUNGRY);
+			player.removeStatusEffect(StatusEffectsRegistry.FAMISHED);
+			player.removeStatusEffect(StatusEffectsRegistry.STARVING);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.PECKISH, 25, 0, true, false, false));
 		} else if (this.foodLevel > 4) {
-			player.removeStatusEffect(RedBrainsTweaks.PECKISH);
-			player.removeStatusEffect(RedBrainsTweaks.FAMISHED);
-			player.removeStatusEffect(RedBrainsTweaks.STARVING);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.HUNGRY, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.PECKISH);
+			player.removeStatusEffect(StatusEffectsRegistry.FAMISHED);
+			player.removeStatusEffect(StatusEffectsRegistry.STARVING);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.HUNGRY, 25, 0, true, false, false));
 		}  else if (this.foodLevel > 2) {
-			player.removeStatusEffect(RedBrainsTweaks.PECKISH);
-			player.removeStatusEffect(RedBrainsTweaks.HUNGRY);
-			player.removeStatusEffect(RedBrainsTweaks.STARVING);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.FAMISHED, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.PECKISH);
+			player.removeStatusEffect(StatusEffectsRegistry.HUNGRY);
+			player.removeStatusEffect(StatusEffectsRegistry.STARVING);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.FAMISHED, 25, 0, true, false, false));
 		} else if (this.foodLevel > 0) {
-			player.removeStatusEffect(RedBrainsTweaks.PECKISH);
-			player.removeStatusEffect(RedBrainsTweaks.HUNGRY);
-			player.removeStatusEffect(RedBrainsTweaks.FAMISHED);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.STARVING, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.PECKISH);
+			player.removeStatusEffect(StatusEffectsRegistry.HUNGRY);
+			player.removeStatusEffect(StatusEffectsRegistry.FAMISHED);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.STARVING, 25, 0, true, false, false));
 		} else if (this.foodLevel <= 0 && this.saturationLevel <= 0) {
-			player.removeStatusEffect(RedBrainsTweaks.PECKISH);
-			player.removeStatusEffect(RedBrainsTweaks.HUNGRY);
-			player.removeStatusEffect(RedBrainsTweaks.FAMISHED);
-			player.removeStatusEffect(RedBrainsTweaks.STARVING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.DYING, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.PECKISH);
+			player.removeStatusEffect(StatusEffectsRegistry.HUNGRY);
+			player.removeStatusEffect(StatusEffectsRegistry.FAMISHED);
+			player.removeStatusEffect(StatusEffectsRegistry.STARVING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.DYING, 25, 0, true, false, false));
 			++this.foodTickTimer;
 			if (this.foodTickTimer >= 80) {
 				if (player.getHealth() > 10.0F || difficulty == Difficulty.HARD || player.getHealth() > 1.0F && difficulty == Difficulty.NORMAL) {
@@ -144,41 +145,41 @@ public abstract class HungerManagerMixin {
 
 		float currentHealth = player.getHealth();
 		if (currentHealth <= 2) {
-			player.removeStatusEffect(RedBrainsTweaks.HURT);
-			player.removeStatusEffect(RedBrainsTweaks.INJURED);
-			player.removeStatusEffect(RedBrainsTweaks.WOUNDED);
-			player.removeStatusEffect(RedBrainsTweaks.CRIPPLED);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.DYING, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.HURT);
+			player.removeStatusEffect(StatusEffectsRegistry.INJURED);
+			player.removeStatusEffect(StatusEffectsRegistry.WOUNDED);
+			player.removeStatusEffect(StatusEffectsRegistry.CRIPPLED);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.DYING, 25, 0, true, false, false));
 		} else if (currentHealth <= 4) {
-			player.removeStatusEffect(RedBrainsTweaks.HURT);
-			player.removeStatusEffect(RedBrainsTweaks.INJURED);
-			player.removeStatusEffect(RedBrainsTweaks.WOUNDED);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.CRIPPLED, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.HURT);
+			player.removeStatusEffect(StatusEffectsRegistry.INJURED);
+			player.removeStatusEffect(StatusEffectsRegistry.WOUNDED);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.CRIPPLED, 25, 0, true, false, false));
 		} else if (currentHealth <= 6) {
-			player.removeStatusEffect(RedBrainsTweaks.HURT);
-			player.removeStatusEffect(RedBrainsTweaks.INJURED);
-			player.removeStatusEffect(RedBrainsTweaks.CRIPPLED);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.WOUNDED, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.HURT);
+			player.removeStatusEffect(StatusEffectsRegistry.INJURED);
+			player.removeStatusEffect(StatusEffectsRegistry.CRIPPLED);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.WOUNDED, 25, 0, true, false, false));
 		} else if (currentHealth <= 8) {
-			player.removeStatusEffect(RedBrainsTweaks.HURT);
-			player.removeStatusEffect(RedBrainsTweaks.WOUNDED);
-			player.removeStatusEffect(RedBrainsTweaks.CRIPPLED);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.INJURED, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.HURT);
+			player.removeStatusEffect(StatusEffectsRegistry.WOUNDED);
+			player.removeStatusEffect(StatusEffectsRegistry.CRIPPLED);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.INJURED, 25, 0, true, false, false));
 		} else if (currentHealth <= 10) {
-			player.removeStatusEffect(RedBrainsTweaks.INJURED);
-			player.removeStatusEffect(RedBrainsTweaks.WOUNDED);
-			player.removeStatusEffect(RedBrainsTweaks.CRIPPLED);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
-			player.addStatusEffect(new StatusEffectInstance(RedBrainsTweaks.HURT, 25, 0, true, false, false));
+			player.removeStatusEffect(StatusEffectsRegistry.INJURED);
+			player.removeStatusEffect(StatusEffectsRegistry.WOUNDED);
+			player.removeStatusEffect(StatusEffectsRegistry.CRIPPLED);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
+			player.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.HURT, 25, 0, true, false, false));
 		} else if (currentHealth >= 11) {
-			player.removeStatusEffect(RedBrainsTweaks.HURT);
-			player.removeStatusEffect(RedBrainsTweaks.INJURED);
-			player.removeStatusEffect(RedBrainsTweaks.WOUNDED);
-			player.removeStatusEffect(RedBrainsTweaks.CRIPPLED);
-			player.removeStatusEffect(RedBrainsTweaks.DYING);
+			player.removeStatusEffect(StatusEffectsRegistry.HURT);
+			player.removeStatusEffect(StatusEffectsRegistry.INJURED);
+			player.removeStatusEffect(StatusEffectsRegistry.WOUNDED);
+			player.removeStatusEffect(StatusEffectsRegistry.CRIPPLED);
+			player.removeStatusEffect(StatusEffectsRegistry.DYING);
 		}
 
 		ci.cancel();

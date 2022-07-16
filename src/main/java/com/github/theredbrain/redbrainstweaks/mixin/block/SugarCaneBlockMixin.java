@@ -1,6 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.mixin.block;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SugarCaneBlock;
@@ -32,7 +32,7 @@ public class SugarCaneBlockMixin extends Block {
     public void randomTickCheckForRoots(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         if (world.isAir(pos.up())) {
             int i;
-            for(i = 1; (world.getBlockState(pos.down(i)).isOf(this) || world.getBlockState(pos.down(i)).isOf(RedBrainsTweaks.SUGAR_CANE_ROOT_BLOCK)); ++i) {
+            for(i = 1; (world.getBlockState(pos.down(i)).isOf(this) || world.getBlockState(pos.down(i)).isOf(BlocksRegistry.SUGAR_CANE_ROOT_BLOCK)); ++i) {
             }
 
             if (i < 3) {
@@ -51,7 +51,7 @@ public class SugarCaneBlockMixin extends Block {
     @Inject(method = "canPlaceAt", at = @At("HEAD"), cancellable = true)
     public void canPlaceAtRoots(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         BlockState blockState = world.getBlockState(pos.down());
-        if (blockState.isOf(this) || blockState.isOf(RedBrainsTweaks.SUGAR_CANE_ROOT_BLOCK)) {
+        if (blockState.isOf(this) || blockState.isOf(BlocksRegistry.SUGAR_CANE_ROOT_BLOCK)) {
             cir.setReturnValue(true);
         } else {
             cir.setReturnValue(false);

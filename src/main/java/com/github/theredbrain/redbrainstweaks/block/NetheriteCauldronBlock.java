@@ -1,6 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.block;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
@@ -24,7 +24,7 @@ public class NetheriteCauldronBlock extends AbstractNetheriteCauldronBlock {
     protected void fillFromDripstone(BlockState state, World world, BlockPos pos, Fluid fluid) {
         BlockState blockState;
          if (fluid == Fluids.LAVA) {
-            blockState = RedBrainsTweaks.NETHERITE_LAVA_CAULDRON_BLOCK.getDefaultState();
+            blockState = BlocksRegistry.NETHERITE_LAVA_CAULDRON_BLOCK.getDefaultState();
             world.setBlockState(pos, blockState);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
             world.syncWorldEvent(1046, pos, 0);

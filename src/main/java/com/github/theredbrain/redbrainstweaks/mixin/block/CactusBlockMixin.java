@@ -1,6 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.mixin.block;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.IntProperty;
@@ -36,7 +36,7 @@ public class CactusBlockMixin extends Block {
         BlockPos blockPos = pos.up();
         if (world.isAir(blockPos)) {
             int i;
-            for(i = 1; (world.getBlockState(pos.down(i)).isOf(this) || world.getBlockState(pos.down(i)).isOf(RedBrainsTweaks.CACTUS_ROOT_BLOCK)); ++i) {
+            for(i = 1; (world.getBlockState(pos.down(i)).isOf(this) || world.getBlockState(pos.down(i)).isOf(BlocksRegistry.CACTUS_ROOT_BLOCK)); ++i) {
             }
 
             if (i < 3) {
@@ -65,7 +65,7 @@ public class CactusBlockMixin extends Block {
         do {
             if (!var4.hasNext()) {
                 BlockState blockState2 = world.getBlockState(pos.down());
-                bl = ((blockState2.isOf(Blocks.CACTUS) || blockState2.isOf(RedBrainsTweaks.CACTUS_ROOT_BLOCK)) && !world.getBlockState(pos.up()).getMaterial().isLiquid());
+                bl = ((blockState2.isOf(Blocks.CACTUS) || blockState2.isOf(BlocksRegistry.CACTUS_ROOT_BLOCK)) && !world.getBlockState(pos.up()).getMaterial().isLiquid());
                 break;
             }
 

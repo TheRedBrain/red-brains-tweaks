@@ -1,7 +1,7 @@
 package com.github.theredbrain.redbrainstweaks.mixin.item;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
 import com.github.theredbrain.redbrainstweaks.block.entity.PlacedToolEntity;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -24,7 +24,7 @@ public class SwordItemMixin {
         PlayerEntity playerEntity = context.getPlayer();
         BlockState blockState2 = null;
         if (playerEntity.isSneaking() && blockState1.isSideSolidFullSquare(world, blockPos, Direction.UP)) {
-            blockState2 = RedBrainsTweaks.PLACED_TOOL_BLOCK.getPlacementState(new ItemPlacementContext(context));
+            blockState2 = BlocksRegistry.PLACED_TOOL_BLOCK.getPlacementState(new ItemPlacementContext(context));
         }
 
         if (blockState2 != null) {

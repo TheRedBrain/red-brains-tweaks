@@ -1,6 +1,7 @@
 package com.github.theredbrain.redbrainstweaks.block;
 
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -36,6 +37,11 @@ public abstract class AbstractBrickBlock extends FallingBlock {
     public AbstractBrickBlock(Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)this.getDefaultState()).with(FACING, Direction.NORTH));
+    }
+
+    @Override
+    public PistonBehavior getPistonBehavior(BlockState state) {
+        return PistonBehavior.DESTROY;
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

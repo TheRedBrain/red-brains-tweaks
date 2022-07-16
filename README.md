@@ -1,3 +1,3 @@
-# RedBrain's Tweaks
+# RedBrainsTweaks
 
-A mod which tweaks a few things to make gameplay more balanced and interesting.
+This minecraft mod slightly tweaks a few things and completely overhauls some other things to make gameplay more balanced and interesting.

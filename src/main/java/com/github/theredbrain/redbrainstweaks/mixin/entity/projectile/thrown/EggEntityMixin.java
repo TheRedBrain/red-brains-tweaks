@@ -2,6 +2,7 @@ package com.github.theredbrain.redbrainstweaks.mixin.entity.projectile.thrown;
 
 
 import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.ItemsRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.projectile.thrown.EggEntity;
@@ -32,7 +33,7 @@ public abstract class EggEntityMixin extends ThrownItemEntity {
                 this.world.spawnEntity(chickenEntity);
             }
             else {
-                this.dropItem(RedBrainsTweaks.RAW_EGG_ITEM);
+                this.dropItem(ItemsRegistry.RAW_EGG_ITEM);
             }
 
             this.world.sendEntityStatus(this, (byte)3);

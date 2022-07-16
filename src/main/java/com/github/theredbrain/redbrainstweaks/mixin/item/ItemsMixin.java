@@ -1,7 +1,6 @@
 package com.github.theredbrain.redbrainstweaks.mixin.item;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
-import com.github.theredbrain.redbrainstweaks.block.IngotBlock;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -22,7 +21,7 @@ public class ItemsMixin {
             )
     )
     private static Item redirectedBrick(Item.Settings settings) {
-        return new BlockItem(RedBrainsTweaks.BRICK_BLOCK, settings.group(ItemGroup.MATERIALS));
+        return new BlockItem(BlocksRegistry.BRICK_BLOCK, settings.group(ItemGroup.MATERIALS));
     }
 
     @Redirect(method = "<clinit>",
@@ -33,7 +32,7 @@ public class ItemsMixin {
             )
     )
     private static Item redirectedNetherBrick(Item.Settings settings) {
-        return new BlockItem(RedBrainsTweaks.NETHER_BRICK_BLOCK, settings.group(ItemGroup.MATERIALS));
+        return new BlockItem(BlocksRegistry.NETHER_BRICK_BLOCK, settings.group(ItemGroup.MATERIALS));
     }
 
     @Redirect(method = "<clinit>",
@@ -44,7 +43,7 @@ public class ItemsMixin {
             )
     )
     private static Item redirectedIronIngot(Item.Settings settings) {
-        return new BlockItem(RedBrainsTweaks.IRON_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS));
+        return new BlockItem(BlocksRegistry.IRON_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS));
     }
 
     @Redirect(method = "<clinit>",
@@ -55,7 +54,7 @@ public class ItemsMixin {
             )
     )
     private static Item redirectedCopperIngot(Item.Settings settings) {
-        return new BlockItem(RedBrainsTweaks.COPPER_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS));
+        return new BlockItem(BlocksRegistry.COPPER_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS));
     }
 
     @Redirect(method = "<clinit>",
@@ -66,7 +65,7 @@ public class ItemsMixin {
             )
     )
     private static Item redirectedGoldIngot(Item.Settings settings) {
-        return new BlockItem(RedBrainsTweaks.GOLD_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS));
+        return new BlockItem(BlocksRegistry.GOLD_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS));
     }
 
     @Redirect(method = "<clinit>",
@@ -77,6 +76,6 @@ public class ItemsMixin {
             )
     )
     private static Item redirectedNetheriteIngot(Item.Settings settings) {
-        return new BlockItem(RedBrainsTweaks.NETHERITE_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS).fireproof());
+        return new BlockItem(BlocksRegistry.NETHERITE_INGOT_BLOCK, settings.group(ItemGroup.MATERIALS).fireproof());
     }
 }

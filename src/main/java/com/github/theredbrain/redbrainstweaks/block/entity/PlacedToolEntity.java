@@ -1,6 +1,7 @@
 package com.github.theredbrain.redbrainstweaks.block.entity;
 
 import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
+import com.github.theredbrain.redbrainstweaks.registry.EntitiesRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -18,7 +19,7 @@ public class PlacedToolEntity extends BlockEntity implements Inventory {
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public PlacedToolEntity(BlockPos pos, BlockState state) {
-        super(RedBrainsTweaks.PLACED_TOOL_ENTITY, pos, state);
+        super(EntitiesRegistry.PLACED_TOOL_ENTITY, pos, state);
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.github.theredbrain.redbrainstweaks.mixin.item;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
 import com.github.theredbrain.redbrainstweaks.block.CustomSlabBlock;
 import com.github.theredbrain.redbrainstweaks.block.entity.PlacedToolEntity;
+import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.fabricmc.fabric.mixin.content.registry.ShovelItemAccessor;
@@ -51,7 +51,7 @@ public class ShovelItemMixin {
 
         BlockState blockState2 = null;
         if (blockState.isIn(BlockTags.SHOVEL_MINEABLE) && playerEntity.isSneaking() && blockState.isSideSolidFullSquare(world, blockPos, Direction.UP)) {
-            blockState2 = RedBrainsTweaks.PLACED_TOOL_BLOCK.getPlacementState(new ItemPlacementContext(context));
+            blockState2 = BlocksRegistry.PLACED_TOOL_BLOCK.getPlacementState(new ItemPlacementContext(context));
         }
 
         if (blockState2 != null) {
@@ -119,28 +119,28 @@ public class ShovelItemMixin {
 
     static {
         PATH_SLAB_STATES = Maps.newHashMap((new ImmutableMap.Builder())
-                .put(RedBrainsTweaks.GRASS_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState())
-                .put(RedBrainsTweaks.DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState())
-                .put(RedBrainsTweaks.PODZOL_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState())
-                .put(RedBrainsTweaks.COARSE_DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState())
-                .put(RedBrainsTweaks.MYCELIUM_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState())
-                .put(RedBrainsTweaks.ROOTED_DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState())
+                .put(BlocksRegistry.GRASS_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState())
+                .put(BlocksRegistry.DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState())
+                .put(BlocksRegistry.PODZOL_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState())
+                .put(BlocksRegistry.COARSE_DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState())
+                .put(BlocksRegistry.MYCELIUM_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState())
+                .put(BlocksRegistry.ROOTED_DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState())
                 .build());
         PATH_DOUBLE_SLAB_STATES = Maps.newHashMap((new ImmutableMap.Builder())
-                .put(RedBrainsTweaks.GRASS_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
-                .put(RedBrainsTweaks.DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
-                .put(RedBrainsTweaks.PODZOL_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
-                .put(RedBrainsTweaks.COARSE_DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
-                .put(RedBrainsTweaks.MYCELIUM_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
-                .put(RedBrainsTweaks.ROOTED_DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
+                .put(BlocksRegistry.GRASS_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
+                .put(BlocksRegistry.DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
+                .put(BlocksRegistry.PODZOL_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
+                .put(BlocksRegistry.COARSE_DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
+                .put(BlocksRegistry.MYCELIUM_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
+                .put(BlocksRegistry.ROOTED_DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getType(), SlabType.DOUBLE))
                 .build());
         PATH_WATERLOGGED_SLAB_STATES = Maps.newHashMap((new ImmutableMap.Builder())
-                .put(RedBrainsTweaks.GRASS_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
-                .put(RedBrainsTweaks.DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
-                .put(RedBrainsTweaks.PODZOL_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
-                .put(RedBrainsTweaks.COARSE_DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
-                .put(RedBrainsTweaks.MYCELIUM_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
-                .put(RedBrainsTweaks.ROOTED_DIRT_SLAB, RedBrainsTweaks.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
+                .put(BlocksRegistry.GRASS_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
+                .put(BlocksRegistry.DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
+                .put(BlocksRegistry.PODZOL_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
+                .put(BlocksRegistry.COARSE_DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
+                .put(BlocksRegistry.MYCELIUM_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
+                .put(BlocksRegistry.ROOTED_DIRT_SLAB, BlocksRegistry.DIRT_PATH_SLAB.getDefaultState().with(CustomSlabBlock.getWaterlogged(), true))
                 .build());
     }
 }
