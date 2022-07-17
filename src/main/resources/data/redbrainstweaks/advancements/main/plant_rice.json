@@ -1,0 +1,31 @@
+{
+  "parent": "redbrainstweaks:main/harvest_straw",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:rice_panicle"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.plant_rice"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.plant_rice.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "plant_rice": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "redbrainstweaks:rice_crop"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "plant_rice"
+    ]
+  ]
+}

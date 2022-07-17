@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:fruit_salad"
+    ]
+  },
+  "criteria": {
+    "has_fruits": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:melon_slice"]
+          },
+          {
+            "items": ["minecraft:sweet_berries"]
+          },
+          {
+            "items": ["minecraft:apple"]
+          },
+          {
+            "items": ["redbrainstweaks:pumpkin_slice"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:fruit_salad"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_fruits",
+      "has_the_recipe"
+    ]
+  ]
+}

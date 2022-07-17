@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "redbrainstweaks:cooked_bacon"
+    },
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    {
+      "item": "redbrainstweaks:tomato"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:bacon_sandwich",
+    "count": 2
+  }
+}

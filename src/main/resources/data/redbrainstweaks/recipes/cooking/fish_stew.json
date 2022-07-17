@@ -1,0 +1,31 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    [
+      {
+        "item": "redbrainstweaks:cod_slice"
+      },
+      {
+        "item": "redbrainstweaks:salmon_slice"
+      }
+    ],
+    [
+      {
+        "item": "redbrainstweaks:cod_slice"
+      },
+      {
+        "item": "redbrainstweaks:salmon_slice"
+      }
+    ],
+    {
+      "item": "redbrainstweaks:tomato_sauce"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:fish_stew"
+  },
+  "cookingtime": 1600
+}

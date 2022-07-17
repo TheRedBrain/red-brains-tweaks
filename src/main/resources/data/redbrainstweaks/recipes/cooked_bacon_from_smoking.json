@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "redbrainstweaks:bacon"
+  },
+  "result": "redbrainstweaks:cooked_bacon",
+  "experience": 0.35,
+  "cookingtime": 800
+}

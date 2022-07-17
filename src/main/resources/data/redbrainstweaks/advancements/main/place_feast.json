@@ -1,0 +1,52 @@
+{
+  "parent": "redbrainstweaks:main/eat_nourishing_food",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:roast_chicken_block"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.place_feast"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.place_feast.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "roast_chicken": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "redbrainstweaks:roast_chicken_block"
+      }
+    },
+    "stuffed_pumpkin": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "redbrainstweaks:stuffed_pumpkin_block"
+      }
+    },
+    "honey_glazed_ham": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "redbrainstweaks:honey_glazed_ham_block"
+      }
+    },
+    "shepherds_pie": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "redbrainstweaks:shepherds_pie_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "roast_chicken",
+      "stuffed_pumpkin",
+      "honey_glazed_ham",
+      "shepherds_pie"
+    ]
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "redbrainstweaks:beef_patty"
+    },
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    {
+      "item": "redbrainstweaks:tomato"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:hamburger"
+  }
+}

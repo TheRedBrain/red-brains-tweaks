@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:cooked_salmon_slice"
+    ]
+  },
+  "criteria": {
+    "cooked_salmon_slice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:salmon_slice"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:cooked_salmon_slice"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cooked_salmon_slice",
+      "has_the_recipe"
+    ]
+  ]
+}

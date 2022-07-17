@@ -1,0 +1,17 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:pumpkin"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "redbrainstweaks:pumpkin_slice",
+      "count": 4
+    }
+  ]
+}

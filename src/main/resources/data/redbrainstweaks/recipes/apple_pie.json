@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "wxw",
+    "aaa",
+    "xOx"
+  ],
+  "key": {
+    "w": {
+      "item": "redbrainstweaks:wheat_dough"
+    },
+    "a": {
+      "item": "minecraft:apple"
+    },
+    "x": {
+      "item": "minecraft:sugar"
+    },
+    "O": {
+      "item": "redbrainstweaks:pie_crust"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:apple_pie"
+  }
+}

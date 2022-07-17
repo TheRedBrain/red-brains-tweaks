@@ -1,0 +1,12 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:rice"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:cooked_rice"
+  },
+  "cookingtime": 1600
+}

@@ -1,0 +1,17 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:beef"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "redbrainstweaks:minced_beef",
+      "count": 2
+    }
+  ]
+}

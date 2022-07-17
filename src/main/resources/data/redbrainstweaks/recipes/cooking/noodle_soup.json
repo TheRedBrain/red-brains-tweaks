@@ -1,0 +1,21 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:raw_pasta"
+    },
+    {
+      "item": "redbrainstweaks:fried_egg"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "redbrainstweaks:bacon"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:noodle_soup"
+  },
+  "cookingtime": 1600
+}

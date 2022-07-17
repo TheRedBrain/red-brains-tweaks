@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:rope"
+    ]
+  },
+  "criteria": {
+    "has_straw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:straw"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:rope"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_straw",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:sweet_berry_cheesecake"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "redbrainstweaks:sweet_berry_cheesecake_slice",
+      "count": 4
+    }
+  ]
+}

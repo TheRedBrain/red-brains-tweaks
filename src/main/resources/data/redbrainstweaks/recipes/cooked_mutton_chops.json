@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "redbrainstweaks:mutton_chops"
+  },
+  "result": "minecraft:charcoal",
+  "cookingtime": 1600
+}

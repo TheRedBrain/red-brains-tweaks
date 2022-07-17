@@ -1,0 +1,17 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:pumpkin_pie_block"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "minecraft:pumpkin_pie",
+      "count": 4
+    }
+  ]
+}

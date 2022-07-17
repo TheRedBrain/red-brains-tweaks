@@ -1,0 +1,15 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:tomato"
+    },
+    {
+      "item": "redbrainstweaks:tomato"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:tomato_sauce"
+  },
+  "cookingtime": 800
+}

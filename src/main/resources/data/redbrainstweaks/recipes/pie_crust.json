@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "wMw",
+    " w "
+  ],
+  "key": {
+    "w": {
+      "item": "redbrainstweaks:wheat_dough"
+    },
+    "M": {
+      "item": "redbrainstweaks:milk_bottle"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:pie_crust"
+  }
+}

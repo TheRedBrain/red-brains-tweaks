@@ -1,0 +1,35 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:tomato"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    [
+      {
+        "item": "redbrainstweaks:beetroot"
+      },
+      {
+        "item": "redbrainstweaks:carrot"
+      },
+      {
+        "item": "redbrainstweaks:onion"
+      },
+      {
+        "item": "redbrainstweaks:potato"
+      },
+      {
+        "item": "redbrainstweaks:tomato"
+      }
+    ]
+  ],
+  "result": {
+    "item": "redbrainstweaks:ratatouille"
+  },
+  "cookingtime": 1600
+}

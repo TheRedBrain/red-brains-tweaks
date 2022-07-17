@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "red-brains-tweaks:raw_egg"
+    },
+    {
+      "item": "redbrainstweaks:wheat_dough"
+    },
+    {
+      "item": "redbrainstweaks:wheat_dough"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:raw_pasta"
+  }
+}

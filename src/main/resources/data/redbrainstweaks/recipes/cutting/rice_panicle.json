@@ -1,0 +1,19 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:rice_panicle"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "redbrainstweaks:rice"
+    },
+    {
+      "item": "redbrainstweaks:straw"
+    }
+  ]
+}

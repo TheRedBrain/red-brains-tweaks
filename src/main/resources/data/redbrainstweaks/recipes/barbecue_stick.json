@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:tomato"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    },
+    {
+      "item": "redbrainstweaks:beef_patty"
+    },
+    {
+      "item": "redbrainstweaks:cooked_chicken_cuts"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:barbecue_stick",
+    "count": 2
+  }
+}

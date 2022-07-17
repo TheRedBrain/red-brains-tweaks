@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cabbage_crate"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:cabbage",
+    "count": 9
+  }
+}

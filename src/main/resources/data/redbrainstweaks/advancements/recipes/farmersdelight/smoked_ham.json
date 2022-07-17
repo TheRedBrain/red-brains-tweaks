@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:smoked_ham"
+    ]
+  },
+  "criteria": {
+    "has_ham": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:ham"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:smoked_ham"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ham",
+      "has_the_recipe"
+    ]
+  ]
+}

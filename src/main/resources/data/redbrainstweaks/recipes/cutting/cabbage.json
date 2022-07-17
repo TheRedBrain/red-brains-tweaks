@@ -1,0 +1,17 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cabbage"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "redbrainstweaks:cabbage_leaf",
+      "count": 2
+    }
+  ]
+}

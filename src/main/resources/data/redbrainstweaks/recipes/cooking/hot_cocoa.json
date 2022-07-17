@@ -1,0 +1,21 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:milk_bottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:hot_cocoa"
+  },
+  "cookingtime": 4800
+}

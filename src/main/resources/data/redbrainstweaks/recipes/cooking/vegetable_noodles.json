@@ -1,0 +1,39 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "redbrainstweaks:raw_pasta"
+    },
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    [
+      {
+        "item": "redbrainstweaks:beetroot"
+      },
+      {
+        "item": "redbrainstweaks:carrot"
+      },
+      {
+        "item": "redbrainstweaks:onion"
+      },
+      {
+        "item": "redbrainstweaks:potato"
+      },
+      {
+        "item": "redbrainstweaks:tomato"
+      }
+    ]
+  ],
+  "result": {
+    "item": "redbrainstweaks:vegetable_noodles",
+    "count": 2
+  },
+  "cookingtime": 1600
+}

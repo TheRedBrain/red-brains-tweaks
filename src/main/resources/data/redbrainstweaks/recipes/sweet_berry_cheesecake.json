@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "xOx"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:sweet_berries"
+    },
+    "x": {
+      "item": "minecraft:sugar"
+    },
+    "O": {
+      "item": "redbrainstweaks:pie_crust"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:sweet_berry_cheesecake"
+  }
+}

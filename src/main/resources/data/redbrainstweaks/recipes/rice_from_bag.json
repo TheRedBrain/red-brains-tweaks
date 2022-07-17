@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:rice_bag"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:rice",
+    "count": 9
+  }
+}

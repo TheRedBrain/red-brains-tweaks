@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "redbrainstweaks:cooked_mutton_chops"
+    },
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    {
+      "item": "redbrainstweaks:tomato"
+    },
+    {
+      "item": "redbrainstweaks:milk_bottle"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:mutton_wrap",
+    "count": 2
+  }
+}

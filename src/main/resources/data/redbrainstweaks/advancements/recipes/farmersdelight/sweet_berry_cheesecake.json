@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:sweet_berry_cheesecake"
+    ]
+  },
+  "criteria": {
+    "has_pie_crust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:pie_crust"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:sweet_berry_cheesecake"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pie_crust",
+      "has_the_recipe"
+    ]
+  ]
+}

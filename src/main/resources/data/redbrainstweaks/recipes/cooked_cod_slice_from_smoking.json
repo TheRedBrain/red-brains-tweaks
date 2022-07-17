@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "redbrainstweaks:cod_slice"
+  },
+  "result": "redbrainstweaks:cooked_cod_slice",
+  "experience": 0.35,
+  "cookingtime": 800
+}

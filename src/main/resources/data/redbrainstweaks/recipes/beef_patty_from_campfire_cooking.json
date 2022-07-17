@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "redbrainstweaks:minced_beef"
+  },
+  "result": "redbrainstweaks:beef_patty",
+  "experience": 0.35,
+  "cookingtime": 4800
+}

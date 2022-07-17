@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "redbrainstweaks:mutton_chops"
+  },
+  "result": "redbrainstweaks:cooked_mutton_chops",
+  "experience": 0.35,
+  "cookingtime": 4800
+}

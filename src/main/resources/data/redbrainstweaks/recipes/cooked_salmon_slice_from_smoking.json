@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "redbrainstweaks:salmon_slice"
+  },
+  "result": "redbrainstweaks:cooked_salmon_slice",
+  "experience": 0.35,
+  "cookingtime": 800
+}

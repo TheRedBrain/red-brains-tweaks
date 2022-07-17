@@ -1,0 +1,29 @@
+{
+  "parent": "redbrainstweaks:main/place_stove",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:cutting_board"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.use_cutting_board"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.use_cutting_board.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cutting_board": {
+      "trigger": "redbrainstweaks:use_cutting_board",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "cutting_board"
+    ]
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cooked_salmon_slice"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:grilled_salmon"
+  }
+}

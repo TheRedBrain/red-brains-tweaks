@@ -1,0 +1,33 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:raw_pasta"
+    },
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    },
+    [
+      {
+        "item": "redbrainstweaks:chicken_cuts"
+      },
+      {
+        "item": "minecraft:brown_mushroom"
+      },
+      {
+        "item": "redbrainstweaks:bacon"
+      },
+      {
+        "item": "redbrainstweaks:minced_beef"
+      }
+    ]
+  ],
+  "result": {
+    "item": "redbrainstweaks:dumplings",
+    "count": 2
+  },
+  "cookingtime": 1600
+}

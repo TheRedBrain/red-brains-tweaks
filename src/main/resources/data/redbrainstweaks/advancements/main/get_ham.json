@@ -1,0 +1,35 @@
+{
+  "parent": "redbrainstweaks:main/craft_knife",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:ham"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.get_ham"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.get_ham.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ham": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:ham"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ham"
+    ]
+  ]
+}

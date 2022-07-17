@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:paper_from_tree_bark"
+    ]
+  },
+  "criteria": {
+    "has_tree_bark": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:tree_bark"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:paper_from_tree_bark"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tree_bark",
+      "has_the_recipe"
+    ]
+  ]
+}

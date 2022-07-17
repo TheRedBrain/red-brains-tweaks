@@ -1,0 +1,35 @@
+{
+  "parent": "redbrainstweaks:main/plant_rice",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:rich_soil"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.get_rich_soil"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.get_rich_soil.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_rich_soil": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:rich_soil"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_rich_soil"
+    ]
+  ]
+}

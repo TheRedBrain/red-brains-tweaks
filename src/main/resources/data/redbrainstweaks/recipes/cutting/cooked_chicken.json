@@ -1,0 +1,20 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_chicken"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "redbrainstweaks:cooked_chicken_cuts",
+      "count": 2
+    },
+    {
+      "item": "minecraft:bone_meal"
+    }
+  ]
+}

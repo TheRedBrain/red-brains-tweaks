@@ -1,0 +1,19 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:mutton_chops"
+    },
+    {
+      "item": "redbrainstweaks:raw_pasta"
+    },
+    {
+      "item": "redbrainstweaks:tomato_sauce"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:pasta_with_mutton_chop",
+    "count": 2
+  },
+  "cookingtime": 1600
+}

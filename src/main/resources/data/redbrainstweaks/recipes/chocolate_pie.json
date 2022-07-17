@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "axa",
+    "aaa",
+    "aOa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "x": {
+      "item": "redbrainstweaks:milk_bottle"
+    },
+    "O": {
+      "item": "redbrainstweaks:pie_crust"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:chocolate_pie"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "tag": "redbrainstweaks:wolf_prey"
+    },
+    {
+      "item": "redbrainstweaks:rice"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:dog_food"
+  },
+  "cookingtime": 1600
+}

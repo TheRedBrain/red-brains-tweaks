@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:gold_nugget_from_blasting_knife"
+    ]
+  },
+  "criteria": {
+    "has_golden_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:iron_knife"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:gold_nugget_from_blasting_knife"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_knife",
+      "has_the_recipe"
+    ]
+  ]
+}

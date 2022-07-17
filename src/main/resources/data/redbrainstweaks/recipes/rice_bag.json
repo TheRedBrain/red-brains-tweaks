@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "redbrainstweaks:rice"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:rice_bag"
+  }
+}

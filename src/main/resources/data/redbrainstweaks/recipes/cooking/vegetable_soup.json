@@ -1,0 +1,24 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    },
+    {
+      "item": "redbrainstweaks:cooked_rice"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:vegetable_soup"
+  },
+  "cookingtime": 1600
+}

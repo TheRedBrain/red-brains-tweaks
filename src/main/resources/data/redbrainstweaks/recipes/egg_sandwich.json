@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "redbrainstweaks:fried_egg"
+    },
+    {
+      "item": "redbrainstweaks:fried_egg"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:egg_sandwich",
+    "count": 2
+  }
+}

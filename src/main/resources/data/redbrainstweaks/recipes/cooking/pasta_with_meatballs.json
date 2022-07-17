@@ -1,0 +1,19 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:minced_beef"
+    },
+    {
+      "item": "redbrainstweaks:raw_pasta"
+    },
+    {
+      "item": "redbrainstweaks:tomato_sauce"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:pasta_with_meatballs",
+    "count": 2
+  },
+  "cookingtime": 1600
+}

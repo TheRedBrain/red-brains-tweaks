@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "redbrainstweaks:wheat_dough"
+  },
+  "result": "minecraft:charcoal",
+  "cookingtime": 1600
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:onion_crate"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:onion",
+    "count": 9
+  }
+}

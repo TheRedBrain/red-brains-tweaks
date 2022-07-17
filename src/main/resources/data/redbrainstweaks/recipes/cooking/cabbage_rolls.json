@@ -1,0 +1,50 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    {
+      "item": "redbrainstweaks:cabbage_leaf"
+    },
+    [
+      {
+        "item": "redbrainstweaks:mutton_chops"
+      },
+      {
+        "item": "minecraft:carrot"
+      },
+      {
+        "item": "minecraft:potato"
+      },
+      {
+        "item": "minecraft:beetroot"
+      },
+      {
+        "item": "redbrainstweaks:cod_slice"
+      },
+      {
+        "item": "redbrainstweaks:salmon_slice"
+      },
+      {
+        "item": "minecraft:brown_mushroom"
+      },
+      {
+        "item": "redbrainstweaks:bacon"
+      },
+      {
+        "item": "redbrainstweaks:fried_egg"
+      },
+      {
+        "item": "redbrainstweaks:chicken_cuts"
+      },
+      {
+        "item": "redbrainstweaks:minced_beef"
+      }
+    ]
+  ],
+  "result": {
+    "item": "redbrainstweaks:cabbage_rolls"
+  },
+  "cookingtime": 800
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "redbrainstweaks:flint_knife",
+    "redbrainstweaks:iron_knife",
+    "redbrainstweaks:diamond_knife",
+    "redbrainstweaks:golden_knife",
+    "redbrainstweaks:netherite_knife"
+  ]
+}

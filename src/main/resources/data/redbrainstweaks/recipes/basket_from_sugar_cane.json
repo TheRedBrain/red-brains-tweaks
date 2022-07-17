@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "b b",
+    "# #",
+    "b#b"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:sugar_cane"
+    },
+    "#": {
+      "item": "redbrainstweaks:canvas"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:basket"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cooked_mutton_chops"
+    },
+    {
+      "item": "redbrainstweaks:cooked_mutton_chops"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "redbrainstweaks:cooked_rice"
+    },
+    {
+      "item": "redbrainstweaks:tomato"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:roasted_mutton_chops",
+    "count": 2
+  }
+}

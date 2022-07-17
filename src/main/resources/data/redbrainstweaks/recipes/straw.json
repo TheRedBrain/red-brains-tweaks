@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:straw_bale"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:straw",
+    "count": 9
+  }
+}

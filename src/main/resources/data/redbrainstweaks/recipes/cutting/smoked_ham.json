@@ -1,0 +1,20 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:smoked_ham"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "minecraft:cooked_porkchop",
+      "count": 2
+    },
+    {
+      "item": "minecraft:bone"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:bacon_sandwich"
+    ]
+  },
+  "criteria": {
+    "has_bacon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:cooked_bacon"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:bacon_sandwich"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bacon",
+      "has_the_recipe"
+    ]
+  ]
+}

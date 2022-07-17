@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "redbrainstweaks:beef_patty"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "redbrainstweaks:milk_bottle"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:stuffed_potato"
+  }
+}

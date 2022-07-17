@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:cake_from_milk_bottle"
+    ]
+  },
+  "criteria": {
+    "has_milk_bottle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:milk_bottle"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:cake_from_milk_bottle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_milk_bottle",
+      "has_the_recipe"
+    ]
+  ]
+}

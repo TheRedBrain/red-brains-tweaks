@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:tomato"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:tomato_seeds"
+  }
+}

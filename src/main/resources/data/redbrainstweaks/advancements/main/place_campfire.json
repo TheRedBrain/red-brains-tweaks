@@ -1,0 +1,46 @@
+{
+  "parent": "redbrainstweaks:main/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:campfire"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.place_campfire"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.place_campfire.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "lit_campfire": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": {
+          "block": {
+            "blocks": [
+              "minecraft:campfire",
+              "minecraft:soul_campfire"
+            ]
+          }
+        },
+        "item": {
+          "items": [
+            "minecraft:fire_charge",
+            "minecraft:flint_and_steel",
+            "minecraft:torch",
+            "minecraft:soul_torch"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lit_campfire"
+    ]
+  ]
+}

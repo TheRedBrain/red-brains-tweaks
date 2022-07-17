@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "redbrainstweaks:smoked_ham"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "redbrainstweaks:cooked_rice"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "redbrainstweaks:cooked_rice"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:honey_glazed_ham_block"
+  }
+}

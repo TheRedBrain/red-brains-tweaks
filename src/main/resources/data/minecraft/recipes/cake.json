@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "mmm",
+    "ses",
+    "www"
+  ],
+  "key": {
+    "m": {
+      "item": "redbrainstweaks:milk_bottle"
+    },
+    "s": {
+      "item": "minecraft:sugar"
+    },
+    "e": {
+      "item": "red-brains-tweaks:raw_egg"
+    },
+    "w": {
+      "item": "redbrainstweaks:wheat_dough"
+    }
+  },
+  "result": {
+    "item": "minecraft:cake"
+  }
+}

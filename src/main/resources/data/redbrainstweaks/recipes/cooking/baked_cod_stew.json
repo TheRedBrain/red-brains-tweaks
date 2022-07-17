@@ -1,0 +1,21 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cooked_cod_slice"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "red-brains-tweaks:raw_egg"
+    },
+    {
+      "item": "redbrainstweaks:tomato"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:baked_cod_stew"
+  },
+  "cookingtime": 1600
+}

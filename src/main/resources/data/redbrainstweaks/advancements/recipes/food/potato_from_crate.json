@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:potato_from_crate"
+    ]
+  },
+  "criteria": {
+    "has_potato_crate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:potato_crate"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:potato_from_crate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_potato_crate",
+      "has_the_recipe"
+    ]
+  ]
+}

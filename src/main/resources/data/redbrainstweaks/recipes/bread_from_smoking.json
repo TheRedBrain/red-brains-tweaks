@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "redbrainstweaks:wheat_dough"
+  },
+  "result": "minecraft:bread",
+  "experience": 0.35,
+  "cookingtime": 800
+}

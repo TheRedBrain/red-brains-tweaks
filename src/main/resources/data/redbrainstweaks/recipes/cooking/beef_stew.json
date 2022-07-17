@@ -1,0 +1,21 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:minced_beef"
+    },
+    {
+      "item": "redbrainstweaks:minced_beef"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:potato"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:beef_stew"
+  },
+  "cookingtime": 1600
+}

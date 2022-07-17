@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "redbrainstweaks:wheat_dough"
+    },
+    {
+      "item": "redbrainstweaks:wheat_dough"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:sweet_berry_cookie",
+    "count": 8
+  }
+}

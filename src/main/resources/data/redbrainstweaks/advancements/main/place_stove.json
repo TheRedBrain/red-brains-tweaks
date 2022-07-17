@@ -1,0 +1,31 @@
+{
+  "parent": "redbrainstweaks:main/place_campfire",
+  "display": {
+    "icon": {
+      "item": "minecraft:campfire"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.place_stove"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.place_stove.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "stove": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:campfire"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "stove"
+    ]
+  ]
+}

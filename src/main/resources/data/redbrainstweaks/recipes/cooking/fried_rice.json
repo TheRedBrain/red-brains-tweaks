@@ -1,0 +1,21 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cooked_rice"
+    },
+    {
+      "item": "red-brains-tweaks:raw_egg"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:fried_rice"
+  },
+  "cookingtime": 1600
+}

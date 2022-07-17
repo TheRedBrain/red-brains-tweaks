@@ -1,0 +1,20 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_cod"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "redbrainstweaks:cooked_cod_slice",
+      "count": 2
+    },
+    {
+      "item": "minecraft:bone_meal"
+    }
+  ]
+}

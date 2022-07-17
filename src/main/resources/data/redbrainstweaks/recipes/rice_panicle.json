@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:rice_bale"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:rice_panicle",
+    "count": 9
+  }
+}

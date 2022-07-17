@@ -1,0 +1,46 @@
+{
+  "parent": "redbrainstweaks:main/get_rich_soil",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:red_mushroom_colony"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.get_mushroom_colony"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.get_mushroom_colony.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "brown_mushroom_colony": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:brown_mushroom_colony"]
+          }
+        ]
+      }
+    },
+    "red_mushroom_colony": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:red_mushroom_colony"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brown_mushroom_colony",
+      "red_mushroom_colony"
+    ]
+  ]
+}

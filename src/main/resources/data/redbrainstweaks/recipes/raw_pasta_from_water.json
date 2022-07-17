@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "redbrainstweaks:wheat_dough"
+    },
+    {
+      "item": "redbrainstweaks:wheat_dough"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:raw_pasta"
+  }
+}

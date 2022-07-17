@@ -1,0 +1,80 @@
+{
+  "parent": "redbrainstweaks:main/root",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:flint_knife",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.craft_knife"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.craft_knife.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "flint_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:flint_knife"]
+          }
+        ]
+      }
+    },
+    "iron_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:iron_knife"]
+          }
+        ]
+      }
+    },
+    "diamond_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:diamond_knife"]
+          }
+        ]
+      }
+    },
+    "golden_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:golden_knife"]
+          }
+        ]
+      }
+    },
+    "netherite_knife": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:netherite_knife"]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "flint_knife",
+      "iron_knife",
+      "diamond_knife",
+      "golden_knife",
+      "netherite_knife"
+    ]
+  ]
+}

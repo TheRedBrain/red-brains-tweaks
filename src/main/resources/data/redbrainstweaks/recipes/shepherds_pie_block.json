@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "redbrainstweaks:milk_bottle"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "redbrainstweaks:cooked_mutton_chops"
+    },
+    {
+      "item": "redbrainstweaks:cooked_mutton_chops"
+    },
+    {
+      "item": "redbrainstweaks:cooked_mutton_chops"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "redbrainstweaks:onion"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:shepherds_pie_block"
+  }
+}

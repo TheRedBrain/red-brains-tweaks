@@ -1,0 +1,33 @@
+{
+  "parent": "redbrainstweaks:main/place_cooking_pot",
+  "display": {
+    "icon": {
+      "item": "redbrainstweaks:chicken_soup"
+    },
+    "title": {
+      "translate": "redbrainstweaks.advancement.eat_comfort_food"
+    },
+    "description": {
+      "translate": "redbrainstweaks.advancement.eat_comfort_food.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "comfort": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "redbrainstweaks:comfort": {}
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "comfort"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:hamburger"
+    ]
+  },
+  "criteria": {
+    "has_beef_patty": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:beef_patty"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:hamburger"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beef_patty",
+      "has_the_recipe"
+    ]
+  ]
+}

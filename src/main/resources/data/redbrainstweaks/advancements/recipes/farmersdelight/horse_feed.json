@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:horse_feed"
+    ]
+  },
+  "criteria": {
+    "has_golden_carrot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:golden_carrot"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:horse_feed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_carrot",
+      "has_the_recipe"
+    ]
+  ]
+}

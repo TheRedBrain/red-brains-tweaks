@@ -1,0 +1,21 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:pumpkin_slice"
+    },
+    {
+      "item": "redbrainstweaks:pumpkin_slice"
+    },
+    {
+      "item": "redbrainstweaks:bacon"
+    },
+    {
+      "item": "redbrainstweaks:milk_bottle"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:pumpkin_soup"
+  },
+  "cookingtime": 1600
+}

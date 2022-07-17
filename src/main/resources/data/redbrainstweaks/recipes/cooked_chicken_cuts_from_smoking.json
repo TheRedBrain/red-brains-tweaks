@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "redbrainstweaks:chicken_cuts"
+  },
+  "result": "redbrainstweaks:cooked_chicken_cuts",
+  "experience": 0.35,
+  "cookingtime": 800
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "redbrainstweaks:ham"
+  },
+  "result": "redbrainstweaks:smoked_ham",
+  "experience": 0.35,
+  "cookingtime": 1600
+}

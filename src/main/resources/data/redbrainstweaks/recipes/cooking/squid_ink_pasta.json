@@ -1,0 +1,27 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    [
+      {
+        "item": "redbrainstweaks:cod_slice"
+      },
+      {
+        "item": "redbrainstweaks:salmon_slice"
+      }
+    ],
+    {
+      "item": "redbrainstweaks:raw_pasta"
+    },
+    {
+      "item": "redbrainstweaks:tomato_sauce"
+    },
+    {
+      "item": "minecraft:ink_sac"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:squid_ink_pasta",
+    "count": 2
+  },
+  "cookingtime": 1600
+}

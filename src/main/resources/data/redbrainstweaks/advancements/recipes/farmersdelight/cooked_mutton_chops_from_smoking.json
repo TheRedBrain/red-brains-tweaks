@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:cooked_mutton_chops_from_smoking"
+    ]
+  },
+  "criteria": {
+    "cooked_mutton_chops": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["redbrainstweaks:mutton_chops"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:cooked_mutton_chops_from_smoking"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cooked_mutton_chops",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "type": "redbrainstweaks:cooking",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:cooked_rice"
+    },
+    [
+      {
+        "item": "redbrainstweaks:beetroot"
+      },
+      {
+        "item": "redbrainstweaks:carrot"
+      },
+      {
+        "item": "redbrainstweaks:onion"
+      },
+      {
+        "item": "redbrainstweaks:potato"
+      },
+      {
+        "item": "redbrainstweaks:tomato"
+      }
+    ],
+    {
+      "item": "redbrainstweaks:tomato_sauce"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "redbrainstweaks:brown_mushroom_colony"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    }
+  ],
+  "result": {
+    "item": "redbrainstweaks:stuffed_pumpkin_block"
+  },
+  "container": {
+    "item": "minecraft:pumpkin"
+  },
+  "cookingtime": 3200
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "redbrainstweaks:fried_egg"
+    ]
+  },
+  "criteria": {
+    "fried_egg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:egg"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "redbrainstweaks:fried_egg"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "fried_egg",
+      "has_the_recipe"
+    ]
+  ]
+}

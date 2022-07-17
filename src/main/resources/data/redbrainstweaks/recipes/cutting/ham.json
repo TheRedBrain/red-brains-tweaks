@@ -1,0 +1,20 @@
+{
+  "type": "redbrainstweaks:cutting",
+  "ingredients": [
+    {
+      "item": "redbrainstweaks:ham"
+    }
+  ],
+  "tool": {
+    "tag": "redbrainstweaks:tools/knives"
+  },
+  "result": [
+    {
+      "item": "minecraft:porkchop",
+      "count": 2
+    },
+    {
+      "item": "minecraft:bone"
+    }
+  ]
+}

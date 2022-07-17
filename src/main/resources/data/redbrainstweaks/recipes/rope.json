@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "s",
+    "s",
+    "s"
+  ],
+  "key": {
+    "s": {
+      "item": "redbrainstweaks:straw"
+    }
+  },
+  "result": {
+    "item": "redbrainstweaks:rope",
+    "count": 3
+  }
+}
