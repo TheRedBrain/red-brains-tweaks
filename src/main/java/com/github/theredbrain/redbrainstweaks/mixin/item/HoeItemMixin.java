@@ -2,13 +2,14 @@ package com.github.theredbrain.redbrainstweaks.mixin.item;
 
 import com.github.theredbrain.redbrainstweaks.block.entity.PlacedToolEntity;
 import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.BlockTags;
@@ -19,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,13 +30,18 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import static net.minecraft.item.HoeItem.createTillAction;
+import static net.minecraft.item.HoeItem.createTillAndDropAction;
+
 @Mixin(HoeItem.class)
 public class HoeItemMixin {
 
     @Shadow
     @Final
-    protected static Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS;
-
+    @Mutable
+    protected static Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = Maps.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK, Pair.of(HoeItem::canTillFarmland, createTillAction(BlocksRegistry.LOOSE_DIRT_BLOCK.getDefaultState())), Blocks.DIRT_PATH, Pair.of(HoeItem::canTillFarmland, createTillAction(BlocksRegistry.LOOSE_DIRT_BLOCK.getDefaultState())), Blocks.DIRT, Pair.of(HoeItem::canTillFarmland, createTillAction(BlocksRegistry.LOOSE_DIRT_BLOCK.getDefaultState())), Blocks.COARSE_DIRT, Pair.of(HoeItem::canTillFarmland, createTillAction(Blocks.DIRT.getDefaultState())), Blocks.ROOTED_DIRT, Pair.of((itemUsageContext) -> {
+        return true;
+    }, createTillAndDropAction(BlocksRegistry.LOOSE_DIRT_BLOCK.getDefaultState(), Items.HANGING_ROOTS)), BlocksRegistry.LOOSE_DIRT_BLOCK, Pair.of(HoeItem::canTillFarmland, createTillAction(BlocksRegistry.CUSTOM_FARMLAND_BLOCK.getDefaultState()))));
 
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
     public void canBePlacedOnBlocks(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
@@ -87,4 +94,5 @@ public class HoeItemMixin {
         }
         cir.cancel();
     }
+
 }

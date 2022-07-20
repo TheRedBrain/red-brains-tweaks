@@ -42,6 +42,7 @@ public class FallingSlabBlock extends FallingBlock implements Waterloggable {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        super.appendProperties(builder);
         builder.add(new Property[]{TYPE, WATERLOGGED});
     }
 

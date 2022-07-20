@@ -30,7 +30,7 @@ public class MyceliumSlabBlock extends CustomSlabBlock{
             return true;
         } else if (blockState.getFluidState().getLevel() == 8) {
             return false;
-        } else if ((state.isOf(BlocksRegistry.DIRT_SLAB) || state.isOf(BlocksRegistry.MYCELIUM_SLAB)) && state.get(WATERLOGGED)) {
+        } else if ((state.isOf(BlocksRegistry.LOOSE_DIRT_SLAB) || state.isOf(BlocksRegistry.DIRT_SLAB) || state.isOf(BlocksRegistry.MYCELIUM_SLAB)) && state.get(WATERLOGGED)) {
             return false;
         }
         else {
@@ -56,6 +56,8 @@ public class MyceliumSlabBlock extends CustomSlabBlock{
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
 
                     if (world.getBlockState(blockPos).isOf(Blocks.DIRT) && canSpread(fullBlockState, world, blockPos)) {
+                        world.setBlockState(blockPos, (BlockState)fullBlockState.with(SnowyBlock.SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
+                    } else if (world.getBlockState(blockPos).isOf(BlocksRegistry.LOOSE_DIRT_BLOCK) && canSpread(fullBlockState, world, blockPos)) {
                         world.setBlockState(blockPos, (BlockState)fullBlockState.with(SnowyBlock.SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
                     } else if (world.getBlockState(blockPos).isOf(BlocksRegistry.DIRT_SLAB) && !(world.getBlockState(blockPos).get(WATERLOGGED)) && canSpread(slabBlockState, world, blockPos)) {
                         world.setBlockState(blockPos, (BlockState)slabBlockState.with(TYPE, world.getBlockState(blockPos).get(TYPE)));

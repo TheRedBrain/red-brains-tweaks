@@ -25,21 +25,16 @@ public class DarkOakStumpTreeDecorator extends TreeDecorator {
     @Override
     public void generate(Generator generator) {
 
-        // TODO implement checks
         List<BlockPos> list = generator.getLogPositions();
-//        ((BlockPos)list.get(0))
         int stumpLevel = list.get(4).getY();
         int i = 4;
         while (list.get(i).getY() == stumpLevel) {
-//            for (int i = 4; i <= 7; i++) {
             generator.replace((BlockPos) list.get(i), provider.getBlockState(generator.getRandom(), (BlockPos) list.get(i)));
             i++;
         }
     }
 
     static {
-        CODEC = BlockStateProvider.TYPE_CODEC.fieldOf("stump_provider").xmap(DarkOakStumpTreeDecorator::new, (decorator) -> {
-            return decorator.provider;
-        }).codec();
+        CODEC = BlockStateProvider.TYPE_CODEC.fieldOf("stump_provider").xmap(DarkOakStumpTreeDecorator::new, (decorator) -> decorator.provider).codec();
     }
 }

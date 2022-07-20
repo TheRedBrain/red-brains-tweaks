@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "redbrainstweaks:block/loose_dirt"
+      },
+      {
+        "model": "redbrainstweaks:block/loose_dirt",
+        "y": 90
+      },
+      {
+        "model": "redbrainstweaks:block/loose_dirt",
+        "y": 180
+      },
+      {
+        "model": "redbrainstweaks:block/loose_dirt",
+        "y": 270
+      }
+    ]
+  }
+}

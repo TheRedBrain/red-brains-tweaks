@@ -87,7 +87,9 @@ public class WetClayBrickBlock extends AbstractBrickBlock {
                 world.setBlockState(pos, BlocksRegistry.BRICK_BLOCK.getDefaultState().with(IngotBlock.INGOTS, 1).with(FACING, state.get(FACING)));
             }
         } else if (!(world.getBiome(pos).isIn(RedBrainsTweaks.NO_PRECIPITATION)) && world.getLevelProperties().isRaining() && world.getLightLevel(LightType.SKY, pos.up()) >= 15) {
-            world.setBlockState(pos, (BlockState) state.with(DRYNESS, 1));
+            if (state.get(DRYNESS) >= 2) {
+                world.setBlockState(pos, (BlockState) state.with(DRYNESS, state.get(DRYNESS) - 1));
+            }
         }
     }
 

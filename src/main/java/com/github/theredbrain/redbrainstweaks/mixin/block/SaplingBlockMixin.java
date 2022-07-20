@@ -1,6 +1,5 @@
 package com.github.theredbrain.redbrainstweaks.mixin.block;
 
-import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.block.SaplingBlock;

@@ -2,6 +2,7 @@ package com.github.theredbrain.redbrainstweaks.registry;
 
 import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
 import com.github.theredbrain.redbrainstweaks.block.*;
+import com.github.theredbrain.redbrainstweaks.block.plants.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
@@ -59,17 +60,20 @@ public class BlocksRegistry {
     // soil blocks
     public static final Block GRASS_SLAB = new GrassSlabBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
     public static final Block DIRT_SLAB = new DirtSlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).ticksRandomly().strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
+    public static final LooseDirtSlabBlock LOOSE_DIRT_SLAB = new LooseDirtSlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
     public static final Block COARSE_DIRT_SLAB = new SoilSlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
     public static final Block PODZOL_SLAB = new SoilSlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
     public static final Block MYCELIUM_SLAB = new MyceliumSlabBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.PURPLE).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
     public static final Block ROOTED_DIRT_SLAB = new SoilSlabBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
-    public static final Block DIRT_PATH_SLAB = new DirtPathSlabBlock(FabricBlockSettings.of(Material.SOIL).strength(0.65F).sounds(BlockSoundGroup.GRASS).blockVision((state, world, pos) -> {return true;}).suffocates((state, world, pos) -> {return true;}));
+    public static final Block DIRT_PATH_SLAB = new DirtPathSlabBlock(FabricBlockSettings.of(Material.SOIL).strength(0.65F).sounds(BlockSoundGroup.GRASS).blockVision((state, world, pos) -> true).suffocates((state, world, pos) -> true));
     public static final Block SAND_SLAB = new FallingSlabBlock(14406560, FabricBlockSettings.of(Material.AGGREGATE, MapColor.PALE_YELLOW).strength(0.5F).sounds(BlockSoundGroup.SAND));
     public static final Block RED_SAND_SLAB = new FallingSlabBlock(11098145, FabricBlockSettings.of(Material.AGGREGATE, MapColor.ORANGE).strength(0.5F).sounds(BlockSoundGroup.SAND));
     public static final Block GRAVEL_SLAB = new FallingSlabBlock(-8356741, FabricBlockSettings.of(Material.AGGREGATE, MapColor.STONE_GRAY).strength(0.6F).sounds(BlockSoundGroup.GRAVEL));
     public static final OrganicCompostBlock ORGANIC_COMPOST = new OrganicCompostBlock(FabricBlockSettings.copyOf(Blocks.DIRT).hardness(1.2f).resistance(1.2f).sounds(BlockSoundGroup.CROP));
     public static final RichSoilBlock RICH_SOIL = new RichSoilBlock(FabricBlockSettings.copyOf(Blocks.DIRT).ticksRandomly().sounds(BlockSoundGroup.ROOTED_DIRT));
     public static final RichSoilFarmlandBlock RICH_SOIL_FARMLAND = new RichSoilFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND).sounds(BlockSoundGroup.ROOTED_DIRT));
+    public static final LooseDirtBlock LOOSE_DIRT_BLOCK = new LooseDirtBlock(FabricBlockSettings.copyOf(Blocks.DIRT));
+    public static final CustomFarmlandBlock CUSTOM_FARMLAND_BLOCK = new CustomFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND));
 
     // brick blocks
     public static final WetClayBrickBlock WET_CLAY_BRICK_BLOCK = new WetClayBrickBlock(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(0.6F).sounds(BlockSoundGroup.GRAVEL));
@@ -92,12 +96,18 @@ public class BlocksRegistry {
     public static final WildPatchBlock WILD_CARROTS = new WildPatchBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).sounds(BlockSoundGroup.CROP).offsetType(AbstractBlock.OffsetType.NONE));
     public static final WildPatchBlock WILD_POTATOES = new WildPatchBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).sounds(BlockSoundGroup.CROP).offsetType(AbstractBlock.OffsetType.XZ));
     public static final WildPatchBlock WILD_BEETROOTS = new WildPatchBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).sounds(BlockSoundGroup.CROP).offsetType(AbstractBlock.OffsetType.XZ));
-    public static final WildRiceCropBlock WILD_RICE = new WildRiceCropBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).sounds(BlockSoundGroup.WET_GRASS).offsetType(AbstractBlock.OffsetType.NONE));
+    public static final WildRiceBlock WILD_RICE = new WildRiceBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).sounds(BlockSoundGroup.WET_GRASS).offsetType(AbstractBlock.OffsetType.NONE));
     public static final CabbageCropBlock CABBAGE_CROP = new CabbageCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
     public static final OnionCropBlock ONION_CROP = new OnionCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
     public static final TomatoBushCropBlock TOMATO_CROP = new TomatoBushCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
     public static final RiceCropBlock RICE_CROP = new RiceCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
     public static final RiceUpperCropBlock RICE_UPPER_CROP = new RiceUpperCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
+    public static final WeedBlock WEED_BLOCK = new WeedBlock(FabricBlockSettings.copyOf(Blocks.WHEAT).offsetType(AbstractBlock.OffsetType.NONE));
+    public static final BeetrootsCropBlock CUSTOM_BEETROOTS_BLOCK = new BeetrootsCropBlock(FabricBlockSettings.copyOf(Blocks.BEETROOTS));
+    public static final CarrotsCropBlock CUSTOM_CARROTS_BLOCK = new CarrotsCropBlock(FabricBlockSettings.copyOf(Blocks.CARROTS));
+    public static final PotatoesCropBlock CUSTOM_POTATOES_BLOCK = new PotatoesCropBlock(FabricBlockSettings.copyOf(Blocks.POTATOES));
+    public static final WheatCropBlock CUSTOM_WHEAT_BLOCK = new WheatCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
+    public static final WheatUpperCropBlock WHEAT_UPPER_CROP = new WheatUpperCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
 
     // tree stump blocks
     public static final Block ACACIA_STUMP_BLOCK = new Block(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(50.0F, 6.0F).sounds(BlockSoundGroup.WOOD));
@@ -111,6 +121,7 @@ public class BlocksRegistry {
     public static void registerBlocks() {
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "grass_slab"), GRASS_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "dirt_slab"), DIRT_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "loose_dirt_slab"), LOOSE_DIRT_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "coarse_dirt_slab"), COARSE_DIRT_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "podzol_slab"), PODZOL_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "mycelium_slab"), MYCELIUM_SLAB);
@@ -122,6 +133,8 @@ public class BlocksRegistry {
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "organic_compost"), ORGANIC_COMPOST);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "rich_soil"), RICH_SOIL);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "rich_soil_farmland"), RICH_SOIL_FARMLAND);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "loose_dirt"), LOOSE_DIRT_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_farmland"), CUSTOM_FARMLAND_BLOCK);
 
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "cactus_root"), CACTUS_ROOT_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "sugar_cane_root"), SUGAR_CANE_ROOT_BLOCK);
@@ -139,6 +152,12 @@ public class BlocksRegistry {
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "tomatoes"), TOMATO_CROP);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "rice_crop"), RICE_CROP);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "rice_upper_crop"), RICE_UPPER_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "weed_block"), WEED_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_beetroots_block"), CUSTOM_BEETROOTS_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_carrots_block"), CUSTOM_CARROTS_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_potatoes_block"), CUSTOM_POTATOES_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_wheat_block"), CUSTOM_WHEAT_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "wheat_upper_crop"), WHEAT_UPPER_CROP);
 
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "apple_pie"), APPLE_PIE);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "sweet_berry_cheesecake"), SWEET_BERRY_CHEESECAKE);

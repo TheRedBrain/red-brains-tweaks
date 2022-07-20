@@ -1,6 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "redbrainstweaks:block/rice_stage2"
-  }
-}

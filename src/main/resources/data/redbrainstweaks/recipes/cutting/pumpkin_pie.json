@@ -2,7 +2,7 @@
   "type": "redbrainstweaks:cutting",
   "ingredients": [
     {
-      "item": "redbrainstweaks:pumpkin_pie_block"
+      "item": "redbrainstweaks:pumpkin_pie"
     }
   ],
   "tool": {
@@ -10,7 +10,7 @@
   },
   "result": [
     {
-      "item": "minecraft:pumpkin_pie",
+      "item": "redbrainstweaks:pumpkin_pie_slice",
       "count": 4
     }
   ]

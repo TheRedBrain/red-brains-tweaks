@@ -1,21 +1,16 @@
 package com.github.theredbrain.redbrainstweaks;
 
-import com.github.theredbrain.redbrainstweaks.block.*;
+import com.github.theredbrain.redbrainstweaks.client.render.block.entity.CuttingBoardBlockEntityRenderer;
 import com.github.theredbrain.redbrainstweaks.client.render.block.entity.PlacedToolRenderer;
 import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import com.github.theredbrain.redbrainstweaks.registry.EntitiesRegistry;
-import com.github.theredbrain.redbrainstweaks.registry.ItemsRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
-import net.minecraft.item.Items;
 
 public class RedBrainsTweaksClient implements ClientModInitializer {
     @Override
@@ -54,6 +49,7 @@ public class RedBrainsTweaksClient implements ClientModInitializer {
 
     private void registerRenderer() {
         BlockEntityRendererRegistry.register(EntitiesRegistry.PLACED_TOOL_ENTITY, PlacedToolRenderer::new);
+        BlockEntityRendererRegistry.register(EntitiesRegistry.CUTTING_BOARD_ENTITY, CuttingBoardBlockEntityRenderer::new);
     }
 
     private void registerTransparency() {
@@ -73,6 +69,12 @@ public class RedBrainsTweaksClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.TOMATO_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.RICE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.RICE_UPPER_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.WEED_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.CUSTOM_BEETROOTS_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.CUSTOM_CARROTS_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.CUSTOM_POTATOES_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.CUSTOM_WHEAT_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.WHEAT_UPPER_CROP, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.WET_CLAY_BRICK_BLOCK, RenderLayer.getCutout());
 

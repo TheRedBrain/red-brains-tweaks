@@ -22,8 +22,8 @@ import net.minecraft.world.World;
 
 import java.util.Set;
 
-public class RichSoilBlock extends Block {
-    public static final int COLONY_FORMING_LIGHT_LEVEL = 12;
+public class RichSoilBlock extends FallingBlock {
+    public static final int COLONY_FORMING_LIGHT_LEVEL = 0;
 
     public RichSoilBlock(Settings settings) {
         super(settings);

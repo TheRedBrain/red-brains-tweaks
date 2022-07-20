@@ -26,13 +26,10 @@ public class StumpTreeDecorator extends TreeDecorator {
     public void generate(Generator generator) {
 
         List<BlockPos> list = generator.getLogPositions();
-//        ((BlockPos)list.get(0))
-        generator.replace((BlockPos)list.get(1), provider.getBlockState(generator.getRandom(), (BlockPos)list.get(1)));//.getDefaultState().with(BeehiveBlock.FACING, BEE_NEST_FACE));
+        generator.replace((BlockPos)list.get(1), provider.getBlockState(generator.getRandom(), (BlockPos)list.get(1)));
     }
 
     static {
-        CODEC = BlockStateProvider.TYPE_CODEC.fieldOf("stump_provider").xmap(StumpTreeDecorator::new, (decorator) -> {
-            return decorator.provider;
-        }).codec();
+        CODEC = BlockStateProvider.TYPE_CODEC.fieldOf("stump_provider").xmap(StumpTreeDecorator::new, (decorator) -> decorator.provider).codec();
     }
 }

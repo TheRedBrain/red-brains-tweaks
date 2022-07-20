@@ -1,0 +1,7 @@
+{
+  "parent": "redbrainstweaks:block/templates/template_crop_with_weed",
+  "textures": {
+    "crop": "redbrainstweaks:block/crops/onions_stage0",
+    "weed": "redbrainstweaks:block/crops/weeds_stage1"
+  }
+}

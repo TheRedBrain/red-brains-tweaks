@@ -174,9 +174,10 @@ public class CuttingBoardBlockEntity extends BlockEntity {
      * @return true if the tool in parameter can carve item placed on the board, false otherwise.
      */
     public boolean carveToolOnBoard(ItemStack tool) {
-        if (addItem(tool)) {
+        if (!tool.isEmpty() && tool.isIn(Tags.KNIVES)) {
+            itemHandler.setStack(0, tool.split(1));
             isItemCarvingBoard = true;
-
+            inventoryChanged();
             return true;
         }
 

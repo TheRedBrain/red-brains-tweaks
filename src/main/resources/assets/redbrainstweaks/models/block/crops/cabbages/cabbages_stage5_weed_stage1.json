@@ -1,0 +1,7 @@
+{
+  "parent": "redbrainstweaks:block/templates/template_crop_cross_with_weed",
+  "textures": {
+    "crop": "redbrainstweaks:block/crops/cabbages_stage5",
+    "weed": "redbrainstweaks:block/crops/weeds_stage1"
+  }
+}

@@ -26,15 +26,12 @@ public class GiantStumpTreeDecorator extends TreeDecorator {
     public void generate(Generator generator) {
 
         List<BlockPos> list = generator.getLogPositions();
-//        ((BlockPos)list.get(0))
         for (int i = 4; i <= 7; i++) {
-            generator.replace((BlockPos) list.get(i), provider.getBlockState(generator.getRandom(), (BlockPos) list.get(i)));//.getDefaultState().with(BeehiveBlock.FACING, BEE_NEST_FACE));
+            generator.replace((BlockPos) list.get(i), provider.getBlockState(generator.getRandom(), (BlockPos) list.get(i)));
         }
     }
 
     static {
-        CODEC = BlockStateProvider.TYPE_CODEC.fieldOf("stump_provider").xmap(GiantStumpTreeDecorator::new, (decorator) -> {
-            return decorator.provider;
-        }).codec();
+        CODEC = BlockStateProvider.TYPE_CODEC.fieldOf("stump_provider").xmap(GiantStumpTreeDecorator::new, (decorator) -> decorator.provider).codec();
     }
 }

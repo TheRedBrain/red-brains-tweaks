@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "redbrainstweaks:block/loose_dirt"
+    },
+    "type=double": {
+      "model": "redbrainstweaks:block/loose_dirt"
+    },
+    "type=top": {
+      "model": "redbrainstweaks:block/loose_dirt"
+    }
+  }
+}

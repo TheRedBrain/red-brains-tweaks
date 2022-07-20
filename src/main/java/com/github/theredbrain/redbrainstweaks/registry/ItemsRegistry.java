@@ -13,11 +13,11 @@ public class ItemsRegistry {
 
     // tools
     public static final FireStarterItem FIRE_STARTER_ITEM = new FireStarterItem(new FabricItemSettings().maxCount(1).maxDamage(10).group(ItemGroup.TOOLS));
-    public static final KnifeItem FLINT_KNIFE = new KnifeItem(ModToolMaterial.FLINT, new FabricItemSettings().group(ItemGroup.TOOLS));
-    public static final KnifeItem IRON_KNIFE = new KnifeItem(ModToolMaterial.IRON, new FabricItemSettings().group(ItemGroup.TOOLS));
-    public static final KnifeItem GOLDEN_KNIFE = new KnifeItem(ModToolMaterial.GOLD, new FabricItemSettings().group(ItemGroup.TOOLS));
-    public static final KnifeItem DIAMOND_KNIFE = new KnifeItem(ModToolMaterial.DIAMOND, new FabricItemSettings().group(ItemGroup.TOOLS));
-    public static final KnifeItem NETHERITE_KNIFE = new KnifeItem(ModToolMaterial.NETHERITE, new FabricItemSettings().group(ItemGroup.TOOLS).fireproof());
+    public static final KnifeItem FLINT_KNIFE = new KnifeItem(CustomToolMaterials.FLINT, .5F, -1.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
+    public static final KnifeItem IRON_KNIFE = new KnifeItem(CustomToolMaterials.IRON, .5F, -1.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
+    public static final KnifeItem GOLDEN_KNIFE = new KnifeItem(CustomToolMaterials.GOLD, .5F, -1.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
+    public static final KnifeItem DIAMOND_KNIFE = new KnifeItem(CustomToolMaterials.DIAMOND, .5F, -1.8F, new FabricItemSettings().group(ItemGroup.TOOLS));
+    public static final KnifeItem NETHERITE_KNIFE = new KnifeItem(CustomToolMaterials.NETHERITE, .5F, -1.8F, new FabricItemSettings().group(ItemGroup.TOOLS).fireproof());
 
     // forage foods
     public static final Item CABBAGE = new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(Foods.CABBAGE));
@@ -117,6 +117,7 @@ public class ItemsRegistry {
         // soil blocks
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "grass_slab"), new BlockItem(BlocksRegistry.GRASS_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "dirt_slab"), new BlockItem(BlocksRegistry.DIRT_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "loose_dirt_slab"), new BlockItem(BlocksRegistry.LOOSE_DIRT_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "coarse_dirt_slab"), new BlockItem(BlocksRegistry.COARSE_DIRT_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "podzol_slab"), new BlockItem(BlocksRegistry.PODZOL_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "mycelium_slab"), new BlockItem(BlocksRegistry.MYCELIUM_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
@@ -127,6 +128,7 @@ public class ItemsRegistry {
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "organic_compost"), new BlockItem(BlocksRegistry.ORGANIC_COMPOST, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "rich_soil"), new BlockItem(BlocksRegistry.RICH_SOIL, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "rich_soil_farmland"), new BlockItem(BlocksRegistry.RICH_SOIL_FARMLAND, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "loose_dirt"), new BlockItem(BlocksRegistry.LOOSE_DIRT_BLOCK, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
 
         // storage blocks
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "wet_clay_brick"), new BlockItem(BlocksRegistry.WET_CLAY_BRICK_BLOCK, new FabricItemSettings().group(ItemGroup.MATERIALS)));
@@ -153,10 +155,9 @@ public class ItemsRegistry {
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "wild_potatoes"), new BlockItem(BlocksRegistry.WILD_POTATOES, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "wild_beetroots"), new BlockItem(BlocksRegistry.WILD_BEETROOTS, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "wild_rice"), new BlockItem(BlocksRegistry.WILD_RICE, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "cabbage_seeds"), new BlockItem(BlocksRegistry.CABBAGE_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "tomato_seeds"), new BlockItem(BlocksRegistry.TOMATO_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "onion"), new BlockItem(BlocksRegistry.ONION_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS).food(Foods.ONION)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "rice"), new BlockItem(BlocksRegistry.RICE_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "cabbage_seeds"), new AliasedBlockItem(BlocksRegistry.CABBAGE_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "rice"), new AliasedBlockItem(BlocksRegistry.RICE_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "tomato_seeds"), new AliasedBlockItem(BlocksRegistry.TOMATO_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
 
         // work stations
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "netherite_cauldron"), new BlockItem(BlocksRegistry.NETHERITE_CAULDRON_BLOCK, new FabricItemSettings().group(ItemGroup.BREWING).fireproof()));
@@ -227,6 +228,7 @@ public class ItemsRegistry {
         // forage foods
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "cabbage"), CABBAGE);
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "ham"), HAM);
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "onion"), new AliasedBlockItem(BlocksRegistry.ONION_CROP, new FabricItemSettings().food(Foods.ONION).group(ItemGroup.MATERIALS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "tomato"), TOMATO);
 
         // basic foods
@@ -305,7 +307,7 @@ public class ItemsRegistry {
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "dog_food"), DOG_FOOD);
     }
 
-    // TODO balance
+    // TODO balance fuel times
     public static void registerFuelTimes() {
         FuelRegistry.INSTANCE.add(BlocksRegistry.OAK_PANTRY, 300);
         FuelRegistry.INSTANCE.add(BlocksRegistry.BIRCH_PANTRY, 300);

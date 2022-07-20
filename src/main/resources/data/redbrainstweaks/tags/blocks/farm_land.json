@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#redbrainstweaks:fertilizable_farm_land",
+    "#redbrainstweaks:non_fertilizable_farm_land"
+  ]
+}

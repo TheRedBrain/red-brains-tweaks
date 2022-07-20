@@ -1,0 +1,6 @@
+{
+  "parent": "redbrainstweaks:block/templates/template_weed",
+  "textures": {
+    "weed": "redbrainstweaks:block/crops/weeds_stage4"
+  }
+}

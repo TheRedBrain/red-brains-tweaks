@@ -7,6 +7,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -17,7 +18,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 
-public class OrganicCompostBlock extends Block {
+public class OrganicCompostBlock extends FallingBlock {
     public static final int MAX_COMPOSTING_STAGE = 7;
     public static final IntProperty COMPOSTING = IntProperty.of("composting", 0, MAX_COMPOSTING_STAGE);
 

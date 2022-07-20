@@ -1,0 +1,6 @@
+{
+  "parent": "redbrainstweaks:block/templates/template_crop",
+  "textures": {
+    "crop": "minecraft:block/carrots_stage2"
+  }
+}

@@ -1,3 +1,10 @@
 accessWidener v1 named
 
 accessible method net/minecraft/world/gen/treedecorator/TreeDecoratorType <init> (Lcom/mojang/serialization/Codec;)V
+accessible method net/minecraft/item/AxeItem <init> (Lnet/minecraft/item/ToolMaterial;FFLnet/minecraft/item/Item$Settings;)V
+accessible method net/minecraft/item/HoeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
+accessible method net/minecraft/item/PickaxeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
+# Remove private keyword from subclass net.example.Example.SubClass
+accessible class net/minecraft/block/ComposterBlock$FullComposterInventory
+accessible class net/minecraft/block/ComposterBlock$ComposterInventory
+accessible class net/minecraft/block/ComposterBlock$DummyInventory

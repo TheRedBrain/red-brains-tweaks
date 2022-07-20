@@ -2,6 +2,7 @@ package com.github.theredbrain.redbrainstweaks.block;
 
 import com.github.theredbrain.redbrainstweaks.block.entity.CuttingBoardBlockEntity;
 import com.github.theredbrain.redbrainstweaks.registry.EntitiesRegistry;
+import com.github.theredbrain.redbrainstweaks.tags.Tags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -99,6 +100,9 @@ public class CuttingBoardBlock extends BlockWithEntity implements Waterloggable 
 
         ItemStack itemHeld = player.getStackInHand(hand);
 
+        if (player.isSneaking() && cuttingBoardBlockEntity.isEmpty()) {
+            result = tryCarveToolOnBoard(world, cuttingBoardBlockEntity, player, hand);
+        }
         if (cuttingBoardBlockEntity.isEmpty()) {
             result = tryAddItemFromPlayerHand(world, cuttingBoardBlockEntity, player, hand);
         } else if (!itemHeld.isEmpty()) {
@@ -109,6 +113,17 @@ public class CuttingBoardBlock extends BlockWithEntity implements Waterloggable 
         }
 
         return result;
+    }
+
+    private ActionResult tryCarveToolOnBoard(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player, Hand hand) {
+        ItemStack itemHeld = player.getStackInHand(Hand.MAIN_HAND);
+
+        if (cuttingBoardBlockEntity.carveToolOnBoard(player.getAbilities().creativeMode ? itemHeld.copy() : itemHeld)) {
+            world.playSound(null, cuttingBoardBlockEntity.getPos(), SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.f, .8f);
+            return ActionResult.SUCCESS;
+        }
+
+        return ActionResult.PASS;
     }
 
     private ActionResult tryAddItemFromPlayerHand(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player, Hand hand) {

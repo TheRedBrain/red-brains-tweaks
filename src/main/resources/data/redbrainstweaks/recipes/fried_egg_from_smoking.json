@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smoking",
   "ingredient": {
-    "item": "red-brains-tweaks:raw_egg"
+    "item": "redbrainstweaks:raw_egg"
   },
   "result": "redbrainstweaks:fried_egg",
   "experience": 0.35,
