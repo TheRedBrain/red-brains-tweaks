@@ -1,19 +1,19 @@
 package com.github.theredbrain.redbrainstweaks.block.plants;
 
-import com.github.theredbrain.redbrainstweaks.block.CustomFarmlandBlock;
 import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
-import com.github.theredbrain.redbrainstweaks.tags.Tags;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.tick.OrderedTick;
 
 public class WheatUpperCropBlock extends CustomUpperCropBlock {
 
@@ -32,6 +32,20 @@ public class WheatUpperCropBlock extends CustomUpperCropBlock {
     }
 
     @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos,
+                                                BlockPos posFrom) {
+        BlockState superState = super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, posFrom);
+        if (!superState.isAir()) {
+            world.getBlockTickScheduler().scheduleTick(OrderedTick.create(BlocksRegistry.CUSTOM_WHEAT_BLOCK, pos.down()));
+        }
+        if (direction == Direction.DOWN && neighborState.isOf(BlocksRegistry.CUSTOM_WHEAT_BLOCK)) {
+            return neighborState.get(BlocksRegistry.CUSTOM_WHEAT_BLOCK.getAgeProperty()) == 7 ? state.with(AGE, 0) : neighborState.get(BlocksRegistry.CUSTOM_WHEAT_BLOCK.getAgeProperty()) == 8 ? state.with(AGE, 1) : neighborState.get(BlocksRegistry.CUSTOM_WHEAT_BLOCK.getAgeProperty()) == 9 ? state.with(AGE, 2) : neighborState.get(BlocksRegistry.CUSTOM_WHEAT_BLOCK.getAgeProperty()) == 10 ? state.with(AGE, 3) : Blocks.AIR.getDefaultState();
+        } else {
+            return state;
+        }
+    }
+
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(AGE);
@@ -43,26 +57,6 @@ public class WheatUpperCropBlock extends CustomUpperCropBlock {
 
     protected ItemConvertible getSeedsItem() {
         return BlocksRegistry.CUSTOM_WHEAT_BLOCK;
-    }
-
-    // crop growth is affected by pollination from bees, fertilization of farmland and moisturized farmland
-    // each of these factors doubles the chance of the crop growing
-    // growth is paused, when the weed is present
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        BlockState lowerCropState = world.getBlockState(pos.down());
-        BlockState farmlandState = world.getBlockState(pos.down(2));
-        if (world.isSkyVisible(pos) && world.getBaseLightLevel(pos, 0) >= 9 && lowerCropState.isOf(this.getLowerCrop())) {
-            int i = this.getAge(state);
-            if (i < this.getMaxAge() && lowerCropState.get(CustomCropBlock.WEED_AGE) == 0) {
-                float f = getAvailableMoisture(world, pos);
-                boolean fertilizedFarmland = (farmlandState.isIn(Tags.FERTILIZABLE_FARM_LAND) && farmlandState.get(CustomFarmlandBlock.FERTILIZED) || farmlandState.isIn(Tags.NON_FERTILIZABLE_FARM_LAND));
-                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 50.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 100.0F : 200.0F) / f) + 1) == 0) {
-                    world.setBlockState(pos, this.withAge(i + 1).with(POLLINATED, false), 2);
-                    world.setBlockState(pos.down(), BlocksRegistry.CUSTOM_WHEAT_BLOCK.withAge(7).with(WheatCropBlock.HAS_WEED_GROWN, lowerCropState.get(WheatCropBlock.HAS_WEED_GROWN)).with(WheatCropBlock.POLLINATED, false).with(WheatCropBlock.UPPER_CROP, i + 2).with(WheatCropBlock.WEED_AGE, lowerCropState.get(CustomCropBlock.WEED_AGE)), 2);
-                }
-            }
-        }
-
     }
 
     static {

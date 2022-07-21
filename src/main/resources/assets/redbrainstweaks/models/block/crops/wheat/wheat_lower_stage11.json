@@ -1,6 +1,6 @@
 {
   "parent": "redbrainstweaks:block/templates/template_crop",
   "textures": {
-    "crop": "redbrainstweaks:block/crops/wheat_lower_stage7_upper_stage2"
+    "crop": "redbrainstweaks:block/crops/wheat_lower_stage11"
   }
 }

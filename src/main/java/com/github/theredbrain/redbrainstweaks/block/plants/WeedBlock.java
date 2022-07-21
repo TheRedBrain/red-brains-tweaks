@@ -39,7 +39,7 @@ public class WeedBlock extends PlantBlock {
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(Tags.FARM_LAND);
+        return floor.isIn(Tags.FARM_LAND) || floor.isOf(BlocksRegistry.LOOSE_DIRT_BLOCK) ||  floor.isOf(BlocksRegistry.RICH_SOIL);
     }
 
     public boolean hasRandomTicks(BlockState state) {

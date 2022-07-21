@@ -1,51 +1,27 @@
 {
   "variants": {
-    "age=0,supporting=false,pollinated=false": {
+    "age=0,supporting=false": {
       "model": "redbrainstweaks:block/crops/rice/rice_stage0"
     },
-    "age=0,supporting=true,pollinated=false": {
+    "age=0,supporting=true": {
       "model": "redbrainstweaks:block/crops/rice/rice_stage0"
     },
-    "age=0,supporting=false,pollinated=true": {
-      "model": "redbrainstweaks:block/crops/rice/rice_stage0"
-    },
-    "age=0,supporting=true,pollinated=true": {
-      "model": "redbrainstweaks:block/crops/rice/rice_stage0"
-    },
-    "age=1,supporting=false,pollinated=false": {
+    "age=1,supporting=false": {
       "model": "redbrainstweaks:block/crops/rice/rice_stage1"
     },
-    "age=1,supporting=true,pollinated=false": {
+    "age=1,supporting=true": {
       "model": "redbrainstweaks:block/crops/rice/rice_stage1"
     },
-    "age=1,supporting=false,pollinated=true": {
-      "model": "redbrainstweaks:block/crops/rice/rice_stage1"
-    },
-    "age=1,supporting=true,pollinated=true": {
-      "model": "redbrainstweaks:block/crops/rice/rice_stage1"
-    },
-    "age=2,supporting=false,pollinated=false": {
+    "age=2,supporting=false": {
       "model": "redbrainstweaks:block/crops/rice/rice_stage2"
     },
-    "age=2,supporting=true,pollinated=false": {
+    "age=2,supporting=true": {
       "model": "redbrainstweaks:block/crops/rice/rice_stage2"
     },
-    "age=2,supporting=false,pollinated=true": {
-      "model": "redbrainstweaks:block/crops/rice/rice_stage2"
-    },
-    "age=2,supporting=true,pollinated=true": {
-      "model": "redbrainstweaks:block/crops/rice/rice_stage2"
-    },
-    "age=3,supporting=false,pollinated=false": {
+    "age=3,supporting=false": {
       "model": "redbrainstweaks:block/crops/rice/rice_stage3"
     },
-    "age=3,supporting=true,pollinated=false": {
-      "model": "redbrainstweaks:block/crops/rice/rice_supporting"
-    },
-    "age=3,supporting=false,pollinated=true": {
-      "model": "redbrainstweaks:block/crops/rice/rice_stage3"
-    },
-    "age=3,supporting=true,pollinated=true": {
+    "age=3,supporting=true": {
       "model": "redbrainstweaks:block/crops/rice/rice_supporting"
     }
   }

@@ -21,6 +21,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class TomatoBushCropBlock extends CustomCropBlock {
@@ -35,7 +36,6 @@ public class TomatoBushCropBlock extends CustomCropBlock {
 
     public TomatoBushCropBlock(Settings settings) {
         super(settings);
-        setDefaultState(getStateManager().getDefaultState().with(AGE, 0));
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

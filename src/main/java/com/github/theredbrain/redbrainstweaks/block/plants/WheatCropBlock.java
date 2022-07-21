@@ -5,6 +5,7 @@ import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import com.github.theredbrain.redbrainstweaks.tags.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -17,77 +18,113 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.tick.OrderedTick;
 
 public class WheatCropBlock extends CustomCropBlock {
 
     private static final IntProperty AGE;
-    public static final IntProperty UPPER_CROP;
-
-    //TODO lower fully grown part only drops straw
-    // upper fully grown part drops wheat
-    // wheat can be crafted into 2 wheat seeds or (ground) into 1 flour
 
     public WheatCropBlock(Settings settings) {
         super(settings);
-        setDefaultState(getStateManager().getDefaultState().with(AGE, 0).with(UPPER_CROP, 0));
+//        setDefaultState(getStateManager().getDefaultState().with(AGE, 0));
     }
 
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(new Property[]{AGE, UPPER_CROP});
+        builder.add(new Property[]{AGE});
     }
 
+    @Override
     public IntProperty getAgeProperty() {
         return AGE;
     }
 
+    @Override
     public int getMaxAge() {
-        return 7;
+        return 11;
     }
 
+    @Override
     protected ItemConvertible getSeedsItem() {
         return Items.WHEAT_SEEDS;
     }
 
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient()) {
-            world.setBlockState(pos, this.withAge(this.getAge(state)).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, state.get(POLLINATED)).with(UPPER_CROP, state.get(UPPER_CROP)).with(WEED_AGE, 0), 2);
-        }
+//    public void scheduledTick(ServerWorld world, BlockPos pos, Random random) {
+//        BlockState state = world.getBlockState(pos);
+//        BlockState stateAbove = world.getBlockState(pos.up());
+//        if (stateAbove.isOf(Blocks.AIR) && state.get(AGE) >= 8 && !(state.get(AGE) == 11)) {
+//            world.setBlockState(pos, state.with(AGE, 11));
+//        }
+//    }
 
-        return ActionResult.PASS;
+    @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        BlockState superState = super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        if (!superState.isAir()) {
+            world.getBlockTickScheduler().scheduleTick(OrderedTick.create(BlocksRegistry.WHEAT_UPPER_CROP, pos.up()));
+        }
+        if (direction == Direction.UP && neighborState.isOf(Blocks.AIR) && state.get(WheatCropBlock.AGE) >= 8 && !(state.get(WheatCropBlock.AGE) == 11)) {
+            return state.with(WheatCropBlock.AGE, 11);
+        } else {
+            return state;
+        }
     }
 
     // crop growth is affected by pollination from bees, fertilization of farmland and moisturized farmland
     // each of these factors doubles the chance of the crop growing
     // growth is paused, when the weed is present
+    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         BlockState blockState = world.getBlockState(pos.down());
         if (world.isSkyVisible(pos) && world.getBaseLightLevel(pos, 0) >= 9 && blockState.isIn(Tags.FARM_LAND)) {
-            int i = this.getAge(state);
-            float f = getAvailableMoisture(world, pos);
+            int age = this.getAge(state);
+            float moisture = getAvailableMoisture(world, pos);
             boolean fertilizedFarmland = (blockState.isIn(Tags.FERTILIZABLE_FARM_LAND) && blockState.get(CustomFarmlandBlock.FERTILIZED) || blockState.isIn(Tags.NON_FERTILIZABLE_FARM_LAND));
-            if (i < this.getMaxAge() - 1 && state.get(WEED_AGE) == 0) {
-                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 50.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 100.0F : 200.0F) / f) + 1) == 0) {
-                    world.setBlockState(pos, this.withAge(i + 1).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(UPPER_CROP, 0).with(WEED_AGE, state.get(WEED_AGE)), 2);
+
+            // crop growing
+            if (age < 6 && state.get(WEED_AGE) == 0 && !world.isNight() && !state.get(HAS_CROP_GROWN)) {
+                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 25.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 50.0F : 100.0F) / moisture) + 1) == 0) {
+                    world.setBlockState(pos, this.withAge(age + 1).with(HAS_CROP_GROWN, true).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(WEED_AGE, state.get(WEED_AGE)), 2);
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
                 }
-            } else if (i == this.getMaxAge() - 1 && state.get(WEED_AGE) == 0) {
-                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 50.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 100.0F : 200.0F) / f) + 1) == 0 && BlocksRegistry.WHEAT_UPPER_CROP.withAge(0).canPlaceAt(world, pos.up())) {
-                    world.setBlockState(pos, this.withAge(i + 1).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(UPPER_CROP, 1).with(WEED_AGE, state.get(WEED_AGE)), 2);
-                    world.setBlockState(pos.up(), BlocksRegistry.WHEAT_UPPER_CROP.withAge(0).with(CustomUpperCropBlock.POLLINATED, false), 2);
+            } else if (age == 6 && state.get(WEED_AGE) == 0 && !world.isNight() && !state.get(HAS_CROP_GROWN)) {
+                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 25.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 50.0F : 100.0F) / moisture) + 1) == 0) {
+                    // grow crop
+                    world.setBlockState(pos, this.withAge(age + 1).with(HAS_CROP_GROWN, true).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(WEED_AGE, state.get(WEED_AGE)), 2);
+                    // plant upper crop
+                    world.setBlockState(pos.up(), BlocksRegistry.WHEAT_UPPER_CROP.getDefaultState(), 2);
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
                 }
+            } else if (age >= 7 && age < this.getMaxAge() - 1 && state.get(WEED_AGE) == 0 && !world.isNight() && !state.get(HAS_CROP_GROWN)) {
+                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 25.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 50.0F : 100.0F) / moisture) + 1) == 0) {
+                    // grow crop
+                    world.setBlockState(pos, this.withAge(age + 1).with(HAS_CROP_GROWN, true).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(WEED_AGE, state.get(WEED_AGE)), 2);
+                    BlockState stateAbove = world.getBlockState(pos.up());
+                    // grow upper crop
+                    if (stateAbove.isOf(BlocksRegistry.WHEAT_UPPER_CROP) && stateAbove.get(WheatUpperCropBlock.AGE) < BlocksRegistry.WHEAT_UPPER_CROP.getMaxAge()) {
+                        world.setBlockState(pos.up(), stateAbove.with(WheatUpperCropBlock.AGE, stateAbove.get(WheatUpperCropBlock.AGE)), 2);
+                    }
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
+                }
+            } else  if (world.isNight() && state.get(HAS_CROP_GROWN)) {
+                world.setBlockState(pos, state.with(HAS_CROP_GROWN, false), 2);
             }
 
+            // weed growing
             if (!blockState.isIn(Tags.NO_WEED_FARM_LAND) && world.isNight() && !state.get(HAS_WEED_GROWN)) {
                 int j = state.get(WEED_AGE);
                 if (j < 3) {
                     if (random.nextInt(100) == 0) {
-                        world.setBlockState(pos, withAge(this.getAge(state)).with(HAS_WEED_GROWN, true).with(POLLINATED, state.get(POLLINATED)).with(UPPER_CROP, state.get(UPPER_CROP)).with(WEED_AGE, state.get(WEED_AGE) + 1), 2);
+                        world.setBlockState(pos, state.with(HAS_WEED_GROWN, true).with(WEED_AGE, state.get(WEED_AGE) + 1), 2);
                     }
                 } else {
                     world.setBlockState(pos, BlocksRegistry.WEED_BLOCK.getDefaultState().with(WeedBlock.AGE, 4));
@@ -100,7 +137,7 @@ public class WheatCropBlock extends CustomCropBlock {
     }
 
     static {
-        AGE = Properties.AGE_7;
+        AGE = IntProperty.of("age", 0, 11);
         AGE_TO_SHAPE = new VoxelShape[]{
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
@@ -109,8 +146,11 @@ public class WheatCropBlock extends CustomCropBlock {
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D),
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
+                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+                Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
                 Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
         };
-        UPPER_CROP = IntProperty.of("upper_crop", 0, 4);
     }
 }

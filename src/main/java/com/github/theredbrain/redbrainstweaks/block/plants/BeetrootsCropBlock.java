@@ -5,6 +5,7 @@ import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import com.github.theredbrain.redbrainstweaks.tags.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
@@ -15,6 +16,8 @@ import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.event.GameEvent;
 
 public class BeetrootsCropBlock extends CustomCropBlock {
 
@@ -47,13 +50,17 @@ public class BeetrootsCropBlock extends CustomCropBlock {
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         BlockState blockState = world.getBlockState(pos.down());
         if (world.isSkyVisible(pos) && world.getBaseLightLevel(pos, 0) >= 9 && blockState.isIn(Tags.FARM_LAND)) {
-            int i = this.getAge(state);
-            if (i < this.getMaxAge() && state.get(WEED_AGE) == 0 && random.nextInt(3) != 0) {
-                float f = getAvailableMoisture(world, pos);
-                boolean fertilizedFarmland = (blockState.isIn(Tags.FERTILIZABLE_FARM_LAND) && blockState.get(CustomFarmlandBlock.FERTILIZED) || blockState.isIn(Tags.NON_FERTILIZABLE_FARM_LAND));
-                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 50.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 100.0F : 200.0F) / f) + 1) == 0) {
-                    world.setBlockState(pos, this.withAge(i + 1).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(WEED_AGE, state.get(WEED_AGE)), 2);
+            int age = this.getAge(state);
+            float moisture = getAvailableMoisture(world, pos);
+            boolean fertilizedFarmland = (blockState.isIn(Tags.FERTILIZABLE_FARM_LAND) && blockState.get(CustomFarmlandBlock.FERTILIZED) || blockState.isIn(Tags.NON_FERTILIZABLE_FARM_LAND));
+            // the random int makes somewhat up to the fact that beetroot got only 4 stages
+            if (age < this.getMaxAge() && state.get(WEED_AGE) == 0 && random.nextInt(3) != 0 && !world.isNight() && !state.get(HAS_CROP_GROWN)) {
+                if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 50.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 100.0F : 200.0F) / moisture) + 1) == 0) {
+                    world.setBlockState(pos, this.withAge(age + 1).with(HAS_CROP_GROWN, true).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(WEED_AGE, state.get(WEED_AGE)), 2);
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
                 }
+            } else if (world.isNight() && state.get(HAS_CROP_GROWN)) {
+                world.setBlockState(pos, state.with(HAS_CROP_GROWN, false), 2);
             }
 
             if (!blockState.isIn(Tags.NO_WEED_FARM_LAND) && world.isNight() && !state.get(HAS_WEED_GROWN)) {
