@@ -25,8 +25,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class RiceCropBlock extends PlantBlock implements FluidFillable {
 
-    //TODO rice crop
-
     public static final IntProperty AGE;
     public static final int MAX_AGE = 3;
     public static final BooleanProperty POLLINATED;

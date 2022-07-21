@@ -2,98 +2,36 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "pool1",
-      "rolls": 1.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "functions": [
-                {
-                  "function": "minecraft:apply_bonus",
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:binomial_with_bonus_count",
-                  "parameters": {
-                    "extra": 1,
-                    "probability": 0.5714286
-                  }
-                }
-              ],
-              "conditions": [
-                {
-                  "condition": "minecraft:block_state_property",
-                  "block": "redbrainstweaks:rice_upper_crop",
-                  "properties": {
-                    "age": "3"
-                  }
-                },
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "tag": "redbrainstweaks:tools/knives"
-                  }
-                }
-              ],
-              "name": "redbrainstweaks:rice"
-            },
-            {
-              "type": "minecraft:item",
-              "functions": [
-                {
-                  "function": "minecraft:apply_bonus",
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:binomial_with_bonus_count",
-                  "parameters": {
-                    "extra": 1,
-                    "probability": 0.5714286
-                  }
-                }
-              ],
-              "conditions": [
-                {
-                  "condition": "minecraft:block_state_property",
-                  "block": "redbrainstweaks:rice_upper_crop",
-                  "properties": {
-                    "age": "3"
-                  }
-                }
-              ],
-              "name": "redbrainstweaks:rice_panicle"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "redbrainstweaks:straw"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "tag": "redbrainstweaks:straw_harvesters"
-          }
-        },
-        {
-          "condition": "block_state_property",
-          "block": "redbrainstweaks:rice_upper_crop",
-          "properties": {
-            "age": "3"
-          }
+          "functions": [
+            {
+              "function": "minecraft:apply_bonus",
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:binomial_with_bonus_count",
+              "parameters": {
+                "extra": 1,
+                "probability": 0.5714286
+              }
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "redbrainstweaks:rice_upper_crop",
+              "properties": {
+                "age": "3"
+              }
+            }
+          ],
+          "name": "redbrainstweaks:rice_panicle"
         }
       ]
-    }
-  ],
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
     }
   ]
 }

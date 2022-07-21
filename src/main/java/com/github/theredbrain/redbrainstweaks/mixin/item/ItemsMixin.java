@@ -1,8 +1,10 @@
 package com.github.theredbrain.redbrainstweaks.mixin.item;
 
 import com.github.theredbrain.redbrainstweaks.item.CustomToolMaterials;
+import com.github.theredbrain.redbrainstweaks.item.Foods;
 import com.github.theredbrain.redbrainstweaks.registry.BlocksRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.Slice;
 @Mixin(Items.class)
 public class ItemsMixin {
 
+    // TODO reduce stack size of all vanilla food items
     @Redirect(method = "<clinit>",
             slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=brick")),
             at = @At(value = "NEW",

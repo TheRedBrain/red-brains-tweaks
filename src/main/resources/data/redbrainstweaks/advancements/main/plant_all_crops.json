@@ -22,43 +22,43 @@
     "wheat": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "minecraft:wheat"
+        "block": "redbrainstweaks:wheat_crop"
       }
     },
     "beetroot": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "minecraft:beetroots"
+        "block": "redbrainstweaks:beetroot_crop"
       }
     },
     "carrot": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "minecraft:carrots"
+        "block": "redbrainstweaks:carrot_crop"
       }
     },
     "potato": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "minecraft:potatoes"
+        "block": "redbrainstweaks:potato_crop"
       }
     },
     "brown_mushroom": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "minecraft:brown_mushroom"
+        "block": "redbrainstweaks:brown_mushroom_colony"
       }
     },
     "red_mushroom": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "minecraft:red_mushroom"
+        "block": "redbrainstweaks:red_mushroom_colony"
       }
     },
     "sugar_cane": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "minecraft:sugar_cane"
+        "block": "redbrainstweaks:sugar_cane_root"
       }
     },
     "melon": {
@@ -88,19 +88,19 @@
     "cabbage": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "redbrainstweaks:cabbages"
+        "block": "redbrainstweaks:cabbage_crop"
       }
     },
     "tomato": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "redbrainstweaks:tomatoes"
+        "block": "redbrainstweaks:tomato_crop"
       }
     },
     "onion": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "redbrainstweaks:onions"
+        "block": "redbrainstweaks:onion_crop"
       }
     },
     "rice": {

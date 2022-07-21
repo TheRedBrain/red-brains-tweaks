@@ -20,6 +20,9 @@
     "main": [
       "com.github.theredbrain.redbrainstweaks.RedBrainsTweaks"
     ],
+    "cardinal-components": [
+      "com.github.theredbrain.redbrainstweaks.components.RedBrainsTweaksComponents"
+    ],
     "client": [
       "com.github.theredbrain.redbrainstweaks.RedBrainsTweaksClient"
     ]
@@ -33,5 +36,10 @@
     "fabric": "*",
     "minecraft": "1.19.x",
     "java": ">=17"
+  },
+  "custom": {
+    "cardinal-components": [
+      "redbrainstweaks:shared-ender-chest-inventories"
+    ]
   }
 }

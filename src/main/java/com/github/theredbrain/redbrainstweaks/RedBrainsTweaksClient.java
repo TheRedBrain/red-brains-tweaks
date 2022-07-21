@@ -98,5 +98,7 @@ public class RedBrainsTweaksClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.PLACED_TOOL_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.STRAW_BALE, RenderLayer.getCutoutMipped());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.STONE_SIDING, RenderLayer.getCutoutMipped());
     }
 }

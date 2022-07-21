@@ -1,9 +1,15 @@
 {
-  "replace": false,
+  "replace": true,
   "values": [
-    "redbrainstweaks:cabbages",
-    "redbrainstweaks:onions",
+    "redbrainstweaks:beetroot_crop",
+    "redbrainstweaks:cabbage_crop",
+    "redbrainstweaks:carrot_crop",
+    "redbrainstweaks:onion_crop",
+    "redbrainstweaks:potato_crop",
     "redbrainstweaks:rice_crop",
-    "redbrainstweaks:tomatoes"
+    "redbrainstweaks:rice_upper_crop",
+    "redbrainstweaks:tomato_crop",
+    "redbrainstweaks:wheat_crop",
+    "redbrainstweaks:wheat_upper_crop"
   ]
 }

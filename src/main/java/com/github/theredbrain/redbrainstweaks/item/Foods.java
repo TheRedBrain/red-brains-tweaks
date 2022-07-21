@@ -7,8 +7,10 @@ import net.minecraft.item.FoodComponent;
 
 public class Foods {
     // Forage
+    public static final FoodComponent BROWN_MUSHROOM = (new FoodComponent.Builder()).hunger(1).saturationModifier(.1f).build();
     public static final FoodComponent CABBAGE = (new FoodComponent.Builder()).hunger(2).saturationModifier(.1f).build();
     public static final FoodComponent HAM = (new FoodComponent.Builder()).hunger(5).saturationModifier(.3f).build();
+    public static final FoodComponent RED_MUSHROOM = (new FoodComponent.Builder()).hunger(1).saturationModifier(.1f).statusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 0), 1.f).build();
     public static final FoodComponent ONION = (new FoodComponent.Builder()).hunger(2).saturationModifier(.2f).build();
     public static final FoodComponent TOMATO = (new FoodComponent.Builder()).hunger(1).saturationModifier(.1f).build();
 

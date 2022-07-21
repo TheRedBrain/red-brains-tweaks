@@ -2,10 +2,10 @@
   "type": "redbrainstweaks:cooking",
   "ingredients": [
     {
-      "item": "minecraft:brown_mushroom"
+      "item": "redbrainstweaks:brown_mushroom"
     },
     {
-      "item": "minecraft:brown_mushroom"
+      "item": "redbrainstweaks:brown_mushroom"
     },
     {
       "item": "redbrainstweaks:milk_bottle"

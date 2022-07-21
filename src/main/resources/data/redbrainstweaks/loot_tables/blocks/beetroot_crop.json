@@ -2,36 +2,44 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "pool1",
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:alternatives",
+          "type": "minecraft:group",
           "children": [
             {
               "type": "minecraft:item",
-              "conditions": [
+              "functions": [
                 {
-                  "condition": "minecraft:block_state_property",
-                  "block": "redbrainstweaks:cabbages",
-                  "properties": {
-                    "age": "7"
-                  }
+                  "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "redbrainstweaks:cabbage"
+              "name": "minecraft:beetroot"
             },
             {
               "type": "minecraft:item",
-              "name": "redbrainstweaks:cabbage_seeds"
+              "functions": [
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "minecraft:beetroot_seeds"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "redbrainstweaks:beetroot_crop",
+              "properties": {
+                "age": "7"
+              }
             }
           ]
         }
       ]
     },
     {
-      "name": "pool2",
-      "rolls": 1.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
@@ -46,23 +54,18 @@
               }
             }
           ],
-          "name": "redbrainstweaks:cabbage_seeds"
+          "name": "minecraft:beetroot_seeds"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "redbrainstweaks:cabbages",
+          "block": "redbrainstweaks:beetroot_crop",
           "properties": {
             "age": "7"
           }
         }
       ]
-    }
-  ],
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
     }
   ]
 }

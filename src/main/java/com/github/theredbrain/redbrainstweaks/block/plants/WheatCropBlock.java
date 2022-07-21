@@ -21,6 +21,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.event.GameEvent;
 
 public class WheatCropBlock extends CustomCropBlock {
 
@@ -73,7 +74,7 @@ public class WheatCropBlock extends CustomCropBlock {
             boolean fertilizedFarmland = (blockState.isIn(Tags.FERTILIZABLE_FARM_LAND) && blockState.get(CustomFarmlandBlock.FERTILIZED) || blockState.isIn(Tags.NON_FERTILIZABLE_FARM_LAND));
             if (i < this.getMaxAge() - 1 && state.get(WEED_AGE) == 0) {
                 if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 50.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 100.0F : 200.0F) / f) + 1) == 0) {
-                    world.setBlockState(pos, this.withAge(i + 1).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(WEED_AGE, state.get(WEED_AGE)), 2);
+                    world.setBlockState(pos, this.withAge(i + 1).with(HAS_WEED_GROWN, state.get(HAS_WEED_GROWN)).with(POLLINATED, false).with(UPPER_CROP, 0).with(WEED_AGE, state.get(WEED_AGE)), 2);
                 }
             } else if (i == this.getMaxAge() - 1 && state.get(WEED_AGE) == 0) {
                 if (random.nextInt((int)(((fertilizedFarmland && state.get(POLLINATED)) ? 50.0F : (fertilizedFarmland || state.get(POLLINATED)) ? 100.0F : 200.0F) / f) + 1) == 0 && BlocksRegistry.WHEAT_UPPER_CROP.withAge(0).canPlaceAt(world, pos.up())) {
@@ -86,7 +87,7 @@ public class WheatCropBlock extends CustomCropBlock {
                 int j = state.get(WEED_AGE);
                 if (j < 3) {
                     if (random.nextInt(100) == 0) {
-                        world.setBlockState(pos, withAge(this.getAge(state)).with(HAS_WEED_GROWN, true).with(POLLINATED, state.get(POLLINATED)).with(WEED_AGE, state.get(WEED_AGE) + 1), 2);
+                        world.setBlockState(pos, withAge(this.getAge(state)).with(HAS_WEED_GROWN, true).with(POLLINATED, state.get(POLLINATED)).with(UPPER_CROP, state.get(UPPER_CROP)).with(WEED_AGE, state.get(WEED_AGE) + 1), 2);
                     }
                 } else {
                     world.setBlockState(pos, BlocksRegistry.WEED_BLOCK.getDefaultState().with(WeedBlock.AGE, 4));

@@ -45,39 +45,4 @@ public class RichSoilBlock extends FallingBlock {
 
         return ActionResult.PASS;
     }
-
-    @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!world.isClient()) {
-            BlockPos abovePos = pos.up();
-            BlockState aboveState = world.getBlockState(abovePos);
-            Block aboveBlock = aboveState.getBlock();
-
-            // Do nothing if the plant is unaffected by rich soil
-            if (aboveState.isIn(Tags.UNAFFECTED_BY_RICH_SOIL) || aboveBlock instanceof TallFlowerBlock) {
-                return;
-            }
-
-            // Convert mushrooms to colonies if it's dark enough
-            if (!tryConvertToColonies(world, pos, aboveState) && (aboveBlock instanceof Fertilizable growable
-                    && MathUtils.RAND.nextFloat() <= .2f && growable.isFertilizable(world, pos.up(), aboveState, false))) {
-                growable.grow(world, world.getRandom(), pos.up(), aboveState);
-                world.syncWorldEvent(WorldEventUtils.BONEMEAL_PARTICLES, pos.up(), 0);
-            }
-        }
-    }
-
-    private boolean tryConvertToColonies(World world, BlockPos pos, BlockState state) {
-        if (!Set.of(Blocks.BROWN_MUSHROOM, Blocks.RED_MUSHROOM).contains(state.getBlock())) {
-            return false;
-        }
-
-        BlockState newState = state.isOf(Blocks.BROWN_MUSHROOM) ? BlocksRegistry.BROWN_MUSHROOM_COLONY.getDefaultState() : BlocksRegistry.RED_MUSHROOM_COLONY.getDefaultState();
-        if (world.getLightLevel(pos.up(), 0) <= COLONY_FORMING_LIGHT_LEVEL) {
-            world.setBlockState(pos.up(), newState);
-        }
-
-        return true;
-    }
-
 }

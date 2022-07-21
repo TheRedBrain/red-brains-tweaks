@@ -4,6 +4,7 @@ import com.github.theredbrain.redbrainstweaks.RedBrainsTweaks;
 import com.github.theredbrain.redbrainstweaks.item.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -20,56 +21,57 @@ public class ItemsRegistry {
     public static final KnifeItem NETHERITE_KNIFE = new KnifeItem(CustomToolMaterials.NETHERITE, .5F, -1.8F, new FabricItemSettings().group(ItemGroup.TOOLS).fireproof());
 
     // forage foods
-    public static final Item CABBAGE = new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(Foods.CABBAGE));
-    public static final Item HAM = new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(Foods.HAM));
-    public static final Item TOMATO = new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(Foods.TOMATO));
+    public static final Item CABBAGE = new Item(new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD).food(Foods.CABBAGE));
+    public static final Item HAM = new Item(new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD).food(Foods.HAM));
+    public static final Item TOMATO = new Item(new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD).food(Foods.TOMATO));
+    public static final Item SWEET_BERRIES = new Item(new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD).food(FoodComponents.SWEET_BERRIES));
 
     // basic food
-    public static final Item BACON = new Item(new FabricItemSettings().food(Foods.BACON).group(ItemGroup.FOOD));
-    public static final Item BEEF_PATTY = new Item(new FabricItemSettings().food(Foods.BEEF_PATTY).group(ItemGroup.FOOD));
-    public static final Item CABBAGE_LEAF = new Item(new FabricItemSettings().food(Foods.CABBAGE_LEAF).group(ItemGroup.FOOD));
-    public static final Item CHICKEN_CUTS = new Item(new FabricItemSettings().food(Foods.CHICKEN_CUTS).group(ItemGroup.FOOD));
-    public static final Item COD_SLICE = new Item(new FabricItemSettings().food(Foods.COD_SLICE).group(ItemGroup.FOOD));
-    public static final Item COOKED_BACON = new Item(new FabricItemSettings().food(Foods.COOKED_BACON).group(ItemGroup.FOOD));
-    public static final Item COOKED_CHICKEN_CUTS = new Item(new FabricItemSettings().food(Foods.COOKED_CHICKEN_CUTS).group(ItemGroup.FOOD));
-    public static final Item COOKED_COD_SLICE = new Item(new FabricItemSettings().food(Foods.COOKED_COD_SLICE).group(ItemGroup.FOOD));
-    public static final Item COOKED_MUTTON_CHOPS = new Item(new FabricItemSettings().food(Foods.COOKED_MUTTON_CHOPS).group(ItemGroup.FOOD));
-    public static final Item COOKED_SALMON_SLICE = new Item(new FabricItemSettings().food(Foods.COOKED_SALMON_SLICE).group(ItemGroup.FOOD));
-    public static final Item FRIED_EGG = new Item(new FabricItemSettings().food(Foods.FRIED_EGG).group(ItemGroup.FOOD));
-    public static final Item MINCED_BEEF = new Item(new FabricItemSettings().food(Foods.MINCED_BEEF).group(ItemGroup.FOOD));
-    public static final Item MUTTON_CHOPS = new Item(new FabricItemSettings().food(Foods.MUTTON_CHOPS).group(ItemGroup.FOOD));
-    public static final Item PIE_CRUST = new Item(new FabricItemSettings().food(Foods.PIE_CRUST).group(ItemGroup.FOOD));
-    public static final Item PUMPKIN_SLICE = new Item(new FabricItemSettings().food(Foods.PUMPKIN_SLICE).group(ItemGroup.FOOD));
-    public static final Item RAW_EGG_ITEM = new Item(new FabricItemSettings().food(Foods.RAW_EGG).group(ItemGroup.FOOD));
-    public static final Item RAW_PASTA = new Item(new FabricItemSettings().food(Foods.RAW_PASTA).group(ItemGroup.FOOD));
-    public static final Item SALMON_SLICE = new Item(new FabricItemSettings().food(Foods.SALMON_SLICE).group(ItemGroup.FOOD));
-    public static final Item SMOKED_HAM = new Item(new FabricItemSettings().food(Foods.SMOKED_HAM).group(ItemGroup.FOOD));
+    public static final Item BACON = new Item(new FabricItemSettings().maxCount(16).food(Foods.BACON).group(ItemGroup.FOOD));
+    public static final Item BEEF_PATTY = new Item(new FabricItemSettings().maxCount(16).food(Foods.BEEF_PATTY).group(ItemGroup.FOOD));
+    public static final Item CABBAGE_LEAF = new Item(new FabricItemSettings().maxCount(16).food(Foods.CABBAGE_LEAF).group(ItemGroup.FOOD));
+    public static final Item CHICKEN_CUTS = new Item(new FabricItemSettings().maxCount(16).food(Foods.CHICKEN_CUTS).group(ItemGroup.FOOD));
+    public static final Item COD_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.COD_SLICE).group(ItemGroup.FOOD));
+    public static final Item COOKED_BACON = new Item(new FabricItemSettings().maxCount(16).food(Foods.COOKED_BACON).group(ItemGroup.FOOD));
+    public static final Item COOKED_CHICKEN_CUTS = new Item(new FabricItemSettings().maxCount(16).food(Foods.COOKED_CHICKEN_CUTS).group(ItemGroup.FOOD));
+    public static final Item COOKED_COD_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.COOKED_COD_SLICE).group(ItemGroup.FOOD));
+    public static final Item COOKED_MUTTON_CHOPS = new Item(new FabricItemSettings().maxCount(16).food(Foods.COOKED_MUTTON_CHOPS).group(ItemGroup.FOOD));
+    public static final Item COOKED_SALMON_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.COOKED_SALMON_SLICE).group(ItemGroup.FOOD));
+    public static final Item FRIED_EGG = new Item(new FabricItemSettings().maxCount(16).food(Foods.FRIED_EGG).group(ItemGroup.FOOD));
+    public static final Item MINCED_BEEF = new Item(new FabricItemSettings().maxCount(16).food(Foods.MINCED_BEEF).group(ItemGroup.FOOD));
+    public static final Item MUTTON_CHOPS = new Item(new FabricItemSettings().maxCount(16).food(Foods.MUTTON_CHOPS).group(ItemGroup.FOOD));
+    public static final Item PIE_CRUST = new Item(new FabricItemSettings().maxCount(16).food(Foods.PIE_CRUST).group(ItemGroup.FOOD));
+    public static final Item PUMPKIN_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.PUMPKIN_SLICE).group(ItemGroup.FOOD));
+    public static final Item RAW_EGG_ITEM = new Item(new FabricItemSettings().maxCount(16).food(Foods.RAW_EGG).group(ItemGroup.FOOD));
+    public static final Item RAW_PASTA = new Item(new FabricItemSettings().maxCount(16).food(Foods.RAW_PASTA).group(ItemGroup.FOOD));
+    public static final Item SALMON_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.SALMON_SLICE).group(ItemGroup.FOOD));
+    public static final Item SMOKED_HAM = new Item(new FabricItemSettings().maxCount(16).food(Foods.SMOKED_HAM).group(ItemGroup.FOOD));
     public static final ConsumableItem TOMATO_SAUCE = new ConsumableItem(new FabricItemSettings().food(Foods.TOMATO_SAUCE).recipeRemainder(Items.BOWL).maxCount(16).group(ItemGroup.FOOD));
-    public static final Item WHEAT_DOUGH = new Item(new FabricItemSettings().food(Foods.WHEAT_DOUGH).group(ItemGroup.FOOD));
+    public static final Item WHEAT_DOUGH = new Item(new FabricItemSettings().maxCount(16).food(Foods.WHEAT_DOUGH).group(ItemGroup.FOOD));
 
     //sweets
-    public static final Item APPLE_PIE_SLICE = new Item(new FabricItemSettings().food(Foods.PIE_SLICE).group(ItemGroup.FOOD));
-    public static final Item CAKE_SLICE = new Item(new FabricItemSettings().food(Foods.CAKE_SLICE).group(ItemGroup.FOOD));
-    public static final Item CHOCOLATE_PIE_SLICE = new Item(new FabricItemSettings().food(Foods.CAKE_SLICE).group(ItemGroup.FOOD));
+    public static final Item APPLE_PIE_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.PIE_SLICE).group(ItemGroup.FOOD));
+    public static final Item CAKE_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.CAKE_SLICE).group(ItemGroup.FOOD));
+    public static final Item CHOCOLATE_PIE_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.CAKE_SLICE).group(ItemGroup.FOOD));
     public static final ConsumableItem FRUIT_SALAD = new ConsumableItem(new FabricItemSettings().food(Foods.FRUIT_SALAD).recipeRemainder(Items.BOWL).maxCount(16).group(ItemGroup.FOOD));
-    public static final Item HONEY_COOKIE = new Item(new FabricItemSettings().food(FoodComponents.COOKIE).group(ItemGroup.FOOD));
-    public static final Item MELON_POPSICLE = new Item(new FabricItemSettings().food(Foods.POPSICLE).group(ItemGroup.FOOD));
-    public static final Item PUMPKIN_PIE_SLICE = new Item(new FabricItemSettings().food(Foods.PIE_SLICE).group(ItemGroup.FOOD));
-    public static final Item SWEET_BERRY_CHEESECAKE_SLICE = new Item(new FabricItemSettings().food(Foods.CAKE_SLICE).group(ItemGroup.FOOD));
-    public static final Item SWEET_BERRY_COOKIE = new Item(new FabricItemSettings().food(FoodComponents.COOKIE).group(ItemGroup.FOOD));
+    public static final Item HONEY_COOKIE = new Item(new FabricItemSettings().maxCount(16).food(FoodComponents.COOKIE).group(ItemGroup.FOOD));
+    public static final Item MELON_POPSICLE = new Item(new FabricItemSettings().maxCount(16).food(Foods.POPSICLE).group(ItemGroup.FOOD));
+    public static final Item PUMPKIN_PIE_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.PIE_SLICE).group(ItemGroup.FOOD));
+    public static final Item SWEET_BERRY_CHEESECAKE_SLICE = new Item(new FabricItemSettings().maxCount(16).food(Foods.CAKE_SLICE).group(ItemGroup.FOOD));
+    public static final Item SWEET_BERRY_COOKIE = new Item(new FabricItemSettings().maxCount(16).food(FoodComponents.COOKIE).group(ItemGroup.FOOD));
 
     // handheld foods
-    public static final Item BACON_SANDWICH = new Item(new FabricItemSettings().food(Foods.BACON_SANDWICH).group(ItemGroup.FOOD));
-    public static final Item BARBECUE_STICK = new Item(new FabricItemSettings().food(Foods.BARBECUE_STICK).group(ItemGroup.FOOD));
-    public static final Item CABBAGE_ROLLS = new Item(new FabricItemSettings().food(Foods.CABBAGE_ROLLS).group(ItemGroup.FOOD));
-    public static final Item CHICKEN_SANDWICH = new Item(new FabricItemSettings().food(Foods.CHICKEN_SANDWICH).group(ItemGroup.FOOD));
-    public static final Item DUMPLINGS = new Item(new FabricItemSettings().food(Foods.DUMPLINGS).group(ItemGroup.FOOD));
-    public static final Item EGG_SANDWICH = new Item(new FabricItemSettings().food(Foods.EGG_SANDWICH).group(ItemGroup.FOOD));
-    public static final Item HAMBURGER = new Item(new FabricItemSettings().food(Foods.HAMBURGER).group(ItemGroup.FOOD));
+    public static final Item BACON_SANDWICH = new Item(new FabricItemSettings().maxCount(16).food(Foods.BACON_SANDWICH).group(ItemGroup.FOOD));
+    public static final Item BARBECUE_STICK = new Item(new FabricItemSettings().maxCount(16).food(Foods.BARBECUE_STICK).group(ItemGroup.FOOD));
+    public static final Item CABBAGE_ROLLS = new Item(new FabricItemSettings().maxCount(16).food(Foods.CABBAGE_ROLLS).group(ItemGroup.FOOD));
+    public static final Item CHICKEN_SANDWICH = new Item(new FabricItemSettings().maxCount(16).food(Foods.CHICKEN_SANDWICH).group(ItemGroup.FOOD));
+    public static final Item DUMPLINGS = new Item(new FabricItemSettings().maxCount(16).food(Foods.DUMPLINGS).group(ItemGroup.FOOD));
+    public static final Item EGG_SANDWICH = new Item(new FabricItemSettings().maxCount(16).food(Foods.EGG_SANDWICH).group(ItemGroup.FOOD));
+    public static final Item HAMBURGER = new Item(new FabricItemSettings().maxCount(16).food(Foods.HAMBURGER).group(ItemGroup.FOOD));
     public static final ConsumableItem MIXED_SALAD = new ConsumableItem(new FabricItemSettings().food(Foods.MIXED_SALAD).recipeRemainder(Items.BOWL).maxCount(16).group(ItemGroup.FOOD));
-    public static final Item MUTTON_WRAP = new Item(new FabricItemSettings().food(Foods.MUTTON_WRAP).group(ItemGroup.FOOD));
+    public static final Item MUTTON_WRAP = new Item(new FabricItemSettings().maxCount(16).food(Foods.MUTTON_WRAP).group(ItemGroup.FOOD));
     public static final ConsumableItem NETHER_SALAD = new ConsumableItem(new FabricItemSettings().food(Foods.NETHER_SALAD).recipeRemainder(Items.BOWL).maxCount(16).group(ItemGroup.FOOD));
-    public static final Item STUFFED_POTATO = new Item(new FabricItemSettings().food(Foods.STUFFED_POTATO).group(ItemGroup.FOOD));
+    public static final Item STUFFED_POTATO = new Item(new FabricItemSettings().maxCount(16).food(Foods.STUFFED_POTATO).group(ItemGroup.FOOD));
 
     // bowl foods
     public static final ConsumableItem BAKED_COD_STEW = new ConsumableItem(new FabricItemSettings().food(Foods.BAKED_COD_STEW).recipeRemainder(Items.BOWL).maxCount(16).group(ItemGroup.FOOD));
@@ -114,6 +116,9 @@ public class ItemsRegistry {
     public static final NetheriteBucketItem NETHERITE_LAVA_BUCKET_ITEM = new NetheriteBucketItem(Fluids.LAVA, new FabricItemSettings().recipeRemainder(NETHERITE_BUCKET_ITEM).maxCount(1).group(ItemGroup.MISC).fireproof());
     
     public static void registerBlockItems() {
+        // sidings
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "stone_siding"), new BlockItem(BlocksRegistry.STONE_SIDING, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
+
         // soil blocks
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "grass_slab"), new BlockItem(BlocksRegistry.GRASS_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "dirt_slab"), new BlockItem(BlocksRegistry.DIRT_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
@@ -158,6 +163,9 @@ public class ItemsRegistry {
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "cabbage_seeds"), new AliasedBlockItem(BlocksRegistry.CABBAGE_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "rice"), new AliasedBlockItem(BlocksRegistry.RICE_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "tomato_seeds"), new AliasedBlockItem(BlocksRegistry.TOMATO_CROP, new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "sweet_berry_bush"), new AliasedBlockItem(Blocks.SWEET_BERRY_BUSH, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "brown_mushroom"), new AliasedBlockItem(BlocksRegistry.BROWN_MUSHROOM, new FabricItemSettings().maxCount(16).food(Foods.BROWN_MUSHROOM).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "red_mushroom"), new AliasedBlockItem(BlocksRegistry.RED_MUSHROOM, new FabricItemSettings().maxCount(16).food(Foods.RED_MUSHROOM).group(ItemGroup.FOOD)));
 
         // work stations
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "netherite_cauldron"), new BlockItem(BlocksRegistry.NETHERITE_CAULDRON_BLOCK, new FabricItemSettings().group(ItemGroup.BREWING).fireproof()));
@@ -180,14 +188,14 @@ public class ItemsRegistry {
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "warped_pantry"), new BlockItem(BlocksRegistry.WARPED_PANTRY, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 
         // food blocks
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "apple_pie"), new BlockItem(BlocksRegistry.APPLE_PIE, new FabricItemSettings().group(ItemGroup.FOOD)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "sweet_berry_cheesecake"), new BlockItem(BlocksRegistry.SWEET_BERRY_CHEESECAKE, new FabricItemSettings().group(ItemGroup.FOOD)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "chocolate_pie"), new BlockItem(BlocksRegistry.CHOCOLATE_PIE, new FabricItemSettings().group(ItemGroup.FOOD)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "pumpkin_pie"), new BlockItem(BlocksRegistry.PUMPKIN_PIE, new FabricItemSettings().group(ItemGroup.FOOD)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "roast_chicken_block"), new BlockItem(BlocksRegistry.ROAST_CHICKEN_BLOCK, new FabricItemSettings().group(ItemGroup.FOOD)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "stuffed_pumpkin_block"), new BlockItem(BlocksRegistry.STUFFED_PUMPKIN_BLOCK, new FabricItemSettings().group(ItemGroup.FOOD)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "honey_glazed_ham_block"), new BlockItem(BlocksRegistry.HONEY_GLAZED_HAM_BLOCK, new FabricItemSettings().group(ItemGroup.FOOD)));
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "shepherds_pie_block"), new BlockItem(BlocksRegistry.SHEPHERDS_PIE_BLOCK, new FabricItemSettings().group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "apple_pie"), new BlockItem(BlocksRegistry.APPLE_PIE, new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "sweet_berry_cheesecake"), new BlockItem(BlocksRegistry.SWEET_BERRY_CHEESECAKE, new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "chocolate_pie"), new BlockItem(BlocksRegistry.CHOCOLATE_PIE, new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "pumpkin_pie"), new BlockItem(BlocksRegistry.PUMPKIN_PIE, new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "roast_chicken_block"), new BlockItem(BlocksRegistry.ROAST_CHICKEN_BLOCK, new FabricItemSettings().maxCount(8).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "stuffed_pumpkin_block"), new BlockItem(BlocksRegistry.STUFFED_PUMPKIN_BLOCK, new FabricItemSettings().maxCount(8).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "honey_glazed_ham_block"), new BlockItem(BlocksRegistry.HONEY_GLAZED_HAM_BLOCK, new FabricItemSettings().maxCount(8).group(ItemGroup.FOOD)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "shepherds_pie_block"), new BlockItem(BlocksRegistry.SHEPHERDS_PIE_BLOCK, new FabricItemSettings().maxCount(16).group(ItemGroup.FOOD)));
 
         // stumps
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "acacia_stump"), new BlockItem(BlocksRegistry.ACACIA_STUMP_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
@@ -228,8 +236,9 @@ public class ItemsRegistry {
         // forage foods
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "cabbage"), CABBAGE);
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "ham"), HAM);
-        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "onion"), new AliasedBlockItem(BlocksRegistry.ONION_CROP, new FabricItemSettings().food(Foods.ONION).group(ItemGroup.MATERIALS)));
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "onion"), new AliasedBlockItem(BlocksRegistry.ONION_CROP, new FabricItemSettings().maxCount(16).food(Foods.ONION).group(ItemGroup.FOOD)));
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "tomato"), TOMATO);
+        Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "sweet_berries"), SWEET_BERRIES);
 
         // basic foods
         Registry.register(Registry.ITEM, new Identifier(RedBrainsTweaks.MOD_ID, "bacon"), BACON);

@@ -1,0 +1,207 @@
+{
+  "variants": {
+    "direction=horizontal,facing=east,type=bottom,waterlogged=false": {
+      "model": "minecraft:block/stone_slab",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=horizontal,facing=east,type=bottom,waterlogged=true": {
+      "model": "minecraft:block/stone_slab",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=horizontal,facing=east,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=horizontal,facing=east,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=horizontal,facing=east,type=top,waterlogged=false": {
+      "model": "minecraft:block/stone_slab_top",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=horizontal,facing=east,type=top,waterlogged=true": {
+      "model": "minecraft:block/stone_slab_top",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=horizontal,facing=south,type=bottom,waterlogged=false": {
+      "model": "minecraft:block/stone_slab"
+    },
+    "direction=horizontal,facing=south,type=bottom,waterlogged=true": {
+      "model": "minecraft:block/stone_slab"
+    },
+    "direction=horizontal,facing=south,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=horizontal,facing=south,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=horizontal,facing=south,type=top,waterlogged=false": {
+      "model": "minecraft:block/stone_slab_top"
+    },
+    "direction=horizontal,facing=south,type=top,waterlogged=true": {
+      "model": "minecraft:block/stone_slab_top"
+    },
+    "direction=horizontal,facing=west,type=bottom,waterlogged=false": {
+      "model": "minecraft:block/stone_slab",
+      "y": 90
+    },
+    "direction=horizontal,facing=west,type=bottom,waterlogged=true": {
+      "model": "minecraft:block/stone_slab",
+      "y": 90
+    },
+    "direction=horizontal,facing=west,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone",
+      "y": 90
+    },
+    "direction=horizontal,facing=west,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone",
+      "uvlock": true,
+      "y": 90
+    },
+    "direction=horizontal,facing=west,type=top,waterlogged=false": {
+      "model": "minecraft:block/stone_slab_top",
+      "uvlock": true,
+      "y": 90
+    },
+    "direction=horizontal,facing=west,type=top,waterlogged=true": {
+      "model": "minecraft:block/stone_slab_top",
+      "uvlock": true,
+      "y": 90
+    },
+    "direction=horizontal,facing=north,type=bottom,waterlogged=false": {
+      "model": "minecraft:block/stone_slab",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=horizontal,facing=north,type=bottom,waterlogged=true": {
+      "model": "minecraft:block/stone_slab",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=horizontal,facing=north,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=horizontal,facing=north,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=horizontal,facing=north,type=top,waterlogged=false": {
+      "model": "minecraft:block/stone_slab_top",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=horizontal,facing=north,type=top,waterlogged=true": {
+      "model": "minecraft:block/stone_slab_top",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=vertical,facing=east,type=bottom,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=vertical,facing=east,type=bottom,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=vertical,facing=east,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=east,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=east,type=top,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 90
+    },
+    "direction=vertical,facing=east,type=top,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 90
+    },
+    "direction=vertical,facing=south,type=bottom,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding"
+    },
+    "direction=vertical,facing=south,type=bottom,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding"
+    },
+    "direction=vertical,facing=south,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=south,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=south,type=top,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=vertical,facing=south,type=top,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=vertical,facing=west,type=bottom,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 90
+    },
+    "direction=vertical,facing=west,type=bottom,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 90
+    },
+    "direction=vertical,facing=west,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=west,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=west,type=top,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=vertical,facing=west,type=top,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 270
+    },
+    "direction=vertical,facing=north,type=bottom,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=vertical,facing=north,type=bottom,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true,
+      "y": 180
+    },
+    "direction=vertical,facing=north,type=double,waterlogged=false": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=north,type=double,waterlogged=true": {
+      "model": "minecraft:block/stone"
+    },
+    "direction=vertical,facing=north,type=top,waterlogged=false": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true
+    },
+    "direction=vertical,facing=north,type=top,waterlogged=true": {
+      "model": "redbrainstweaks:block/sidings/stone_siding",
+      "uvlock": true
+    }
+  }
+}

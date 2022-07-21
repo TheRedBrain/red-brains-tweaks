@@ -12,6 +12,7 @@ import net.minecraft.util.registry.RegistryKey;
 public class Tags {
 
     public static final TagKey<Block> WILD_CROPS = TagKey.of(Registry.BLOCK_KEY, new Identifier(RedBrainsTweaks.MOD_ID, "wild_crops"));
+    public static final TagKey<Block> COPPER_BLOCKS_FOR_BEACON = TagKey.of(Registry.BLOCK_KEY, new Identifier(RedBrainsTweaks.MOD_ID, "copper_blocks_for_beacon"));
     public static final TagKey<Block> FARM_LAND = TagKey.of(Registry.BLOCK_KEY, new Identifier(RedBrainsTweaks.MOD_ID, "farm_land"));
     public static final TagKey<Block> FARM_LAND_PLANTER = TagKey.of(Registry.BLOCK_KEY, new Identifier(RedBrainsTweaks.MOD_ID, "farm_land_planter"));
     public static final TagKey<Block> FERTILIZABLE_FARM_LAND = TagKey.of(Registry.BLOCK_KEY, new Identifier(RedBrainsTweaks.MOD_ID, "fertilizable_farm_land"));

@@ -25,7 +25,7 @@
                   "count": 2
                 }
               ],
-              "name": "minecraft:red_mushroom"
+              "name": "redbrainstweaks:red_mushroom"
             },
             {
               "type": "minecraft:item",
@@ -44,7 +44,7 @@
                   "count": 3
                 }
               ],
-              "name": "minecraft:red_mushroom"
+              "name": "redbrainstweaks:red_mushroom"
             },
             {
               "type": "minecraft:item",
@@ -63,7 +63,7 @@
                   "count": 4
                 }
               ],
-              "name": "minecraft:red_mushroom"
+              "name": "redbrainstweaks:red_mushroom"
             },
             {
               "type": "minecraft:item",
@@ -93,7 +93,7 @@
                   "count": 5
                 }
               ],
-              "name": "minecraft:red_mushroom"
+              "name": "redbrainstweaks:red_mushroom"
             },
             {
               "type": "minecraft:item",

@@ -32,6 +32,11 @@ public class StatusEffectsRegistry {
     public static final StatusEffect COMFORT = new ComfortEffect();
     public static final StatusEffect NOURISHED = new NourishmentEffect();
 
+    // beacon effects
+    public static final StatusEffect EXTRA_LOOTING = new ExtraLootingStatusEffect();
+    public static final StatusEffect PLAYER_KILL = new PlayerKillStatusEffect();
+    public static final StatusEffect TRUE_SIGHT = new TrueSightStatusEffect();
+
     public static void registerEffects() {
         // low hunger bar
         Registry.register(Registry.STATUS_EFFECT, new Identifier(RedBrainsTweaks.MOD_ID, "peckish"), PECKISH);
@@ -56,5 +61,10 @@ public class StatusEffectsRegistry {
         // food
         Registry.register(Registry.STATUS_EFFECT, new Identifier(RedBrainsTweaks.MOD_ID, "comfort"), COMFORT);
         Registry.register(Registry.STATUS_EFFECT, new Identifier(RedBrainsTweaks.MOD_ID, "nourished"), NOURISHED);
+
+        // beacon effects
+        Registry.register(Registry.STATUS_EFFECT, new Identifier(RedBrainsTweaks.MOD_ID, "extra_looting"), EXTRA_LOOTING);
+        Registry.register(Registry.STATUS_EFFECT, new Identifier(RedBrainsTweaks.MOD_ID, "player_kill"), PLAYER_KILL);
+        Registry.register(Registry.STATUS_EFFECT, new Identifier(RedBrainsTweaks.MOD_ID, "true_sight"), TRUE_SIGHT);
     }
 }

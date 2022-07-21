@@ -10,6 +10,7 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 public class BlocksRegistry {
     // work station blocks
@@ -108,6 +109,11 @@ public class BlocksRegistry {
     public static final PotatoesCropBlock CUSTOM_POTATOES_BLOCK = new PotatoesCropBlock(FabricBlockSettings.copyOf(Blocks.POTATOES));
     public static final WheatCropBlock CUSTOM_WHEAT_BLOCK = new WheatCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
     public static final WheatUpperCropBlock WHEAT_UPPER_CROP = new WheatUpperCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT));
+    public static final BrownMushroomPlantBlock BROWN_MUSHROOM = new BrownMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT, MapColor.BROWN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).postProcess(Blocks::always), () -> TreeConfiguredFeatures.HUGE_BROWN_MUSHROOM);
+    public static final RedMushroomPlantBlock RED_MUSHROOM = new RedMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT, MapColor.RED).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).postProcess(Blocks::always), () -> TreeConfiguredFeatures.HUGE_RED_MUSHROOM);
+
+    // sidings
+    public static final SidingBlock STONE_SIDING = new SidingBlock(FabricBlockSettings.copyOf(Blocks.STONE_SLAB));
 
     // tree stump blocks
     public static final Block ACACIA_STUMP_BLOCK = new Block(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(50.0F, 6.0F).sounds(BlockSoundGroup.WOOD));
@@ -119,6 +125,7 @@ public class BlocksRegistry {
 
 
     public static void registerBlocks() {
+        // soil blocks
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "grass_slab"), GRASS_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "dirt_slab"), DIRT_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "loose_dirt_slab"), LOOSE_DIRT_SLAB);
@@ -136,6 +143,7 @@ public class BlocksRegistry {
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "loose_dirt"), LOOSE_DIRT_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_farmland"), CUSTOM_FARMLAND_BLOCK);
 
+        // plant blocks
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "cactus_root"), CACTUS_ROOT_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "sugar_cane_root"), SUGAR_CANE_ROOT_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "brown_mushroom_colony"), BROWN_MUSHROOM_COLONY);
@@ -147,18 +155,21 @@ public class BlocksRegistry {
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "wild_potatoes"), WILD_POTATOES);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "wild_beetroots"), WILD_BEETROOTS);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "wild_rice"), WILD_RICE);
-        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "cabbages"), CABBAGE_CROP);
-        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "onions"), ONION_CROP);
-        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "tomatoes"), TOMATO_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "cabbage_crop"), CABBAGE_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "onion_crop"), ONION_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "tomato_crop"), TOMATO_CROP);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "rice_crop"), RICE_CROP);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "rice_upper_crop"), RICE_UPPER_CROP);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "weed_block"), WEED_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_beetroots_block"), CUSTOM_BEETROOTS_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_carrots_block"), CUSTOM_CARROTS_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_potatoes_block"), CUSTOM_POTATOES_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "custom_wheat_block"), CUSTOM_WHEAT_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "beetroot_crop"), CUSTOM_BEETROOTS_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "carrot_crop"), CUSTOM_CARROTS_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "potato_crop"), CUSTOM_POTATOES_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "wheat_crop"), CUSTOM_WHEAT_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "wheat_upper_crop"), WHEAT_UPPER_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "brown_mushroom"), BROWN_MUSHROOM);
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "red_mushroom"), RED_MUSHROOM);
 
+        // food blocks
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "apple_pie"), APPLE_PIE);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "sweet_berry_cheesecake"), SWEET_BERRY_CHEESECAKE);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "chocolate_pie"), CHOCOLATE_PIE);
@@ -170,6 +181,7 @@ public class BlocksRegistry {
 
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "rope"), ROPE);
 
+        // storage blocks
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "placed_tool"), PLACED_TOOL_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "carrot_crate"), CARROT_CRATE);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "potato_crate"), POTATO_CRATE);
@@ -212,6 +224,9 @@ public class BlocksRegistry {
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "jungle_stump"), JUNGLE_STUMP_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "oak_stump"), OAK_STUMP_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "spruce_stump"), SPRUCE_STUMP_BLOCK);
+
+        // sidings
+        Registry.register(Registry.BLOCK, new Identifier(RedBrainsTweaks.MOD_ID, "stone_siding"), STONE_SIDING);
     }
 
     public static void registerFlammableBlocks() {

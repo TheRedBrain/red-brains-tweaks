@@ -24,9 +24,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class MushroomColonyBlock extends PlantBlock implements Fertilizable {
-    public static final int GROWING_LIGHT_LEVEL = 12;
-    public static final int PLACING_LIGHT_LEVEL = 13;
+public class MushroomColonyBlock extends PlantBlock {
 
     public static final IntProperty AGE = Properties.AGE_3;
     public static final int MAX_AGE = 3;
@@ -46,28 +44,10 @@ public class MushroomColonyBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        int age = Math.min(3, state.get(AGE) + 1);
-        world.setBlockState(pos, state.with(AGE, age), BlockStateUtils.BLOCK_UPDATE);
-    }
-
-    @Override
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return state.get(AGE) < 3;
-    }
-
-    @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
-        return false;
-    }
-
-    @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        super.scheduledTick(state, world, pos, random);
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         int age = state.get(AGE);
         BlockState groundState = world.getBlockState(pos.down());
-        if (age < MAX_AGE && groundState.getBlock() == BlocksRegistry.RICH_SOIL && world.getLightLevel(pos.up(), 0) <=
-                GROWING_LIGHT_LEVEL && random.nextInt(5) == 0) {
+        if (age < MAX_AGE && groundState.getBlock() == BlocksRegistry.RICH_SOIL && world.getLightLevel(pos.up(), 0) == 0 && random.nextInt(25) == 0) {
             world.setBlockState(pos, state.with(AGE, age + 1), BlockStateUtils.BLOCK_UPDATE);
         }
     }
@@ -81,22 +61,6 @@ public class MushroomColonyBlock extends PlantBlock implements Fertilizable {
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(AGE);
-    }
-
-    @Override
-    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOpaqueFullCube(world, pos);
-    }
-
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        BlockPos blockpos = pos.down();
-        BlockState blockstate = world.getBlockState(blockpos);
-        if (blockstate.isIn(BlockTags.MUSHROOM_GROW_BLOCK)) {
-            return true;
-        } else {
-            return world.getLightLevel(pos, 0) < PLACING_LIGHT_LEVEL && canPlantOnTop(blockstate, world, pos);
-        }
     }
 
     @Override

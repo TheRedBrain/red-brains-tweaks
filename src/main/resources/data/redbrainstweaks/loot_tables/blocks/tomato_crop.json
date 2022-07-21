@@ -13,7 +13,7 @@
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "redbrainstweaks:tomatoes",
+          "block": "redbrainstweaks:tomato_crop",
           "properties": {
             "age": "7"
           }
